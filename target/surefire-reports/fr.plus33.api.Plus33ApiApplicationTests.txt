@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: fr.plus33.api.Plus33ApiApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 33.11 s -- in fr.plus33.api.Plus33ApiApplicationTests
