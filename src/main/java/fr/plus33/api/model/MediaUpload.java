@@ -8,7 +8,11 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "media_uploads")
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class MediaUpload {
 
     @Id
@@ -50,6 +54,7 @@ public class MediaUpload {
     private String altText;
 
     @Column(name = "is_active")
+    @Builder.Default
     private Boolean active = true;
 
     @CreationTimestamp
