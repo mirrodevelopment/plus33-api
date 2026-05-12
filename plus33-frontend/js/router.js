@@ -4,11 +4,9 @@ import { mountHomePage } from './home.js';
 import { mountStorePage } from './store.js';
 import { mountFranchisePage } from './franchise.js';
 import { mountJournalPage } from './journal.js';
-import { mountExperiencePage } from './experience.js';
 
 import homeHtml from '../html/home.html?raw';
 import storeHtml from '../html/store.html?raw';
-import experienceHtml from '../html/experience.html?raw';
 import journalHtml from '../html/journal.html?raw';
 import franchiseHtml from '../html/franchise.html?raw';
 
@@ -22,11 +20,6 @@ const routes = {
         html: storeHtml,
         mount: mountStorePage,
         title: '+33 Store | Luxury Collection'
-    },
-    '/experience': {
-        html: experienceHtml,
-        mount: mountExperiencePage,
-        title: '+33 Experience'
     },
     '/journal': {
         html: journalHtml,
