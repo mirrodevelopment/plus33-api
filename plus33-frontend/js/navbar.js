@@ -7,13 +7,16 @@ export function initNavbar() {
     if (!toggle || !sideMenu) return;
 
     toggle.addEventListener('click', () => {
-        sideMenu.classList.add('plus33-nav__panel--open');
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        document.body.style.paddingRight = scrollbarWidth + 'px';
         document.body.style.overflow = 'hidden';
+        sideMenu.classList.add('plus33-nav__panel--open');
     });
 
     const closeMenu = () => {
         sideMenu.classList.remove('plus33-nav__panel--open');
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
     };
 
     if (close) close.addEventListener('click', closeMenu);
