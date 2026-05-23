@@ -1,0 +1,90 @@
+=============================================================
+                  PLUS33 PROJECT DETAILS
+=============================================================
+
+1. PROJECT OVERVIEW
+-------------------------------------------------------------
+The Plus33 project is a freelance full-stack development project 
+for a premium Paris-inspired coffee franchise and digital ecosystem. 
+It consists of multiple backend modules and a rich frontend 
+application designed with a cinematic, luxury aesthetic.
+
+Current Workspaces:
+- plus33-api: Main full-stack repository (Backend + Frontend)
+- plus33-core: Secondary backend core service
+
+
+2. BACKEND MODULES
+-------------------------------------------------------------
+
+A. Plus33-API (Main Service)
+- Location: `d:\webprojects\plus33-api`
+- Tech Stack: Java 21, Spring Boot 3.3.5
+- Key Dependencies: 
+  - Spring Web, Spring Data JPA, Spring Security, Spring Validation
+  - Databases: H2 (In-memory for dev), MySQL (Production)
+  - Integrations: Cloudinary (v1.38.0) for image/video upload
+  - Utilities: Lombok, Spring Boot Actuator
+- Configuration details (`application.properties`):
+  - Server Port: 8083
+  - Multipart upload config: max-file-size=50MB, max-request-size=100MB
+  - CORS enabled for: http://localhost:8090, http://localhost:5173, https://plus33.in
+
+Key Java Packages & Components (`fr.plus33.api`):
+- Controllers:
+  - AiRecommendationController
+  - AnimationController
+  - CategoryController
+  - MediaController
+  - NavController
+  - ProductController
+- Models (Entities):
+  - Animation
+  - Category
+  - MediaUpload
+  - Product
+  - UserActivity
+- DTOs & Services to handle AI logic, media management, products, and categories.
+
+B. Plus33-Core (New Service)
+- Location: `d:\plus33\plus33-core`
+- Tech Stack: Java 21, Spring Boot 3.5.14
+- Key Dependencies:
+  - Spring Data JPA, Spring Security, OAuth2 Resource Server
+  - Spring Boot Admin Server
+  - Database: PostgreSQL
+  - Utilities: Spring Boot Docker Compose, Spring Boot DevTools, Lombok
+- Structure: Currently only contains the main entry class `Plus33CoreApplication.java` in `USA.plus33.core`.
+
+
+3. FRONTEND APPLICATIONS
+-------------------------------------------------------------
+
+A. Plus33-Frontend (Vite App)
+- Location: `d:\webprojects\plus33-api\plus33-frontend`
+- Tech Stack: Vanilla JS + HTML + CSS, Vite 5.0.0, GSAP 3.15.0
+- Description: Modern SPA (Single Page Application) structure powered by Vite. Heavy emphasis on animations using GSAP.
+- Directory Structure:
+  - `/css`: Components, global layout, pages (boutique, experience, franchise, journal), animations (parallax, transitions).
+  - `/js`: API interaction, core app logic, router, custom page logic, animation scripts (particles, parallax).
+  - `/templates`: HTML templates for different views.
+
+B. Plus33-Home (Static Site / Assets)
+- Location: `d:\webprojects\plus33-api\plus33-Home`
+- Description: Contains static resources and a standalone home page implementation.
+- Assets: High-quality luxury coffee imagery (dubai_iconic, london_identity, paris_hero, switzerland_shop, etc.).
+- Structure:
+  - `/assets/img`: Contains images for locations and the Plus33 brand.
+  - `/css`: Contains `home.css` and `tokens.css`.
+  - `/html` & `/js`: Static home page files.
+
+
+4. DEPLOYMENT & INFRASTRUCTURE
+-------------------------------------------------------------
+- Both backend modules contain a `compose.yaml` file for Docker container orchestration.
+- The project utilizes H2 for local, rapid prototyping but relies on robust SQL databases (MySQL/PostgreSQL) for production environments.
+- High-performance, SEO-friendly architectural approach with Vite.
+
+=============================================================
+End of Document
+=============================================================

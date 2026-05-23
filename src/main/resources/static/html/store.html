@@ -1,0 +1,62 @@
+<!--
+  FILE: store.html
+  ══════════════════════════════════════════════════
+  PURPOSE:
+  Boutique product store presentation and filter capabilities for PLUS33.
+
+  RESPONSIBILITIES:
+  - Displays the store header with details on roasting and shipping frequency.
+  - Dynamically renders product category lists.
+  - Injects product grids based on active category selections.
+
+  ARCHITECTURE NOTES:
+  - Dynamically mounted by /js/router.js inside the #app SPA container.
+  - Interacts with /js/store.js to manage product catalogs, filtering logic, and state.
+
+  ACCESSIBILITY:
+  - Category selector sidebar is structured as an interactive list for screen reader readability.
+  - Filter state updates are announced or structured to update the DOM logically.
+
+  DEVELOPED BY : MIRRO
+  CODED BY     : SIVASURYA
+  LAST UPDATED : 2026-05-23
+  ══════════════════════════════════════════════════
+-->
+<div class="store-page">
+  <!-- ═════════ STORE HEADER ═════════ -->
+  <section class="store__header">
+    <div class="container">
+      <div class="store__header-inner">
+        <span class="t-label reveal reveal-1">The Collection +33</span>
+        <h1 class="display-lg text-cream reveal reveal-2" style="margin-top: 20px;">La store</h1>
+        <p class="t-body reveal reveal-3" style="margin-top: 20px; max-width: 420px;">
+          Objects of ritual. Roasted beans of consequence. 
+          Everything we use in our cafés, now available for your home.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ CATEGORY FILTERS & PRODUCTS GRID ═════════ -->
+  <section class="store__main">
+    <div class="container">
+      <div class="store__layout">
+        <aside class="store__sidebar reveal reveal-2">
+          <div class="store__filter-group">
+            <span class="t-label" style="display: block; margin-bottom: 20px;">Categories</span>
+            <div class="store__filters" id="store-filters"></div>
+          </div>
+          <div class="store__info-box">
+            <h3 class="t-headline" style="color: var(--cream); font-size: 1.1rem; margin-bottom: 12px;">Shipping & Origin</h3>
+            <p class="t-body" style="font-size: 0.85rem;">
+              All beans are roasted on Tuesday in Paris and shipped Wednesday. 
+              Objects are dispatched within 48 hours.
+            </p>
+          </div>
+        </aside>
+
+        <div class="store__grid" id="store-grid"></div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,51 +1,128 @@
+<!--
+  FILE: index.html
+  ══════════════════════════════════════════════════
+  PURPOSE:
+  Application shell and entry point for the PLUS33 SPA.
+
+  RESPONSIBILITIES:
+  - Serves as the main document container.
+  - Hosts structural components (Navbar, Drawer, Footer) inline to eliminate layout shifts.
+  - Controls viewport, charset, and SEO metadata.
+  - Imports system-critical CDN dependencies (GSAP).
+
+  ARCHITECTURE NOTES:
+  - Works in conjunction with /js/app.js (loader) and /js/router.js (routing engine).
+  - Normal page fragments are dynamically fetched and mounted inside `<div id="app"></div>`.
+
+  PERFORMANCE NOTES:
+  - GSAP libraries are loaded via CDN in the `<head>` to support caching.
+  - Reusable fragments (navbar, footer) are hardcoded inline for instant paint and layout stability.
+
+  Z-INDEX ARCHITECTURE:
+  - 1000: Navigation Sidebar Drawer (`.plus33-nav__panel`)
+  - 900 : Header Navbar Overlay (`.plus33-nav`)
+  - 500 : Main SPA App Mount Container (`#app`)
+  - 100 : Global Footer Section (`.plus33-footer`)
+
+  DEVELOPED BY : MIRRO
+  CODED BY     : SIVASURYA
+  LAST UPDATED : 2026-05-23
+  ══════════════════════════════════════════════════
+-->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>+33 Paris | Luxury Café</title>
-  <script type="module" crossorigin src="/assets/js/index-HvD3L4ct.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-DnmH6nh9.css">
+    
+    <!-- ═════════ STYLESHEET SYSTEM ═════════ -->
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/fragment.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/store.css">
+    <link rel="stylesheet" href="/css/franchise.css">
+    <link rel="stylesheet" href="/css/journal.css">
+    <link rel="stylesheet" href="/css/find-us.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    
+    <!-- ═════════ DEPENDENCIES (CDN) ═════════ -->
+    <!-- Leaflet.js CSS and JS for dynamic map plotting -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <!-- GSAP Core & ScrollTrigger for premium animations and scroll orchestration -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
-    <nav id="plus33-nav" class="plus33-nav">
+
+    <!-- ═════════ HEADER NAVIGATION ═════════ -->
+    <!-- Accessible header containing the active horizontal/vertical navigation -->
+    <nav id="plus33-nav" class="plus33-nav" role="navigation" aria-label="Main Navigation">
         <div class="plus33-nav__inner container">
+            <!-- Left: Mobile Hamburger OR Desktop Logo -->
             <div class="plus33-nav__left">
-                <button id="menu-toggle" class="plus33-nav__toggle">
+                <button id="menu-toggle" class="plus33-nav__toggle mobile-only" aria-expanded="false" aria-controls="side-menu" aria-label="Open navigation menu">
                     <div class="plus33-nav__toggle-lines">
                         <span></span>
                         <span></span>
                     </div>
                     <span class="plus33-nav__toggle-text">Menu</span>
                 </button>
+                <a href="/" class="plus33-nav__logo desktop-only plus33-nav__logo--desktop" aria-label="+33 Paris - Return to homepage">
+                    <img src="/assets/img/plus33-logo.png" alt="+33 Paris Logo" class="plus33-nav__logo-img">
+                </a>
             </div>
-            <div class="plus33-nav__logo">
-                <img src="/assets/img/logo.png" alt="+33 Paris" class="plus33-nav__logo-img">
+
+            <!-- Center: Mobile Logo OR Desktop Classic Nav links -->
+            <div class="plus33-nav__center">
+                <a href="/" class="plus33-nav__logo mobile-only plus33-nav__logo--mobile" aria-label="+33 Paris - Return to homepage">
+                    <img src="/assets/img/plus33-logo.png" alt="+33 Paris Logo" class="plus33-nav__logo-img">
+                </a>
+                <div class="plus33-nav__links desktop-only">
+                    <a href="/" class="plus33-nav__link">Home</a>
+                    <a href="/store" class="plus33-nav__link">Store</a>
+                    <a href="/journal" class="plus33-nav__link">Journal</a>
+                    <a href="/franchise" class="plus33-nav__link">Franchise</a>
+                    <a href="/find-us" class="plus33-nav__link">Find Us</a>
+                </div>
             </div>
+
+            <!-- Right: Location -->
             <div class="plus33-nav__right">
                 <div class="plus33-nav__location">Paris, 7ème</div>
             </div>
         </div>
     </nav>
 
-    <div id="side-menu" class="plus33-nav__panel">
-        <button id="menu-close" class="plus33-nav__panel-close">
+    <!-- ═════════ SIDE DRAWER MENU ═════════ -->
+    <!-- Drawer sidebar panel for tablet/mobile screen viewports -->
+    <div id="side-menu" class="plus33-nav__panel" role="dialog" aria-modal="true" aria-label="Navigation drawer menu" aria-hidden="true">
+        <button id="menu-close" class="plus33-nav__panel-close" aria-label="Close navigation menu">
             <span class="plus33-nav__panel-close-text">Close</span>
         </button>
         <div class="plus33-nav__panel-inner">
             <nav class="plus33-nav__panel-links">
                 <a href="/" class="plus33-nav__panel-link">Home</a>
                 <a href="/store" class="plus33-nav__panel-link">Store</a>
-                <a href="/experience" class="plus33-nav__panel-link">Experience</a>
                 <a href="/journal" class="plus33-nav__panel-link">Journal</a>
                 <a href="/franchise" class="plus33-nav__panel-link">Franchise</a>
+                <a href="/find-us" class="plus33-nav__panel-link">Find Us</a>
             </nav>
+        </div>
+        <div class="plus33-nav__panel-footer">
+            <span class="plus33-nav__panel-sub">Paris-born. World-class.</span>
         </div>
     </div>
 
-    <div id="app"></div>
+    <!-- ═════════ MAIN SPA ROOT (APP) ═════════ -->
+    <!-- Core dynamic loading zone for router mount/unmount page injections -->
+    <div id="app" role="main" aria-live="polite"></div>
 
-    <footer class="plus33-footer">
+    <!-- ═════════ FOOTER COMPONENT ═════════ -->
+    <!-- Global brand footer section with navigation columns and legal/social links -->
+    <footer class="plus33-footer" role="contentinfo">
         <div class="container">
             <div class="plus33-footer__top">
                 <div class="plus33-footer__brand">
@@ -57,10 +134,10 @@
                         <span class="plus33-footer__col-title">Navigation</span>
                         <a href="/" class="plus33-footer__link">Home</a>
                         <a href="/store" class="plus33-footer__link">Store</a>
+                        <a href="/find-us" class="plus33-footer__link">Find Us</a>
                     </div>
                     <div class="plus33-footer__col">
                         <span class="plus33-footer__col-title">Identity</span>
-                        <a href="/experience" class="plus33-footer__link">Experience</a>
                         <a href="/journal" class="plus33-footer__link">Journal</a>
                         <a href="/franchise" class="plus33-footer__link">Franchise</a>
                     </div>
@@ -85,5 +162,7 @@
         </div>
     </footer>
 
+    <!-- ═════════ MODULE LOADER ═════════ -->
+    <script type="module" src="/js/app.js"></script>
 </body>
 </html>

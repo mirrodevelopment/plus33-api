@@ -1,0 +1,303 @@
+<!--
+  FILE: home.html
+  ══════════════════════════════════════════════════
+  PURPOSE:
+  Main cinematic landing experience and global boutique philosophy for PLUS33.
+
+  RESPONSIBILITIES:
+  - Renders the interactive scroll-driven parallax Eiffel Tower sequence.
+  - Houses the copper atmospheric particle system.
+  - Implements the Zoom Gateway Portal into the Parisian café storefront.
+  - Displays the global identity city selector tabs.
+  - Shows the brand philosophy and franchise pitch blocks.
+
+  ARCHITECTURE NOTES:
+  - Dynamically resolved and mounted by /js/router.js into the #app shell root.
+  - Timelines, scroll updates, and custom tab switches are fully controlled by /js/home.js.
+  - Uses ScrollTrigger hooks bound to the viewport vertical scroll progress.
+
+  PERFORMANCE NOTES:
+  - Heavy parallax layers and fog vectors use translate3d and scale properties for full GPU acceleration.
+  - Backdrop blur overlays (#alley-glass) are toggled dynamically to reduce repaint cost on slow mobile platforms.
+
+  ACCESSIBILITY:
+  - Sections are demarcated with clear landmark titles.
+  - Interactive city selector buttons are keyboard navigable.
+
+  DEPENDENCIES:
+  - GSAP Core (animation timelines)
+  - ScrollTrigger (scroll syncing)
+
+  DEVELOPED BY : MIRRO
+  CODED BY     : SIVASURYA
+  LAST UPDATED : 2026-05-23
+  ══════════════════════════════════════════════════
+-->
+
+<!-- ═════════ PARALLAX STAGE ═════════ -->
+<!-- Sticky scrolling container for scroll-driven animations -->
+<div id="stage-wrapper">
+  <section id="stage" aria-label="Cinematic Paris Intro">
+
+    <!-- ── Parallax Backdrop Layers ── -->
+    <div class="parallax-scene" id="parallax-scene">
+      <div class="p-layer" id="p-sky"></div>
+      <div class="p-layer" id="p-bg"></div>
+      <div class="p-layer" id="p-mid"></div>
+      <div class="p-layer" id="p-fog-base"></div>
+    </div>
+
+    <!-- ── Particle System Canvas ── -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- ── Hero Overlay UI ── -->
+    <div id="hero-ui">
+      <div class="hero-text-block" id="hero-text-block">
+        <p class="hero-eyebrow">P A R I S · B O R N</p>
+        <h1 class="hero-headline">A Call From Paris</h1>
+        <p class="hero-subline">The call to Paris.</p>
+        <button id="discover-btn" class="btn btn-discover" aria-label="Enter the Maison">
+          <span>Enter The Maison</span>
+        </button>
+      </div>
+      <div class="scroll-cue" id="scroll-cue">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </div>
+
+    <!-- ── Outline Typography Layer ── -->
+    <div id="outline-type-wrap">
+      <img id="zoom-img" src="/assets/img/plus33-font.png" alt="PLUS33 Monogram">
+    </div>
+
+    <!-- ── Cinematic Fog Layers ── -->
+    <div class="fog-layer" id="fog-1"></div>
+    <div class="fog-layer" id="fog-2"></div>
+    <div class="fog-layer" id="fog-3"></div>
+
+    <!-- ── Zoom Transition Veil ── -->
+    <div id="zoom-veil"></div>
+
+    <!-- ── Zoom Gateway Portal ── -->
+    <div id="gateway-portal">
+      <div id="portal-inner"></div>
+      <div id="portal-bloom"></div>
+    </div>
+
+    <!-- ── Alley Blur Overlay ── -->
+    <div id="alley-glass"></div>
+
+    <!-- ── Alley Message Panel ── -->
+    <div id="cinematic-text-1" class="cinematic-text">
+      <div class="glass-panel">
+        <h2>Every cobblestone carries a <span class="c">story</span>.</h2>
+        <p>You are not just arriving. You are returning.</p>
+        <a href="/store" class="di-cta cinematic-cta" aria-label="Enter the online flagship store">
+          <span>ENTER THE FLAGSHIP</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- ── Transition Overlay ── -->
+    <div id="white-transition"></div>
+
+  </section>
+</div>
+
+<!-- ═════════ NORMAL PAGE CONTENT ═════════ -->
+<!-- Static content sections revealed after finishing the scroll stage -->
+<main id="normal-content">
+
+  <!-- ── Coffee Philosophy Panel ── -->
+  <section id="coffee-philosophy" aria-label="Coffee Philosophy">
+    <div class="cp-intro">
+      <div class="cp-intro-inner">
+        <span class="cp-eyebrow">THE CRAFT</span>
+        <h2 class="cp-headline">Coffee is not what<br>we sell. It is what<br><em>we believe in.</em></h2>
+        <p class="cp-lead">At +33, we have never treated coffee as a commodity. Every cup that leaves our counter has been thought about — at its origin, in its preparation, in the hands that made it. This is not efficiency. This is devotion.</p>
+      </div>
+    </div>
+
+    <!-- Step 1: Origin -->
+    <div class="cp-panel cp-panel--light">
+      <div class="cp-panel__text" data-step="01">
+        <span class="cp-panel__tag">01 / ORIGIN</span>
+        <h3 class="cp-panel__title">The Quality</h3>
+        <p class="cp-panel__body">The world produces extraordinary coffee. Very little of it reaches the standard we require. We work only with farms that share our conviction — that exceptional coffee is grown, not manufactured.</p>
+        <p class="cp-panel__body">The altitude matters. The soil matters. The season, the rainfall, the moment of harvest. A cup that is honest. A cup that rewards your attention.</p>
+        <div class="cp-panel__stats">
+          <div class="cp-stat"><span class="cp-stat__num">12+</span><span class="cp-stat__label">Origin Countries</span></div>
+          <div class="cp-stat"><span class="cp-stat__num">100%</span><span class="cp-stat__label">Hand-Selected</span></div>
+        </div>
+      </div>
+      <div class="cp-panel__visual">
+        <img src="/assets/img/coffee-quality.png" alt="Coffee beans sorting at origin" class="cp-panel__img" />
+        <div class="cp-panel__badge">SINGLE ORIGIN</div>
+      </div>
+    </div>
+
+    <!-- Step 2: Process -->
+    <div class="cp-panel cp-panel--dark cp-panel--img-left">
+      <div class="cp-panel__visual">
+        <img src="/assets/img/coffee-roastery.png" alt="Coffee beans roasting drum" class="cp-panel__img" />
+        <div class="cp-panel__badge cp-panel__badge--light">SMALL BATCH</div>
+      </div>
+      <div class="cp-panel__text" data-step="02">
+        <span class="cp-panel__tag">02 / PROCESS</span>
+        <h3 class="cp-panel__title">The Roastery</h3>
+        <p class="cp-panel__body">Between the raw bean and the finished cup lives a single, irreversible moment. The roast. We approach this moment the way a watchmaker approaches a mechanism — with precision, patience, and awareness.</p>
+        <p class="cp-panel__body">Every batch is small. Every batch is profiled individually. A +33 roast stands in the light and earns its place.</p>
+        <div class="cp-panel__stats">
+          <div class="cp-stat cp-stat--light"><span class="cp-stat__num">72°</span><span class="cp-stat__label">Exact Temperature</span></div>
+          <div class="cp-stat cp-stat--light"><span class="cp-stat__num">18min</span><span class="cp-stat__label">Avg Roast Profile</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: Preparation -->
+    <div class="cp-panel cp-panel--warm">
+      <div class="cp-panel__text" data-step="03">
+        <span class="cp-panel__tag">03 / PREPARATION</span>
+        <h3 class="cp-panel__title">The Hand Brew</h3>
+        <p class="cp-panel__body">Each cup at +33 is an act of preparation, not production. Our baristas are trained not as operators but as craftspeople. The angle of the pour. The temperature of the water — not approximate, exact.</p>
+        <p class="cp-panel__body">Speed is the enemy of flavour. A hand brew at +33 takes the time it needs. The cup is the final edit. We make sure it is right before it leaves our hands.</p>
+        <div class="cp-panel__stats">
+          <div class="cp-stat"><span class="cp-stat__num">4 min</span><span class="cp-stat__label">Min Pour Time</span></div>
+          <div class="cp-stat"><span class="cp-stat__num">93°C</span><span class="cp-stat__label">Water Precision</span></div>
+        </div>
+      </div>
+      <div class="cp-panel__visual">
+        <img src="/assets/img/coffee-handbrew.png" alt="Barista preparing a hand dripped brew coffee" class="cp-panel__img" />
+        <div class="cp-panel__badge">HANDCRAFTED</div>
+      </div>
+    </div>
+
+    <!-- Step 4: Product Delivery -->
+    <div class="cp-panel cp-panel--dark cp-panel--img-left">
+      <div class="cp-panel__visual">
+        <img src="/assets/img/coffee-experience.png" alt="Fresh luxury coffee served in premium ceramics" class="cp-panel__img" />
+        <div class="cp-panel__badge cp-panel__badge--light">THE CUP</div>
+      </div>
+      <div class="cp-panel__text" data-step="04">
+        <span class="cp-panel__tag">04 / THE CUP</span>
+        <h3 class="cp-panel__title">What Reaches You</h3>
+        <p class="cp-panel__body">The cup you hold at +33 has been thought about more than most things you will encounter today. A farm selected. A harvest timed to the peak of the cherry. A roast profiled to reveal — not obscure.</p>
+        <p class="cp-panel__body">Heavy ceramic. The weight of it in your hand is not accidental. Everything here is intentional. This is not coffee for convenience. This is coffee for people who notice the difference.</p>
+        <a href="/store" class="cp-closer__cta" aria-label="Explore our premium retail collection"><span>Discover Our Menu</span>
+          <svg width="18" height="8" viewBox="0 0 18 8" fill="none"><path d="M0 4h16M13 1l3 3-3 3" stroke="currentColor" stroke-width="1.2"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Global Identities Selector ── -->
+  <section id="identities-section" aria-label="+33 Global Identities">
+    <div class="identities-header">
+      <p class="sec-eyebrow">GLOBAL IDENTITIES</p>
+      <h2 class="sec-title">A global<br>sanctuary.</h2>
+      <p class="sec-sub">Each +33 location interprets our Parisian soul through its own cultural lens.</p>
+    </div>
+
+    <!-- Mobile Location Slider Card -->
+    <div class="identities-mobile-only">
+      <div class="mi-card">
+        <div class="mi-bg-img" id="mi-bg"></div>
+        <div class="mi-bottom-wrapper">
+          <div class="mi-left-box">
+            <span class="mi-eyebrow" id="mi-eyebrow">L'ORIGINE</span>
+            <h3 class="mi-title" id="mi-title">Rive Gauche</h3>
+            <p class="mi-desc" id="mi-desc">Where it all began. The original sanctuary — nestled along the Left Bank, where artists, philosophers, and dreamers transformed coffee into ritual.</p>
+            <p class="mi-theme" id="mi-theme">Navy · Copper · Grandeur</p>
+
+            <div class="mi-action-row">
+              <a href="#" class="mi-btn" id="mi-cta" aria-label="Explore this location details">Discover Paris</a>
+              <div class="mi-thumbnails" id="mi-thumbs-container"></div>
+            </div>
+
+            <div class="mi-socials">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.28 4.28 0 0 0 1.88-2.37 8.56 8.56 0 0 1-2.72 1.04 4.28 4.28 0 0 0-7.29 3.9A12.14 12.14 0 0 1 3.16 4.86a4.28 4.28 0 0 0 1.32 5.71 4.22 4.22 0 0 1-1.94-.54v.05a4.28 4.28 0 0 0 3.43 4.2 4.3 4.3 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.97A8.58 8.58 0 0 1 2 18.58 12.1 12.1 0 0 0 8.56 20.5c7.88 0 12.19-6.53 12.19-12.19l-.01-.55A8.7 8.7 0 0 0 22.46 6z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop Location Tabs Container -->
+    <div class="identities-desktop-only">
+      <div class="di-container">
+        <!-- Visual Backdrop Stage -->
+        <div class="di-visual">
+          <div class="di-bg-image" id="di-bg"></div>
+          <div class="di-glass-overlay">
+            <div class="di-nav" role="tablist" aria-label="Boutique Locations">
+              <span class="di-nav-item active" data-city="paris" role="tab" aria-selected="true">
+                <span class="di-nav-label">01 Paris</span>
+              </span>
+              <span class="di-nav-item" data-city="london" role="tab" aria-selected="false">
+                <span class="di-nav-label">02 London</span>
+              </span>
+              <span class="di-nav-item" data-city="dubai" role="tab" aria-selected="false">
+                <span class="di-nav-label">03 Dubai</span>
+              </span>
+              <span class="di-nav-item" data-city="switzerland" role="tab" aria-selected="false">
+                <span class="di-nav-label">04 Geneva</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description Content Panel -->
+        <div class="di-content">
+          <div class="di-text-wrap">
+            <span class="di-eyebrow" id="di-eyebrow">L'ORIGINE</span>
+            <h3 class="di-title" id="di-title">Rive Gauche</h3>
+            <p class="di-desc" id="di-desc">Where it all began. The original sanctuary — nestled along the Left Bank, where artists, philosophers, and dreamers transformed coffee into ritual.</p>
+            <div class="di-features" id="di-features"></div>
+            <a href="#" class="di-cta" id="di-cta" aria-label="Explore detailed gallery of the active location">
+              <span>DISCOVER PARIS</span>
+              <svg width="18" height="8" viewBox="0 0 18 8" fill="none">
+                <path d="M0 4h16M13 1l3 3-3 3" stroke="currentColor" stroke-width="1.2" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Global Franchise Preview ── -->
+  <section id="franchise-section" aria-label="Franchise Opportunity">
+    <div class="franchise-inner">
+      <div class="franchise-text">
+        <p class="sec-eyebrow">GLOBAL EXPANSION</p>
+        <h2 class="sec-title">Own a piece<br>of Paris.</h2>
+        <p class="sec-sub">The +33 franchise is not a business opportunity. It is an invitation to carry a culture.</p>
+        <a href="/franchise" class="franchise-cta" aria-label="Apply for a franchise partnership">
+          Apply for Franchise
+          <svg width="18" height="8" viewBox="0 0 18 8" fill="none">
+            <path d="M0 4h16M13 1l3 3-3 3" stroke="currentColor" stroke-width="1.2" />
+          </svg>
+        </a>
+      </div>
+      <div class="franchise-visual">
+        <div class="franchise-img"></div>
+        <div class="franchise-overlay-text">+33</div>
+      </div>
+    </div>
+  </section>
+
+</main>

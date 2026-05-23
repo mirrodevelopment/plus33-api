@@ -15,11 +15,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
         // Production: Serve from classpath static folder
         registry.addResourceHandler("/**")
                 .addResourceLocations("classpath:/static/");
-
-        // Local Development Support (Optional, as Vite is preferred for dev)
-        String projectDir = Paths.get("").toAbsolutePath().toString();
-        registry.addResourceHandler("/dev/**")
-                .addResourceLocations("file:" + projectDir + "/plus33-frontend/");
     }
 
     @Override
@@ -29,5 +24,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/experience").setViewName("forward:/index.html");
         registry.addViewController("/journal").setViewName("forward:/index.html");
         registry.addViewController("/franchise").setViewName("forward:/index.html");
+
+        // General fallback routing for single-page application paths
+        registry.addViewController("/{spring:\\w+}")
+                .setViewName("forward:/index.html");
+        registry.addViewController("/**/{spring:\\w+}")
+                .setViewName("forward:/index.html");
     }
 }
