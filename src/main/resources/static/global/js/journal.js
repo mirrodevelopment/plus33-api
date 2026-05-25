@@ -10,7 +10,6 @@
  *
  * DEVELOPED BY : MIRRO
  * CODED BY     : SIVASURYA
- * LAST UPDATED : 2026-05-23
  * ══════════════════════════════════════════════════
  */
 
@@ -23,9 +22,9 @@ export function mountJournalPage() {
 
     // ═════════ ARTICLE DATA REGISTRY ═════════
     const ARTICLES = [
-        { id: 1, title: 'The Soil of Ethiopia', category: 'Origin', date: 'May 12, 2024', img: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=85' },
-        { id: 2, title: 'Morning in the 7ème', category: 'Lifestyle', date: 'May 08, 2024', img: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=85' },
-        { id: 3, title: 'The Architecture of Taste', category: 'Design', date: 'April 28, 2024', img: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&q=85' }
+        { id: 1, title: 'The Soil of Ethiopia', category: 'Origin', date: 'May 12, 2024', img: '/global/assets/img/soil-ethiopia.png' },
+        { id: 2, title: 'Morning in the 7ème', category: 'Lifestyle', date: 'May 08, 2024', img: '/global/assets/img/morning-7eme.png' },
+        { id: 3, title: 'The Architecture of Taste', category: 'Design', date: 'April 28, 2024', img: '/global/assets/img/architecture-taste.png' }
     ];
 
     // ═════════ GRID RENDERING ═════════

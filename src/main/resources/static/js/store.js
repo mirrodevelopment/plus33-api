@@ -11,7 +11,6 @@
  *
  * DEVELOPED BY : MIRRO
  * CODED BY     : SIVASURYA
- * LAST UPDATED : 2026-05-23
  * ══════════════════════════════════════════════════
  */
 
@@ -25,42 +24,42 @@ export function mountStorePage() {
     {
       id: 1, name: 'Le Grand Cru', origin: 'Ethiopia Yirgacheffe', notes: 'Jasmine, Bergamot, Dark Chocolate',
       desc: 'Our signature espresso. Cultivated at 2,000 meters. Roasted in Paris.', price: '€38', type: 'Beans — 250g',
-      img: '/assets/img/Cinnamon.png', tag: 'Signature'
+      img: '/assets/img/cinnamon.png', tag: 'Signature'
     },
     {
       id: 2, name: 'The Ritual Set', origin: 'Paris / Limoges', notes: 'Matte Black Porcelain, Copper Details',
       desc: 'Two espresso cups and saucers. Designed in our studio, crafted in Limoges.', price: '€85', type: 'Object',
-      img: '/assets/img/gift pack.jpeg'
+      img: '/assets/img/gift-pack.jpeg'
     },
     {
       id: 3, name: 'L\'Édition Printemps', origin: 'Colombia Finca El Paraiso', notes: 'Wild Strawberry, Rose, Vanilla',
       desc: 'A rare thermal shock processing. Extremely limited availability.', price: '€55', type: 'Beans — 250g',
-      img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&q=85', tag: 'Limited — 1/500'
+      img: '/assets/img/edition-printemps.png', tag: 'Limited — 1/500'
     },
     {
       id: 4, name: 'Copper Drip Stand', origin: 'London', notes: 'Solid Copper, Walnut Base',
       desc: 'Engineered for thermal stability. Machined from solid copper.', price: '€240', type: 'Equipment',
-      img: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=85'
+      img: '/assets/img/copper-drip-stand.png'
     },
     {
       id: 5, name: 'Le Noir', origin: 'Guatemala Antigua', notes: 'Cacao Nibs, Black Cherry, Cedar',
       desc: 'Developed for milk beverages. A deep, resonant profile.', price: '€34', type: 'Beans — 250g',
-      img: '/assets/img/Dark Roast.png'
+      img: '/assets/img/dark-roast.png'
     },
     {
       id: 6, name: '+33 Tote', origin: 'Paris', notes: 'Heavyweight Cotton Canvas',
       desc: 'The only bag we carry. Screen printed in the Marais.', price: '€45', type: 'Merchandise',
-      img: 'https://images.unsplash.com/photo-1544816155-12df9643f363?w=800&q=85'
+      img: '/assets/img/plus33-tote.png'
     },
     {
       id: 7, name: 'Ceremonial Matcha', origin: 'Uji, Japan', notes: 'Sweet Umami, Creamy Jade, Fresh Grass',
       desc: 'Bespoke ceremonial grade stone-ground green tea powder, sourced from historical estates in Kyoto.', price: '€48', type: 'Tea — 100g',
-      img: '/assets/img/tea powder.jpeg', tag: 'Bespoke'
+      img: '/assets/img/tea-powder.jpeg', tag: 'Bespoke'
     },
     {
       id: 8, name: 'The Prestige Edition', origin: 'Panama Geisha micro-lot', notes: 'Bergamot, Peach Blossom, Candied Ginger',
       desc: 'An exceptional lot of Panama Geisha. Lightly roasted to highlight absolute floral clarity.', price: '€120', type: 'Beans — 250g',
-      img: '/assets/img/The Prestige Edition.png', tag: 'Prestige'
+      img: '/assets/img/the-prestige-edition.png', tag: 'Prestige'
     }
   ];
 

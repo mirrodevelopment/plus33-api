@@ -14,12 +14,11 @@
  *
  * DEVELOPED BY : MIRRO
  * CODED BY     : SIVASURYA
- * LAST UPDATED : 2026-05-23
  * ══════════════════════════════════════════════════
  */
 
 // ═════════ GLOBAL CONFIGURATION ═════════
-import { initNavbar } from './fragment.js';
+import { initNavbar } from '../global/js/layout-engine.js';
 import { Router } from './router.js';
 
 // ═════════ INITIALIZATION ═════════

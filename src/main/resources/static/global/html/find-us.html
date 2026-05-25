@@ -19,7 +19,6 @@
 
   DEVELOPED BY : MIRRO
   CODED BY     : SIVASURYA
-  LAST UPDATED : 2026-05-23
   ══════════════════════════════════════════════════
 -->
 
@@ -42,7 +41,7 @@
     <div class="hero-bg-overlay"></div>
     <div class="hero-bg-media">
       <!-- Moody cinematic background image representing global expansion cafe culture -->
-      <img src="/assets/img/global-expansion.png" alt="Global Expansion Café Atmosphere" class="hero-bg-img" />
+      <img src="/global/assets/img/global-expansion-map.png" alt="Global Expansion Café Atmosphere" class="hero-bg-img" />
     </div>
     
     <div class="container hero-content-wrapper">
@@ -101,6 +100,19 @@
       <div class="explorer-map-side">
         <div id="locations-map-container" class="map-sticky-box">
           <div id="find-us-map" class="leaflet-map-element"></div>
+          
+          <!-- Premium Map Zoom & Theme controls -->
+          <div class="map-premium-controls">
+            <div class="map-zoom-panel">
+              <button id="map-zoom-in" class="map-zoom-btn" aria-label="Zoom In">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+              <button id="map-zoom-out" class="map-zoom-btn" aria-label="Zoom Out">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg>
+              </button>
+            </div>
+          </div>
+
           <!-- Map controls overlay (Google Maps & Reset) -->
           <div class="map-controls-overlay">
             <a id="google-maps-btn" href="https://www.google.com/maps/search/?api=1&query=48.8584,2.3262" target="_blank" rel="noopener" class="map-google-link" aria-label="Open selected destination in Google Maps">
@@ -137,7 +149,7 @@
       <!-- Paris Panorama -->
       <div class="panoramic-row reveal">
         <div class="panoramic-visual">
-          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&q=80" alt="Parisian Café Interior" class="panoramic-img" />
+          <img src="/global/assets/img/paris-cafe-interior.png" alt="Parisian Café Interior" class="panoramic-img" />
           <div class="panoramic-overlay"></div>
         </div>
         <div class="panoramic-text">
@@ -153,7 +165,7 @@
       <!-- Milan Panorama -->
       <div class="panoramic-row panoramic-row--reversed reveal">
         <div class="panoramic-visual">
-          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80" alt="Milanese Lounge Interior" class="panoramic-img" />
+          <img src="/global/assets/img/milan-lounge-interior.png" alt="Milanese Lounge Interior" class="panoramic-img" />
           <div class="panoramic-overlay"></div>
         </div>
         <div class="panoramic-text">
@@ -169,7 +181,7 @@
       <!-- Vienna Panorama -->
       <div class="panoramic-row reveal">
         <div class="panoramic-visual">
-          <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=1200&q=80" alt="Viennese Coffee House" class="panoramic-img" />
+          <img src="/global/assets/img/vienna-coffee-house.png" alt="Viennese Coffee House" class="panoramic-img" />
           <div class="panoramic-overlay"></div>
         </div>
         <div class="panoramic-text">
@@ -195,7 +207,7 @@
       <div class="flagships-magazine-layout">
         <div class="flagship-magazine-block reveal">
           <div class="magazine-visual-wrap">
-            <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=1200&q=80" alt="Boutique Tablescape" class="magazine-img" />
+            <img src="/global/assets/img/boutique-tablescape.png" alt="Boutique Tablescape" class="magazine-img" />
           </div>
           <div class="magazine-details">
             <span class="t-label" style="color: var(--gold);">THE DESIGN CONCEPT</span>
@@ -208,7 +220,7 @@
 
         <div class="flagship-magazine-block magazine-block--offset reveal">
           <div class="magazine-visual-wrap">
-            <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=1200&q=80" alt="Outdoor Terrace Café" class="magazine-img" />
+            <img src="/global/assets/img/outdoor-terrace-cafe.png" alt="Outdoor Terrace Café" class="magazine-img" />
           </div>
           <div class="magazine-details">
             <span class="t-label" style="color: var(--gold);">TERRACE & COURTYARD</span>

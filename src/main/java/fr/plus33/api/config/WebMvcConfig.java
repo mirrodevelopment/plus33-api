@@ -19,16 +19,22 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(@NonNull org.springframework.web.servlet.config.annotation.ViewControllerRegistry registry) {
-        // Map SPA routes explicitly to index.html to avoid PathPatternParser errors
+        // ── SPA Route Forwarding ──────────────────────────────────────
+        // All known SPA routes explicitly forwarded to index.html.
+        // Uses PathPatternParser-safe single-segment pattern only.
+        // ──────────────────────────────────────────────────────────────
+
+        // Explicit named routes
         registry.addViewController("/store").setViewName("forward:/index.html");
         registry.addViewController("/experience").setViewName("forward:/index.html");
         registry.addViewController("/journal").setViewName("forward:/index.html");
         registry.addViewController("/franchise").setViewName("forward:/index.html");
+        registry.addViewController("/find-us").setViewName("forward:/index.html");
 
-        // General fallback routing for single-page application paths
-        registry.addViewController("/{spring:\\w+}")
-                .setViewName("forward:/index.html");
-        registry.addViewController("/**/{spring:\\w+}")
+        // Single-segment catch-all: matches /anyword (but NOT /api/**, /h2-console/**, etc.)
+        // Spring Boot 3 PathPatternParser does NOT allow ** followed by more segments,
+        // so the old /**/{spring:\w+} pattern is replaced with the safe single-segment form.
+        registry.addViewController("/{path:[a-zA-Z0-9\\-]+}")
                 .setViewName("forward:/index.html");
     }
 }

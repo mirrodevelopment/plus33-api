@@ -13,7 +13,6 @@
 
   DEVELOPED BY : MIRRO
   CODED BY     : SIVASURYA
-  LAST UPDATED : 2026-05-23
   ══════════════════════════════════════════════════
 */
 
@@ -106,7 +105,8 @@
 
 .plus33-nav__toggle-text {
   font-family: var(--font-ui);
-  font-size: 0.60rem;
+  font-size: 0.75rem;
+  font-weight: 600;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   margin-top: 2px;
@@ -114,8 +114,8 @@
 
 .plus33-nav__location {
   font-family: var(--font-ui);
-  font-size: 0.55rem;
-  font-weight: 300;
+  font-size: 0.72rem;
+  font-weight: 600;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: rgba(245,241,234,0.60);
@@ -152,7 +152,8 @@
 
 .plus33-nav__link {
   font-family: var(--font-ui);
-  font-size: 0.62rem;
+  font-size: 0.82rem;
+  font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: rgba(245, 241, 234, 0.65);
@@ -196,7 +197,7 @@
   width: 75vw;
   max-width: 75vw;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.25); /* Restored original premium semi-transparent white glass */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-right: 1px solid rgba(255, 255, 255, 0.3);
@@ -223,7 +224,7 @@
   gap: 12px;
   background: none;
   border: none;
-  color: var(--navy);
+  color: var(--navy); /* Deep solid navy for high contrast on light background */
   cursor: pointer;
   align-self: flex-start;
   transition: color 0.4s var(--ease-rr);
@@ -235,7 +236,8 @@
 .plus33-nav__panel-close:hover { color: var(--copper); }
 .plus33-nav__panel-close-text {
   font-family: var(--font-ui);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
 }
@@ -262,11 +264,11 @@
 
 .plus33-nav__panel-link {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4.5vw, 2.4rem);
-  font-weight: 300;
+  font-size: clamp(2.2rem, 6vw, 3.2rem); /* Significantly increased font size */
+  font-weight: 700; /* Bold typography */
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--navy);
+  color: var(--navy); /* Deep solid navy for perfect readability on light glass */
   text-decoration: none;
   transition: color 0.6s var(--ease-rr), transform 0.6s var(--ease-rr);
   opacity: 0;
@@ -308,8 +310,9 @@
 }
 .plus33-nav__panel-sub {
   font-family: var(--font-ui);
-  font-size: 0.60rem;
-  color: rgba(7, 16, 30, 0.5);
+  font-size: 0.70rem;
+  color: rgba(7, 16, 30, 0.75); /* High contrast subtext on light glass */
+  font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
@@ -355,24 +358,20 @@
 .plus33-footer__top {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: var(--s6);
+  gap: var(--s5);
   padding-bottom: var(--s6);
   border-bottom: 1px solid rgba(200,164,107,0.10);
   position: relative;
   z-index: 1;
 }
-
-.plus33-footer__mark {
-  font-family: var(--font-display);
-  font-size: 4.2rem;
-  font-weight: 200;
-  color: var(--gold);
-  letter-spacing: -0.04em;
-  line-height: 1;
+.plus33-footer__logo {
+  height: 50px;
+  width: auto;
   display: block;
   margin-bottom: 18px;
-  text-shadow: 0 4px 24px rgba(200,164,107,0.25);
+  filter: drop-shadow(0 4px 10px rgba(200,164,107,0.15));
 }
+
 .plus33-footer__sub {
   font-family: var(--font-ui);
   font-size: 0.60rem;

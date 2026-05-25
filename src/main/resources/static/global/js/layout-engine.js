@@ -11,7 +11,6 @@
  *
  * DEVELOPED BY : MIRRO
  * CODED BY     : SIVASURYA
- * LAST UPDATED : 2026-05-23
  * ══════════════════════════════════════════════════
  */
 

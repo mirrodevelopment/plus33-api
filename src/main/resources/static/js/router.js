@@ -18,16 +18,15 @@
  *
  * DEVELOPED BY : MIRRO
  * CODED BY     : SIVASURYA
- * LAST UPDATED : 2026-05-23
  * ══════════════════════════════════════════════════
  */
 
 // ═════════ GLOBAL CONFIGURATION ═════════
 import { mountHomePage } from './home.js';
 import { mountStorePage } from './store.js';
-import { mountFranchisePage } from './franchise.js';
-import { mountJournalPage } from './journal.js';
-import { mountFindUsPage } from './find-us.js';
+import { mountFranchisePage } from '../global/js/franchise.js';
+import { mountJournalPage } from '../global/js/journal.js';
+import { mountFindUsPage } from '../global/js/find-us.js';
 
 /**
  * Static route registry containing paths, fragments, mounts, and page titles.
@@ -45,17 +44,17 @@ const routes = {
         title: '+33 Store | Luxury Collection'
     },
     '/journal': {
-        htmlPath: '/html/journal.html',
+        htmlPath: '/global/html/journal.html',
         mount: mountJournalPage,
         title: '+33 Journal'
     },
     '/franchise': {
-        htmlPath: '/html/franchise.html',
+        htmlPath: '/global/html/franchise.html',
         mount: mountFranchisePage,
         title: '+33 Franchise'
     },
     '/find-us': {
-        htmlPath: '/html/find-us.html',
+        htmlPath: '/global/html/find-us.html',
         mount: mountFindUsPage,
         title: '+33 Destinations | Find Us'
     }

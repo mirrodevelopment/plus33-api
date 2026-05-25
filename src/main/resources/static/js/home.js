@@ -19,7 +19,6 @@
  *
  * DEVELOPED BY : MIRRO
  * CODED BY     : SIVASURYA
- * LAST UPDATED : 2026-05-23
  * ══════════════════════════════════════════════════
  */
 
@@ -271,7 +270,7 @@ export function mountHomePage() {
       theme:   "Navy · Copper · Grandeur",
       features: ["Old-world elegance.", "Marble counters.", "Brass details.", "The soul of +33 Paris."],
       cta:     "DISCOVER PARIS",
-      bg:      "url('/assets/img/paris-identity.png')"
+      bg:      "url('/assets/img/paris-city-identity.png')"
     },
     london: {
       eyebrow: "MAYFAIR DISTRICT",
@@ -280,7 +279,7 @@ export function mountHomePage() {
       theme:   "Crimson · Silver · Precision",
       features: ["Refined precision.", "Modern luxury.", "Silver accents.", "Quiet prestige."],
       cta:     "EXPLORE LONDON",
-      bg:      "url('/assets/img/london-identity.png')"
+      bg:      "url('/assets/img/london-city-identity.png')"
     },
     dubai: {
       eyebrow: "DOWNTOWN MAJESTY",
@@ -289,7 +288,7 @@ export function mountHomePage() {
       theme:   "Obsidian · Gold · Majesty",
       features: ["Ultra-premium.", "Dramatic scale.", "Gold lighting.", "Obsidian interiors."],
       cta:     "ENTER DUBAI",
-      bg:      "url('/assets/img/dubai-identity.png')"
+      bg:      "url('/assets/img/dubai-city-identity.png')"
     },
     switzerland: {
       eyebrow: "GENEVA ALTITUDE",
@@ -298,7 +297,7 @@ export function mountHomePage() {
       theme:   "Alpine White · Gold · Precision",
       features: ["Swiss exactitude.", "Alpine refinement.", "Gold accents.", "Measured perfection."],
       cta:     "EXPLORE GENEVA",
-      bg:      "url('/assets/img/switzerland-iconic.png')"
+      bg:      "url('/assets/img/switzerland-iconic-landmark.png')"
     }
   };
 

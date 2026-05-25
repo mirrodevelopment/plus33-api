@@ -14,7 +14,6 @@
 
   DEVELOPED BY : MIRRO
   CODED BY     : SIVASURYA
-  LAST UPDATED : 2026-05-23
   ══════════════════════════════════════════════════
 */
 
@@ -637,5 +636,70 @@
 .brochure-download-link:hover .brochure-card__btn:hover {
     background: var(--copper);
     color: white;
+}
+
+/* Map controls overlay (Google Maps & Reset) styles styled consistently */
+.map-controls-overlay {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    left: auto;
+    z-index: 1002;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    pointer-events: none;
+}
+
+.map-controls-overlay > * {
+    pointer-events: auto;
+}
+
+.map-reset-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 30%, #b38728 70%, #aa771c 100%);
+    border: none;
+    border-radius: 999px;
+    color: #1d100a !important; /* Force dark text color */
+    font-family: var(--font-ui);
+    font-size: 0.52rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+      0 10px 30px rgba(184, 115, 51, 0.25),
+      0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+}
+
+.map-reset-btn:hover {
+    color: #1d100a !important;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 
+      0 14px 35px rgba(184, 115, 51, 0.4),
+      0 4px 15px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.05);
+}
+
+.map-reset-btn:active {
+    transform: translateY(0) scale(0.97);
+}
+
+.map-reset-btn svg {
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
 }
 

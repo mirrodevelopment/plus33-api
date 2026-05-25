@@ -26,7 +26,6 @@
 
   DEVELOPED BY : MIRRO
   CODED BY     : SIVASURYA
-  LAST UPDATED : 2026-05-23
   ══════════════════════════════════════════════════
 -->
 <!DOCTYPE html>
@@ -38,13 +37,15 @@
     
     <!-- ═════════ STYLESHEET SYSTEM ═════════ -->
     <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/fragment.css">
+    <link rel="stylesheet" href="/global/css/fragment.css">
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/store.css">
-    <link rel="stylesheet" href="/css/franchise.css">
-    <link rel="stylesheet" href="/css/journal.css">
-    <link rel="stylesheet" href="/css/find-us.css">
-    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/global/css/franchise.css">
+    <link rel="stylesheet" href="/global/css/journal.css">
+    <link rel="stylesheet" href="/global/css/find-us.css">
+    <link rel="stylesheet" href="/global/css/responsive.css">
+    <!-- ═════════ PARIS PONY CHATBOT ═════════ -->
+    <link rel="stylesheet" href="/global/css/chatbot.css">
     
     <!-- ═════════ DEPENDENCIES (CDN) ═════════ -->
     <!-- Leaflet.js CSS and JS for dynamic map plotting -->
@@ -71,14 +72,14 @@
                     <span class="plus33-nav__toggle-text">Menu</span>
                 </button>
                 <a href="/" class="plus33-nav__logo desktop-only plus33-nav__logo--desktop" aria-label="+33 Paris - Return to homepage">
-                    <img src="/assets/img/plus33-logo.png" alt="+33 Paris Logo" class="plus33-nav__logo-img">
+                    <img src="/global/assets/img/plus33-logo.png" alt="+33 Paris Logo" class="plus33-nav__logo-img">
                 </a>
             </div>
 
             <!-- Center: Mobile Logo OR Desktop Classic Nav links -->
             <div class="plus33-nav__center">
                 <a href="/" class="plus33-nav__logo mobile-only plus33-nav__logo--mobile" aria-label="+33 Paris - Return to homepage">
-                    <img src="/assets/img/plus33-logo.png" alt="+33 Paris Logo" class="plus33-nav__logo-img">
+                    <img src="/global/assets/img/plus33-logo.png" alt="+33 Paris Logo" class="plus33-nav__logo-img">
                 </a>
                 <div class="plus33-nav__links desktop-only">
                     <a href="/" class="plus33-nav__link">Home</a>
@@ -126,7 +127,7 @@
         <div class="container">
             <div class="plus33-footer__top">
                 <div class="plus33-footer__brand">
-                    <span class="plus33-footer__mark">+33</span>
+                    <img src="/assets/img/plus3-typography.png" alt="+33 Paris" class="plus33-footer__logo">
                     <p class="plus33-footer__sub">Paris-born. World-class.</p>
                 </div>
                 <div class="plus33-footer__cols">
@@ -149,7 +150,7 @@
                 </div>
             </div>
             <div class="plus33-footer__bottom">
-                <p class="plus33-footer__copy">© 2024 +33 PARIS. ALL RIGHTS RESERVED.</p>
+                <p class="plus33-footer__copy">© 2026 +33 PARIS. ALL RIGHTS RESERVED.</p>
                 <div class="plus33-footer__socials">
                     <a href="#" class="plus33-footer__social">Instagram</a>
                     <a href="#" class="plus33-footer__social">Twitter</a>
@@ -164,5 +165,11 @@
 
     <!-- ═════════ MODULE LOADER ═════════ -->
     <script type="module" src="/js/app.js"></script>
+
+    <!-- ═════════ PARIS PONY CHATBOT ═════════ -->
+    <!-- Load order: shared store data, chatbot data, then controller -->
+    <script src="/global/js/store-data.js"></script>
+    <script src="/global/js/chatbot-data.js"></script>
+    <script src="/global/js/chatbot.js"></script>
 </body>
 </html>

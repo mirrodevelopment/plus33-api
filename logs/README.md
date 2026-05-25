@@ -1,0 +1,3 @@
+# Logs
+
+Application log files are stored here. This directory is gitignored.
