@@ -74,10 +74,10 @@ export function mountFindUsPage() {
 
       if (hasSearchOrFilters) {
         // If there's search/filter active, check query & filters match
-        const matchesQuery = !query || 
-                             store.name.toLowerCase().includes(query) || 
-                             store.city.toLowerCase().includes(query) || 
-                             (store.address && store.address.toLowerCase().includes(query));
+        const matchesQuery = !query ||
+          store.name.toLowerCase().includes(query) ||
+          store.city.toLowerCase().includes(query) ||
+          (store.address && store.address.toLowerCase().includes(query));
         const matchesFilters = activeFilters.every(f => store.features.includes(f));
         isVisible = matchesQuery && matchesFilters;
       } else {
@@ -171,14 +171,14 @@ export function mountFindUsPage() {
           <div class="marker-pin-wrapper">
             <img src="/global/assets/img/map-pin.png" class="marker-pin-img" alt="${store.name}" />
             <div class="marker-pulse-ring"></div>
-          </div>
+          </div>git status
         `,
         iconSize: [36, 42],
         iconAnchor: [18, 42]
       });
 
       const marker = L.marker([store.lat, store.lng], { icon: customIcon }).addTo(mapInstance);
-      
+
       // Luxury Popup Layout
       const popupHtml = `
         <div class="popup-card">
@@ -264,10 +264,10 @@ export function mountFindUsPage() {
     const R = 6371; // Earth radius in km
     const dLat = (lat2 - lat1) * Math.PI / 180;
     const dLon = (lon2 - lon1) * Math.PI / 180;
-    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-              Math.sin(dLon/2) * Math.sin(dLon/2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return R * c;
   }
 
@@ -294,8 +294,8 @@ export function mountFindUsPage() {
       const block = document.createElement('div');
       block.className = 'journal-dest-block reveal';
       block.id = `dest-block-${store.id}`;
-      
-      const distanceBadge = store.distance 
+
+      const distanceBadge = store.distance
         ? `<div class="dest-distance">${store.distance.toFixed(1)} KM AWAY</div>`
         : '';
 
@@ -387,9 +387,9 @@ export function mountFindUsPage() {
       return;
     }
 
-    const matches = STORES.filter(store => 
-      store.name.toLowerCase().includes(query) || 
-      store.city.toLowerCase().includes(query) || 
+    const matches = STORES.filter(store =>
+      store.name.toLowerCase().includes(query) ||
+      store.city.toLowerCase().includes(query) ||
       (store.address && store.address.toLowerCase().includes(query))
     );
 
@@ -407,11 +407,11 @@ export function mountFindUsPage() {
     matches.forEach(store => {
       const item = document.createElement('div');
       item.className = 'suggestion-item';
-      
-      const typeBadge = store.isFeatured 
-        ? `<span class="suggestion-badge">Featured</span>` 
+
+      const typeBadge = store.isFeatured
+        ? `<span class="suggestion-badge">Featured</span>`
         : `<span class="suggestion-badge suggestion-badge--hidden">Hidden</span>`;
-        
+
       item.innerHTML = `
         <div class="suggestion-info">
           <span class="suggestion-city">${store.city}</span>
@@ -422,7 +422,7 @@ export function mountFindUsPage() {
           ${typeBadge}
         </div>
       `;
-      
+
       item.addEventListener('click', () => {
         if (searchInput) {
           searchInput.value = store.city;
@@ -431,7 +431,7 @@ export function mountFindUsPage() {
         suggestionsOverlay.innerHTML = '';
         suggestionsOverlay.classList.remove('search-suggestions-overlay--active');
       });
-      
+
       suggestionsOverlay.appendChild(item);
     });
 
@@ -443,17 +443,17 @@ export function mountFindUsPage() {
    */
   function filterDestinations() {
     const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
-    
+
     // Get checked tags
     const checkedCheckboxes = document.querySelectorAll('.filters-grid input:checked');
     const activeFilters = Array.from(checkedCheckboxes).map(cb => cb.value);
 
     let filtered = STORES.filter(store => {
       // Name, city, address, or features check
-      const matchesQuery = !query || 
-                           store.name.toLowerCase().includes(query) || 
-                           store.city.toLowerCase().includes(query) || 
-                           (store.address && store.address.toLowerCase().includes(query));
+      const matchesQuery = !query ||
+        store.name.toLowerCase().includes(query) ||
+        store.city.toLowerCase().includes(query) ||
+        (store.address && store.address.toLowerCase().includes(query));
 
       const matchesFilters = activeFilters.every(f => store.features.includes(f));
 
@@ -641,7 +641,7 @@ export function mountFindUsPage() {
     link.addEventListener('click', () => {
       const city = link.getAttribute('data-city');
       const storesInCity = STORES.filter(s => s.city === city);
-      
+
       if (storesInCity.length > 0) {
         const store = storesInCity[0];
         selectStore(store.id);
@@ -714,7 +714,7 @@ export function mountFindUsPage() {
     btn.addEventListener('click', () => {
       const item = btn.parentElement;
       const otherItems = document.querySelectorAll('.faq-editorial-item');
-      
+
       otherItems.forEach(ot => {
         if (ot !== item) {
           ot.classList.remove('active');
