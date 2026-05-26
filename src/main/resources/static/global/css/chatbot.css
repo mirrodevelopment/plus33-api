@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 /*
   FILE: chatbot.css
   ══════════════════════════════════════════════════
@@ -85,6 +87,13 @@
 ════════════════════════════════════════════════ */
 
 #pp-chatbot {
+  --font-display: 'Montserrat', sans-serif;
+  --font-serif: 'Montserrat', sans-serif;
+  --font-sans: 'Montserrat', sans-serif;
+  --font-ui: 'Montserrat', sans-serif;
+
+  font-family: 'Montserrat', sans-serif;
+
   /* Positioning anchor */
   position: fixed;
   bottom: 28px;
