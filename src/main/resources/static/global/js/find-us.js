@@ -168,11 +168,13 @@ export function mountFindUsPage() {
       const customIcon = L.divIcon({
         className: 'gold-custom-marker',
         html: `
-          <div class="marker-pin-dot"></div>
-          <div class="marker-pulse-ring"></div>
+          <div class="marker-pin-wrapper">
+            <img src="/global/assets/img/map-pin.png" class="marker-pin-img" alt="${store.name}" />
+            <div class="marker-pulse-ring"></div>
+          </div>
         `,
-        iconSize: [28, 28],
-        iconAnchor: [14, 14]
+        iconSize: [36, 42],
+        iconAnchor: [18, 42]
       });
 
       const marker = L.marker([store.lat, store.lng], { icon: customIcon }).addTo(mapInstance);
@@ -195,7 +197,7 @@ export function mountFindUsPage() {
       `;
       marker.bindPopup(popupHtml, {
         closeButton: false,
-        offset: [0, -10]
+        offset: [0, -36]
       });
 
       // Bind click triggers
