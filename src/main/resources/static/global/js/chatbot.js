@@ -392,6 +392,14 @@
 
       /* Click outside to close */
       document.addEventListener('click', this._onOutsideClick, true);
+
+      /* Close chatbot window on page redirection links */
+      this.windowEl.addEventListener('click', (e) => {
+        const link = e.target.closest('.pp-btn-link');
+        if (link && link.getAttribute('href')?.startsWith('/')) {
+          this.close();
+        }
+      });
     }
 
     /* Handle global keyboard events */
@@ -872,7 +880,18 @@
       if (!items || !items.length) {
         return "Sorry, I couldn't find the perfect coffee moment right now ☕";
       }
-      return items[Math.floor(Math.random() * items.length)];
+      let response = items[Math.floor(Math.random() * items.length)];
+
+      /* Append redirection buttons to related text */
+      const menuCategories = ['hot', 'cold', 'snack', 'combo', 'morning', 'evening', 'night', 'sweet', 'strong', 'matcha', 'rain', 'work', 'weekend', 'romantic', 'chill', 'bestseller', 'recommend', 'menu'];
+      if (menuCategories.includes(category)) {
+        response += '\n\n[Explore Menu 🏬](/store)';
+      } else if (category === 'location') {
+        response += '\n\n[Find a Café 📍](/find-us)';
+      } else if (category === 'franchise') {
+        response += '\n\n[Franchise Info 🤝](/franchise)';
+      }
+      return response;
     }
 
     _findAnswer(lower) {
