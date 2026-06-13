@@ -68,6 +68,11 @@ export class Router {
      * Initializes the router and references the main mount node.
      */
     constructor() {
+        // Disable browser automatic scroll restoration to prevent scroll jumps on page refresh/navigation
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
         // ═════════ DOM REFERENCES ═════════
         this.app = document.getElementById('app');
         this.isTransitioning = false;
@@ -169,6 +174,9 @@ export class Router {
             this.app.innerHTML = route.html;
             document.title = route.title;
             window.scrollTo(0, 0);
+            requestAnimationFrame(() => {
+                window.scrollTo(0, 0);
+            });
 
             this.updateNavbar(path);
 

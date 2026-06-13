@@ -171,7 +171,7 @@ export function mountFindUsPage() {
           <div class="marker-pin-wrapper">
             <img src="/global/assets/img/map-pin.png" class="marker-pin-img" alt="${store.name}" />
             <div class="marker-pulse-ring"></div>
-          </div>git status
+          </div>
         `,
         iconSize: [36, 42],
         iconAnchor: [18, 42]

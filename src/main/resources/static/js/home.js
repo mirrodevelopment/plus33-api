@@ -448,6 +448,19 @@ export function mountHomePage() {
   // Initialize City Selection
   if (miTitle) miTitle.dataset.city = 'paris';
   if (diTitle) diTitle.dataset.city = 'paris';
+  
+  // Apply initial background images to prevent black/empty backgrounds on load
+  if (miBg) {
+    miBg.style.background = cityData['paris'].bg;
+    miBg.style.backgroundSize = 'cover';
+    miBg.style.backgroundPosition = 'center';
+  }
+  if (diBg) {
+    diBg.style.backgroundImage = cityData['paris'].bg;
+    diBg.style.backgroundSize = 'cover';
+    diBg.style.backgroundPosition = 'center';
+  }
+
   renderThumbs('paris');
   renderFeatures(cityData['paris'].features);
   cutFrameId = requestAnimationFrame(applyMobileCut);
