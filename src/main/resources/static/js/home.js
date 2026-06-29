@@ -29,6 +29,7 @@
  * @returns {Function} Teardown cleanup function to unbind listeners and stop render loops.
  */
 export function mountHomePage() {
+  document.body.classList.add('route-home');
   // Track event listener teardown hooks
   const cleanups = [];
   
@@ -207,10 +208,12 @@ export function mountHomePage() {
     if (veil) veil.style.opacity = mapRange(p, 0.25, 0.48, 0, 1);
 
     // ── Phase 6: Portal Mask Opens (0.45 → 0.70) ──
+    const isMobile = window.innerWidth < 768;
     if (portal && inner) {
       const pp  = clamp((p - 0.45) / 0.25, 0, 1);
       portal.style.opacity = clamp(pp * 5, 0, 1);
-      const dim = easeInOut(pp) * 7000;
+      const targetDim = isMobile ? 3600 : 7000;
+      const dim = easeInOut(pp) * targetDim;
       portal.style.webkitMaskSize = `${dim}px ${dim}px`;
       portal.style.maskSize       = `${dim}px ${dim}px`;
       inner.style.transform       = `scale(${1.9 - pp * 0.9})`;
@@ -221,19 +224,21 @@ export function mountHomePage() {
       portal.style.maskSize       = '0px 0px';
     }
 
-    // ── Phase 7: Alley text fades in/out (0.62 → 0.88) ──
-    if (glass) glass.style.opacity = mapRange(p, 0.62, 0.7, 0, 1);
+    // ── Phase 7: Alley text fades in/out ──
+    const glassStart = 0.58;
+    const glassEnd   = 0.66;
+    if (glass) glass.style.opacity = mapRange(p, glassStart, glassEnd, 0, 1);
     if (text1) {
-      const tIn  = mapRange(p, 0.65, 0.73, 0, 1);
-      const tOut = mapRange(p, 0.8,  0.86, 1, 0);
+      const tIn  = mapRange(p, glassStart, glassEnd, 0, 1);
+      const tOut = isMobile ? mapRange(p, 0.92, 0.98, 1, 0) : mapRange(p, 0.88, 0.95, 1, 0);
       const opacity = Math.min(tIn, tOut);
       text1.style.opacity   = opacity;
-      text1.style.transform = `translateY(${(1 - tIn) * 40}px)`;
+      text1.style.transform = `translateY(${(1 - tIn) * 30}px)`;
       text1.style.pointerEvents = opacity > 0.1 ? 'auto' : 'none';
     }
 
-    // ── Phase 8: White Transition (0.84 → 0.97) ──
-    if (whiteBg) whiteBg.style.opacity = mapRange(p, 0.84, 0.97, 0, 1);
+    // ── Phase 8: White Transition ──
+    if (whiteBg) whiteBg.style.opacity = isMobile ? mapRange(p, 0.94, 0.99, 0, 1) : mapRange(p, 0.90, 0.98, 0, 1);
 
     // ── Navbar trigger ──
     if (navbar) {
@@ -567,6 +572,7 @@ export function mountHomePage() {
     if (driftFrameId) cancelAnimationFrame(driftFrameId);
     if (cutFrameId) cancelAnimationFrame(cutFrameId);
 
+    document.body.classList.remove('route-home');
     console.log('+33 Paris | Home Page Cleaned Up');
   };
 }

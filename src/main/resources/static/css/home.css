@@ -944,6 +944,56 @@
 }
 
 @media (max-width: 768px) {
+  #stage-wrapper {
+    height: 320vh;
+    background: #07101e !important;
+  }
+
+  #stage {
+    height: 100vh !important;
+    height: 100dvh !important;
+  }
+
+  #white-transition {
+    background: #080e18 !important;
+  }
+
+  #normal-content {
+    background: #080e18 !important;
+  }
+
+  #portal-inner {
+    background-position: center center;
+  }
+
+  .cinematic-text {
+    padding: 1rem;
+  }
+
+  .glass-panel {
+    padding: 2rem 1.25rem;
+    width: 92%;
+    margin: 0 auto;
+    background: rgba(4, 16, 31, 0.88);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+  }
+
+  .cinematic-text h2 {
+    font-size: 1.65rem;
+    line-height: 1.25;
+  }
+
+  .cinematic-text p {
+    font-size: 0.95rem;
+    margin-top: 1rem;
+  }
+
+  .cinematic-cta {
+    margin-top: 1.75rem;
+    padding: 0.85rem 1.25rem;
+    width: 100%;
+  }
+
   .cp-panel {
     grid-template-columns: 1fr;
     min-height: auto;
@@ -1658,6 +1708,15 @@
   line-height: 1;
   pointer-events: none;
   letter-spacing: -0.02em;
+}
+
+/* Ensure position: sticky works reliably inside flex layouts on mobile devices */
+body.route-home {
+  display: block !important;
+}
+
+body.route-home #app {
+  display: block !important;
 }
 
 @media (max-width: 768px) {
