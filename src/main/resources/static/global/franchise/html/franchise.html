@@ -1,0 +1,1503 @@
+<!--
+  FILE: franchise.html
+  ══════════════════════════════════════════════════
+  PURPOSE:
+  Franchise partnership model, application workflow, and investment overview.
+
+  RESPONSIBILITIES:
+  - Presents key expansion opportunities and partner statistics.
+  - Outlines the step-by-step application pipeline.
+  - Hosts the interactive world map pins showing potential market expansions.
+  - Renders franchisee testimonials and FAQs.
+  - Houses the secure candidate application form.
+
+  ARCHITECTURE NOTES:
+  - Dynamically mounted by /js/router.js inside the main application viewport.
+  - Linked to /js/franchise.js for entry animations, counter tickers, and accordion switches.
+
+  ACCESSIBILITY:
+  - Implements aria-expanded on FAQ triggers to support screen reader layout states.
+  - Application form inputs are connected explicitly via label-for tags to prevent input misinterpretations.
+  - Form validation errors are dynamically handled without introducing keyboard traps.
+
+  DEVELOPED BY : MIRRO
+  CODED BY     : SIVASURYA
+  ══════════════════════════════════════════════════
+-->
+<div class="franchise-page">
+  <!-- ═════════ HERO SECTION ═════════ -->
+  <section class="franchise-hero">
+    <div class="franchise-hero__bg">
+      <img src="/global/franchise/assets/luxury-business-space.png" alt="Luxury Business Space" class="franchise-hero__img" />
+      <div class="franchise-hero__overlay"></div>
+    </div>
+    <div class="container franchise-hero__content">
+      <h1 class="display-lg text-cream reveal reveal-1">Own a Franchise.<br/><em class="italic">Build Your Future.</em></h1>
+      <p class="t-body reveal reveal-2" style="max-width: 500px; color: #f0f0f0; margin: 24px 0 40px;">
+        Join our growing international network and launch a profitable premium business in your city.
+      </p>
+      <div class="franchise-hero__actions reveal reveal-3">
+        <a href="#apply" class="btn btn-copper">Apply for Franchise</a>
+        <a href="/global/franchise/assets/plus33_franchise_prospectus_v3.pdf" download="plus33-franchise-prospectus.pdf" class="btn btn-ghost-light">Download Brochure</a>
+      </div>
+    </div>
+    
+    <!-- ═════════ FLOATING STATS ═════════ -->
+    <div class="franchise-stats reveal reveal-4">
+      <div class="franchise-stats__item">
+        <div class="stats-val-group">
+          <span class="franchise-stats__val" data-target="15">0</span>
+        </div>
+        <span class="t-label">Global Cities</span>
+      </div>
+      <div class="franchise-stats__divider"></div>
+      <div class="franchise-stats__item">
+        <div class="stats-val-group">
+          <span class="franchise-stats__val" data-target="40">0</span><span class="franchise-stats__val">+</span>
+        </div>
+        <span class="t-label">Locations</span>
+      </div>
+      <div class="franchise-stats__divider"></div>
+      <div class="franchise-stats__item">
+        <div class="stats-val-group">
+          <span class="franchise-stats__val" data-target="300">0</span><span class="franchise-stats__val">%</span>
+        </div>
+        <span class="t-label">Avg 3Y Growth</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ HOW IT WORKS STEPS ═════════ -->
+  <section class="franchise-journey">
+    <!-- Spotlight Behind Header -->
+    <div class="journey-spotlight-glow"></div>
+    
+    <!-- Background Watermarks -->
+    <div class="journey-botanical-watermark-top-left">
+      <svg viewBox="0 0 200 300" fill="none" stroke="currentColor" stroke-width="0.7">
+        <path d="M10 280 C30 220, 50 150, 90 90 M10 280 C40 250, 80 230, 110 220" stroke-linecap="round"/>
+        <path d="M30 230 C45 210, 65 200, 75 185 C80 175, 70 165, 45 190" stroke-linecap="round"/>
+        <path d="M48 185 C68 165, 88 160, 95 142 C98 132, 85 125, 60 152" stroke-linecap="round"/>
+        <path d="M68 135 C88 115, 108 110, 115 92 C118 82, 105 75, 80 102" stroke-linecap="round"/>
+      </svg>
+    </div>
+    
+    <div class="journey-cafe-sketch-top-right">
+      <img src="/global/franchise/assets/cafe-sketch.png" alt="PLUS33 Cafe Flagship Sketch" />
+    </div>
+
+    <div class="container">
+      <!-- ═════════ MOBILE ONLY HEADER ═════════ -->
+      <div class="journey-header text-center reveal reveal-1 journey-mobile-layout">
+        <span class="micro-label font-gold-spacing">PROCESS</span>
+        <h2 class="journey-headline editorial-headline">
+          Your Journey Begins Here
+        </h2>
+        <p class="journey-intro-copy center-max-width">
+          A simple and refined path from application to launch.
+        </p>
+      </div>
+
+      <!-- ═════════ DESKTOP ONLY HEADER ═════════ -->
+      <div class="journey-header-desktop text-center reveal reveal-1 journey-desktop-layout">
+        <span class="desktop-process-label">THE PROCESS</span>
+        <div class="desktop-header-divider">
+          <span class="divider-diamond">◆</span>
+        </div>
+        <h2 class="desktop-process-headline">How Our Franchise</h2>
+        <h2 class="desktop-process-headline-italic">Model Works</h2>
+        <p class="desktop-process-subtitle">A carefully designed path from inquiry to successful launch.</p>
+      </div>
+
+      <!-- ═════════ MOBILE ONLY CARDS LAYOUT (5 Steps) ═════════ -->
+      <div class="journey-vertical-stack journey-mobile-layout">
+        
+        <!-- Card 1 -->
+        <div class="journey-luxury-row-card reveal reveal-2">
+          <div class="journey-glass-reflection"></div>
+          <div class="card-left-icon">
+            <div class="card-medallion-64">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+                <path d="M10 9H8"/>
+              </svg>
+            </div>
+          </div>
+          <div class="card-center-content">
+            <div class="step-num-row">
+              <span class="step-num-text">01</span>
+              <span class="step-num-divider"></span>
+            </div>
+            <h3 class="step-card-title">Apply Online</h3>
+            <p class="step-card-desc">Submit your business details and goals.</p>
+          </div>
+          <div class="card-right-action">
+            <button class="arrow-btn-48" aria-label="Next step">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="journey-luxury-row-card reveal reveal-2">
+          <div class="journey-glass-reflection"></div>
+          <div class="card-left-icon">
+            <div class="card-medallion-64">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="9" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke-linecap="round"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="card-center-content">
+            <div class="step-num-row">
+              <span class="step-num-text">02</span>
+              <span class="step-num-divider"></span>
+            </div>
+            <h3 class="step-card-title">Business Review</h3>
+            <p class="step-card-desc">Our specialists evaluate your application.</p>
+          </div>
+          <div class="card-right-action">
+            <button class="arrow-btn-48" aria-label="Next step">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="journey-luxury-row-card reveal reveal-2">
+          <div class="journey-glass-reflection"></div>
+          <div class="card-left-icon">
+            <div class="card-medallion-64">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+          </div>
+          <div class="card-center-content">
+            <div class="step-num-row">
+              <span class="step-num-text">03</span>
+              <span class="step-num-divider"></span>
+            </div>
+            <h3 class="step-card-title">Discovery Call</h3>
+            <p class="step-card-desc">We discuss vision, growth plans and fit.</p>
+          </div>
+          <div class="card-right-action">
+            <button class="arrow-btn-48" aria-label="Next step">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="journey-luxury-row-card reveal reveal-2">
+          <div class="journey-glass-reflection"></div>
+          <div class="card-left-icon">
+            <div class="card-medallion-64">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/>
+                <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="card-center-content">
+            <div class="step-num-row">
+              <span class="step-num-text">04</span>
+              <span class="step-num-divider"></span>
+            </div>
+            <h3 class="step-card-title">Training</h3>
+            <p class="step-card-desc">Complete onboarding and operational training.</p>
+          </div>
+          <div class="card-right-action">
+            <button class="arrow-btn-48" aria-label="Next step">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="journey-luxury-row-card reveal reveal-2">
+          <div class="journey-glass-reflection"></div>
+          <div class="card-left-icon">
+            <div class="card-medallion-64">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.5 16.5c-1.5 1.5-2.5 3.5-2.5 5.5 2 0 4-1 5.5-2.5" />
+                <path d="M12 15l-3-3m0 0l-4 1.5L2 12l5-5 5-5 5 5 5 5-5 5-1.5-4L12 15z" />
+              </svg>
+            </div>
+          </div>
+          <div class="card-center-content">
+            <div class="step-num-row">
+              <span class="step-num-text">05</span>
+              <span class="step-num-divider"></span>
+            </div>
+            <h3 class="step-card-title">Launch</h3>
+            <p class="step-card-desc">Open successfully with full support.</p>
+          </div>
+          <div class="card-right-action">
+            <button class="arrow-btn-48" aria-label="Next step">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ═════════ DESKTOP ONLY CARDS LAYOUT (6 Steps) ═════════ -->
+      <div class="journey-desktop-grid-container journey-desktop-layout">
+        <div class="journey-desktop-grid">
+          
+          <!-- Card 1 -->
+          <div class="journey-desktop-card">
+            <div class="journey-glass-reflection"></div>
+            <div class="desktop-card-top-row">
+              <div class="desktop-card-icon-container">
+                <div class="soft-inner-glow-overlay"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                  <path d="M10 9H8"/>
+                </svg>
+              </div>
+              <div class="desktop-card-step-num-wrap">
+                <span class="desktop-card-step-num">01</span>
+                <span class="desktop-card-step-divider"></span>
+              </div>
+            </div>
+            <div class="desktop-card-body">
+              <h3 class="desktop-card-title">Apply Online</h3>
+              <p class="desktop-card-desc">Submit your initial inquiry with details about your background and available capital.</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="journey-desktop-card">
+            <div class="journey-glass-reflection"></div>
+            <div class="desktop-card-top-row">
+              <div class="desktop-card-icon-container">
+                <div class="soft-inner-glow-overlay"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <div class="desktop-card-step-num-wrap">
+                <span class="desktop-card-step-num">02</span>
+                <span class="desktop-card-step-divider"></span>
+              </div>
+            </div>
+            <div class="desktop-card-body">
+              <h3 class="desktop-card-title">Business Review</h3>
+              <p class="desktop-card-desc">Our team reviews your application and schedules a preliminary virtual consultation.</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="journey-desktop-card">
+            <div class="journey-glass-reflection"></div>
+            <div class="desktop-card-top-row">
+              <div class="desktop-card-icon-container">
+                <div class="soft-inner-glow-overlay"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M22 12h-4M6 12H2M12 6V2M12 22v-4"/>
+                  <circle cx="12" cy="12" r="6"/>
+                  <circle cx="12" cy="12" r="2"/>
+                </svg>
+              </div>
+              <div class="desktop-card-step-num-wrap">
+                <span class="desktop-card-step-num">03</span>
+                <span class="desktop-card-step-divider"></span>
+              </div>
+            </div>
+            <div class="desktop-card-body">
+              <h3 class="desktop-card-title">Market Approval</h3>
+              <p class="desktop-card-desc">We analyze your proposed territory to ensure optimal market positioning and demand.</p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="journey-desktop-card">
+            <div class="journey-glass-reflection"></div>
+            <div class="desktop-card-top-row">
+              <div class="desktop-card-icon-container">
+                <div class="soft-inner-glow-overlay"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/>
+                  <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
+                </svg>
+              </div>
+              <div class="desktop-card-step-num-wrap">
+                <span class="desktop-card-step-num">04</span>
+                <span class="desktop-card-step-divider"></span>
+              </div>
+            </div>
+            <div class="desktop-card-body">
+              <h3 class="desktop-card-title">Training & Setup</h3>
+              <p class="desktop-card-desc">Comprehensive training in Paris and hands-on support for your boutique's build-out.</p>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="journey-desktop-card">
+            <div class="journey-glass-reflection"></div>
+            <div class="desktop-card-top-row">
+              <div class="desktop-card-icon-container">
+                <div class="soft-inner-glow-overlay"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.5 16.5c-1.5 1.5-2.5 3.5-2.5 5.5 2 0 4-1 5.5-2.5" />
+                  <path d="M12 15l-3-3m0 0l-4 1.5L2 12l5-5 5-5 5 5 5 5-5 5-1.5-4L12 15z" />
+                </svg>
+              </div>
+              <div class="desktop-card-step-num-wrap">
+                <span class="desktop-card-step-num">05</span>
+                <span class="desktop-card-step-divider"></span>
+              </div>
+            </div>
+            <div class="desktop-card-body">
+              <h3 class="desktop-card-title">Launch Support</h3>
+              <p class="desktop-card-desc">Our executive team arrives on-site to guarantee a flawless grand opening experience.</p>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="journey-desktop-card">
+            <div class="journey-glass-reflection"></div>
+            <div class="desktop-card-top-row">
+              <div class="desktop-card-icon-container">
+                <div class="soft-inner-glow-overlay"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M23 6l-9.5 9.5-5-5L1 18"/>
+                  <polyline points="17 6 23 6 23 12"/>
+                  <path d="M1 22h22"/>
+                </svg>
+              </div>
+              <div class="desktop-card-step-num-wrap">
+                <span class="desktop-card-step-num">06</span>
+                <span class="desktop-card-step-divider"></span>
+              </div>
+            </div>
+            <div class="desktop-card-body">
+              <h3 class="desktop-card-title">Growth Partnership</h3>
+              <p class="desktop-card-desc">Ongoing operational, marketing, and technological support to scale your business.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═════════ LUXURY BUSINESS MODEL SECTION ═════════ -->
+  <section class="franchise-business-model">
+    <div class="business-model-spotlight"></div>
+    <div class="container business-model-container">
+      
+      <!-- Split Columns Layout -->
+      <div class="business-model-split">
+        
+        <!-- Left Column (40% width) -->
+        <div class="business-model-left reveal reveal-1">
+          <!-- Leaf Watermark Background for Quote -->
+          <div class="leaf-watermark">
+            <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="0.8">
+              <path d="M100 190 C90 140, 110 80, 150 40 M100 190 C110 140, 90 80, 50 40" stroke-linecap="round"/>
+              <path d="M112 150 C130 140, 150 142, 160 130 C165 120, 155 110, 120 130" stroke-linecap="round"/>
+              <path d="M88 150 C70 140, 50 142, 40 130 C35 120, 45 110, 80 130" stroke-linecap="round"/>
+              <path d="M125 110 C145 95, 165 100, 172 85 C175 75, 162 68, 130 90" stroke-linecap="round"/>
+              <path d="M75 110 C55 95, 35 100, 28 85 C25 75, 38 68, 70 90" stroke-linecap="round"/>
+              <path d="M138 75 C155 60, 172 65, 178 50 C180 40, 168 35, 142 58" stroke-linecap="round"/>
+              <path d="M62 75 C45 60, 28 65, 22 50 C20 40, 32 35, 58 58" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <span class="micro-label">THE ADVANTAGE</span>
+          
+          <h2 class="luxury-headline">
+            A Business Built For<br/>
+            <span class="gold-italic">Longevity.</span>
+          </h2>
+          
+          <!-- Quote Block -->
+          <div class="luxury-quote-block">
+            <span class="quote-glyph">“</span>
+            <div class="quote-divider"></div>
+            <p class="quote-text">
+              "Every PLUS33 location is designed to deliver the same ritual, atmosphere, and profitability."
+            </p>
+            <div class="quote-divider"></div>
+          </div>
+          
+          <!-- Supporting Copy -->
+          <p class="supporting-copy">
+            Benefit from our established supply chains, signature roasts, and high-margin product mix. Our international branding instantly commands prestige and trust.
+          </p>
+          
+          <!-- Four Pillars Horizontal Block -->
+          <div class="luxury-pillars-container">
+            <!-- Pillar 1 -->
+            <div class="luxury-pillar">
+              <span class="pillar-num">01</span>
+              <div class="pillar-icon">
+                <!-- Crown outline SVG -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <path d="M2 4l3 12h14l3-12-5 6-4-6-4 6-5-6z" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M3 20h18" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h4 class="pillar-title">Brand Prestige</h4>
+              <p class="pillar-desc">Internationally loved brand with premium positioning.</p>
+            </div>
+            
+            <div class="pillar-divider-line"></div>
+            
+            <!-- Pillar 2 -->
+            <div class="luxury-pillar">
+              <span class="pillar-num">02</span>
+              <div class="pillar-icon">
+                <!-- Refined Gear SVG -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                </svg>
+              </div>
+              <h4 class="pillar-title">Operational Excellence</h4>
+              <p class="pillar-desc">Proven systems that deliver consistency and efficiency.</p>
+            </div>
+            
+            <div class="pillar-divider-line"></div>
+            
+            <!-- Pillar 3 -->
+            <div class="luxury-pillar">
+              <span class="pillar-num">03</span>
+              <div class="pillar-icon">
+                <!-- Hospitality Team SVG -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <h4 class="pillar-title">Partner Support</h4>
+              <p class="pillar-desc">End-to-end support from setup to sustained growth.</p>
+            </div>
+            
+            <div class="pillar-divider-line"></div>
+            
+            <!-- Pillar 4 -->
+            <div class="luxury-pillar">
+              <span class="pillar-num">04</span>
+              <div class="pillar-icon">
+                <!-- Growth Chart SVG -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <path d="M3 3v18h18"/>
+                  <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                </svg>
+              </div>
+              <h4 class="pillar-title">Scalable Growth</h4>
+              <p class="pillar-desc">A future-ready model built for multi-unit expansion.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Column (60% width) -->
+        <div class="business-model-right reveal reveal-2">
+          <!-- Investment Ledger Centurion Card -->
+          <div class="investment-ledger-card">
+            <div class="ledger-reflection"></div>
+            <div class="ledger-header">
+              <div class="ledger-header-left">
+                <span class="ledger-eyebrow">INVESTMENT LEDGER</span>
+              </div>
+              <div class="ledger-brand">
+                <span class="ledger-brand-main">PLUS33</span>
+                <span class="ledger-brand-sub">CAFÉ FRANÇAIS</span>
+              </div>
+            </div>
+            
+            <!-- Ledger Metrics list -->
+            <div class="ledger-metrics">
+              
+              <!-- Metric 1: Revenue -->
+              <div class="ledger-metric-item">
+                <div class="metric-left">
+                  <div class="metric-icon-circle">
+                    <span class="currency-symbol">$</span>
+                  </div>
+                  <div class="metric-labels">
+                    <span class="metric-primary-label">Average Store Revenue</span>
+                    <span class="metric-secondary-label">Per Month</span>
+                  </div>
+                </div>
+                <div class="metric-value">
+                  <span class="value-highlight">$35,000+</span>
+                </div>
+              </div>
+              
+              <div class="ledger-divider-line"></div>
+              
+              <!-- Metric 2: Margin -->
+              <div class="ledger-metric-item">
+                <div class="metric-left">
+                  <div class="metric-icon-circle">
+                    <span class="currency-symbol">%</span>
+                  </div>
+                  <div class="metric-labels">
+                    <span class="metric-primary-label">Average Gross Margin</span>
+                  </div>
+                </div>
+                <div class="metric-value">
+                  <span class="value-highlight">65%+</span>
+                </div>
+              </div>
+              
+              <div class="ledger-divider-line"></div>
+              
+              <!-- Metric 3: Payback -->
+              <div class="ledger-metric-item">
+                <div class="metric-left">
+                  <div class="metric-icon-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                      <line x1="16" y1="2" x2="16" y2="6"/>
+                      <line x1="8" y1="2" x2="8" y2="6"/>
+                      <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                  </div>
+                  <div class="metric-labels">
+                    <span class="metric-primary-label">Payback Period</span>
+                  </div>
+                </div>
+                <div class="metric-value">
+                  <span class="value-highlight">18–24 <span class="val-small">Months</span></span>
+                </div>
+              </div>
+              
+              <div class="ledger-divider-line"></div>
+              
+              <!-- Metric 4: Satisfaction -->
+              <div class="ledger-metric-item">
+                <div class="metric-left">
+                  <div class="metric-icon-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                  </div>
+                  <div class="metric-labels">
+                    <span class="metric-primary-label">Partner Satisfaction</span>
+                  </div>
+                </div>
+                <div class="metric-value">
+                  <span class="value-highlight">4.9 / 5</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Growth Indicators -->
+            <div class="ledger-growth-section">
+              <span class="growth-section-title">GROWTH INDICATORS</span>
+              
+              <div class="growth-indicators-list">
+                <!-- Indicator 1 -->
+                <div class="growth-indicator-item">
+                  <div class="indicator-header">
+                    <div class="indicator-left">
+                      <div class="indicator-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                          <path d="M3 3v18h18"/>
+                          <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                        </svg>
+                      </div>
+                      <span class="indicator-name">Revenue Growth (YoY)</span>
+                    </div>
+                    <span class="indicator-value">+34%</span>
+                  </div>
+                  <div class="indicator-track">
+                    <div class="indicator-bar" data-width="34%">
+                      <div class="indicator-node"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Indicator 2 -->
+                <div class="growth-indicator-item">
+                  <div class="indicator-header">
+                    <div class="indicator-left">
+                      <div class="indicator-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                          <circle cx="12" cy="12" r="10"/>
+                          <line x1="2" y1="12" x2="22" y2="12"/>
+                          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                      </div>
+                      <span class="indicator-name">Brand Expansion</span>
+                    </div>
+                    <span class="indicator-value">+25%</span>
+                  </div>
+                  <div class="indicator-track">
+                    <div class="indicator-bar" data-width="25%">
+                      <div class="indicator-node"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Indicator 3 -->
+                <div class="growth-indicator-item">
+                  <div class="indicator-header">
+                    <div class="indicator-left">
+                      <div class="indicator-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                          <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                          <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
+                        </svg>
+                      </div>
+                      <span class="indicator-name">Training & Support</span>
+                    </div>
+                    <span class="indicator-value">+100%</span>
+                  </div>
+                  <div class="indicator-track">
+                    <div class="indicator-bar" data-width="100%">
+                      <div class="indicator-node"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div> <!-- End business-model-split -->
+      
+      <!-- Bottom Trust Bar -->
+      <div class="business-model-trust-bar reveal reveal-3">
+        <!-- Background Storefront Sketch Watermark -->
+        <div class="trust-bar-bg-storefront">
+          <svg viewBox="0 0 400 150" fill="none" stroke="currentColor" stroke-width="0.6" stroke-opacity="0.15">
+            <!-- Storefront outline sketch -->
+            <rect x="10" y="40" width="380" height="100" rx="1"/>
+            <!-- Canopy/Awning -->
+            <path d="M5 40 L395 40 L380 65 L20 65 Z" fill="none"/>
+            <path d="M20 65 L20 40 M60 65 L60 40 M100 65 L100 40 M140 65 L140 40 M180 65 L180 40 M220 65 L220 40 M260 65 L260 40 M300 65 L300 40 M340 65 L340 40 M380 65 L380 40"/>
+            <!-- Canopy Lettering -->
+            <text x="200" y="56" fill="currentColor" fill-opacity="0.25" stroke="none" font-family="var(--font-serif)" font-size="10" font-weight="600" letter-spacing="3" text-anchor="middle">PLUS33</text>
+            <!-- Large Windows -->
+            <rect x="30" y="75" width="100" height="65"/>
+            <line x1="80" y1="75" x2="80" y2="140"/>
+            <rect x="270" y="75" width="100" height="65"/>
+            <line x1="320" y1="75" x2="320" y2="140"/>
+            <!-- Center Door -->
+            <rect x="165" y="75" width="70" height="65"/>
+            <line x1="200" y1="75" x2="200" y2="140"/>
+            <!-- Transom windows -->
+            <line x1="10" y1="75" x2="390" y2="75"/>
+          </svg>
+        </div>
+        
+        <div class="trust-bar-content">
+          <div class="trust-left">
+            <div class="trust-seal-wrap">
+              <div class="trust-seal">
+                <span class="seal-inner-num">33</span>
+                <svg viewBox="0 0 100 100" class="seal-circular-text">
+                  <path id="seal-text-path" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none"/>
+                  <text><textPath href="#seal-text-path" fill="currentColor">· CAFÉ FRANÇAIS · PLUS33 ·</textPath></text>
+                </svg>
+              </div>
+            </div>
+            <div class="trust-narrative">
+              <span class="trust-p-primary">More than a partnership.</span>
+              <span class="trust-p-secondary">It's a shared legacy in the making.</span>
+            </div>
+          </div>
+          
+          <div class="trust-metrics">
+            <div class="trust-metric-col">
+              <span class="trust-val">1M+</span>
+              <span class="trust-lbl">Cups Served</span>
+            </div>
+            <div class="trust-col-divider"></div>
+            <div class="trust-metric-col">
+              <span class="trust-val">20K+</span>
+              <span class="trust-lbl">Members</span>
+            </div>
+            <div class="trust-col-divider"></div>
+            <div class="trust-metric-col">
+              <span class="trust-val">95%</span>
+              <span class="trust-lbl">Partner Retention</span>
+            </div>
+            <div class="trust-col-divider"></div>
+            <div class="trust-metric-col">
+              <span class="trust-val">4.9/5</span>
+              <span class="trust-lbl">Guest Satisfaction</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+
+  <!-- ═════════ PLUS33 FRANCHISE PROSPECTUS REDESIGN ═════════ -->
+  <section class="franchise-prospectus">
+    <!-- Spotlight Behind Header -->
+    <div class="prospectus-spotlight-glow"></div>
+    
+    <!-- Background Watermark/Sketches -->
+    <div class="prospectus-watermark-sketch">
+      <svg viewBox="0 0 400 300" fill="none" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.08">
+        <path d="M 20,280 C 60,200, 100,100, 200,50 C 300,100, 340,200, 380,280" stroke-linecap="round"/>
+        <path d="M 100,180 L 300,180" stroke-linecap="round"/>
+        <path d="M 150,140 L 250,140" stroke-linecap="round"/>
+        <!-- Embossed logo circle pattern -->
+        <circle cx="200" cy="110" r="24" stroke-dasharray="3, 5"/>
+        <text x="200" y="114" text-anchor="middle" font-size="12" fill="currentColor" fill-opacity="0.08" stroke="none" font-family="var(--font-serif)">33</text>
+      </svg>
+    </div>
+
+    <div class="container prospectus-container">
+      <div class="prospectus-split">
+        
+        <!-- Left Column (45% Width) -->
+        <div class="prospectus-left reveal reveal-1">
+          <span class="micro-label text-copper">DOCUMENTATION</span>
+          <div class="prospectus-micro-divider"></div>
+          
+          <h2 class="prospectus-headline">
+            The Investment<br/>
+            <span class="gold-italic">Prospectus</span>
+          </h2>
+          
+          <p class="prospectus-description">
+            Explore the complete PLUS33 partnership prospectus, including financial projections, boutique formats, expansion opportunities, operational support, and long-term growth strategy.<br/><br/>
+            Crafted for serious hospitality partners seeking a premium brand opportunity.
+          </p>
+
+          <!-- Inside the Prospectus Section -->
+          <div class="prospectus-inside">
+            <span class="inside-eyebrow">INSIDE THE PROSPECTUS</span>
+            <div class="inside-columns">
+              <div class="inside-col">
+                <div class="inside-item">
+                  <span class="item-bullet"></span>
+                  <span>Boutique Store Formats</span>
+                </div>
+                <div class="inside-divider"></div>
+                <div class="inside-item">
+                  <span class="item-bullet"></span>
+                  <span>Financial Projections</span>
+                </div>
+                <div class="inside-divider"></div>
+                <div class="inside-item">
+                  <span class="item-bullet"></span>
+                  <span>Territory Opportunities</span>
+                </div>
+              </div>
+              
+              <div class="vertical-gold-line"></div>
+              
+              <div class="inside-col">
+                <div class="inside-item">
+                  <span class="item-bullet"></span>
+                  <span>Revenue Models</span>
+                </div>
+                <div class="inside-divider"></div>
+                <div class="inside-item">
+                  <span class="item-bullet"></span>
+                  <span>Brand Standards</span>
+                </div>
+                <div class="inside-divider"></div>
+                <div class="inside-item">
+                  <span class="item-bullet"></span>
+                  <span>Growth Roadmap</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA and Exclusivity Note -->
+          <div class="prospectus-cta-group">
+            <a href="/global/franchise/assets/plus33_franchise_prospectus_v3.pdf" download="plus33-franchise-prospectus.pdf" class="btn-prospectus-cta">
+              <span>REQUEST THE PROSPECTUS</span>
+              <span class="cta-arrow">&rarr;</span>
+            </a>
+            <p class="exclusivity-note">Available exclusively to qualified applicants.</p>
+          </div>
+        </div>
+
+        <!-- Right Column (55% Width) -->
+        <div class="prospectus-right reveal reveal-2">
+          <div class="prospectus-visual-container">
+            <div class="prospectus-book-wrapper">
+              <img src="/global/franchise/assets/franchise-brochure.png" alt="PLUS33 Franchise Prospectus" class="prospectus-book-img" />
+            </div>
+            
+            <!-- Document Information Badges -->
+            <div class="prospectus-metadata">
+              <span class="metadata-badge">2025 Edition</span>
+              <span class="metadata-badge">Private Distribution</span>
+              <span class="metadata-badge">Updated Quarterly</span>
+              <span class="metadata-badge">Franchise Development Guide</span>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- End prospectus-split -->
+
+      <!-- Trust Strip (Below layout columns) -->
+      <div class="prospectus-trust-strip reveal reveal-3">
+        <div class="trust-strip-item">
+          <span class="trust-val">20K+</span>
+          <span class="trust-lbl">Members</span>
+        </div>
+        
+        <div class="trust-strip-divider"></div>
+        
+        <div class="trust-strip-item">
+          <span class="trust-val">95%</span>
+          <span class="trust-lbl">Partner Retention</span>
+        </div>
+        
+        <div class="trust-strip-divider"></div>
+        
+        <div class="trust-strip-item">
+          <span class="trust-val">11+</span>
+          <span class="trust-lbl">Countries</span>
+        </div>
+        
+        <div class="trust-strip-divider"></div>
+        
+        <div class="trust-strip-item">
+          <span class="trust-val">4.9/5</span>
+          <span class="trust-lbl">Guest Satisfaction</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ GLOBAL EXPANSION MAP ═════════ -->
+  <section class="franchise-map section">
+    <div class="container">
+      <div class="map-header reveal reveal-1">
+        <h2 class="display-md text-cream">Global<br/><em class="italic">Expansion</em></h2>
+        <p class="t-body" style="color: #888; max-width: 400px; margin-top: 16px;">
+          Currently seeking visionary partners to expand our luxury presence in major cultural centers all over the world.
+        </p>
+      </div>
+
+      <!-- City Selector Quick Links (globally mapped) -->
+      <div class="map-city-selector reveal reveal-1">
+        <button class="map-city-btn" data-city="Paris">
+          <div class="city-label-wrap">
+            <span class="city-num">01</span>
+            <span class="city-name">PARIS</span>
+          </div>
+          <span class="country-flag-underline flag-fra"></span>
+        </button>
+        <button class="map-city-btn" data-city="London">
+          <div class="city-label-wrap">
+            <span class="city-num">02</span>
+            <span class="city-name">LONDON</span>
+          </div>
+          <span class="country-flag-underline flag-gbr"></span>
+        </button>
+        <button class="map-city-btn" data-city="New York City">
+          <div class="city-label-wrap">
+            <span class="city-num">03</span>
+            <span class="city-name">NEW YORK</span>
+          </div>
+          <span class="country-flag-underline flag-usa"></span>
+        </button>
+        <button class="map-city-btn" data-city="Tokyo">
+          <div class="city-label-wrap">
+            <span class="city-num">04</span>
+            <span class="city-name">TOKYO</span>
+          </div>
+          <span class="country-flag-underline flag-jpn"></span>
+        </button>
+        <button class="map-city-btn" data-city="Dubai">
+          <div class="city-label-wrap">
+            <span class="city-num">05</span>
+            <span class="city-name">DUBAI</span>
+          </div>
+          <span class="country-flag-underline flag-are"></span>
+        </button>
+        <button class="map-city-btn" data-city="Singapore">
+          <div class="city-label-wrap">
+            <span class="city-num">06</span>
+            <span class="city-name">SINGAPORE</span>
+          </div>
+          <span class="country-flag-underline flag-sgp"></span>
+        </button>
+        <button class="map-city-btn" data-city="Sydney">
+          <div class="city-label-wrap">
+            <span class="city-num">07</span>
+            <span class="city-name">SYDNEY</span>
+          </div>
+          <span class="country-flag-underline flag-aus"></span>
+        </button>
+        <button class="map-city-btn" data-city="São Paulo">
+          <div class="city-label-wrap">
+            <span class="city-num">08</span>
+            <span class="city-name">SÃO PAULO</span>
+          </div>
+          <span class="country-flag-underline flag-bra"></span>
+        </button>
+        <button class="map-city-btn" data-city="Milan">
+          <div class="city-label-wrap">
+            <span class="city-num">09</span>
+            <span class="city-name">MILAN</span>
+          </div>
+          <span class="country-flag-underline flag-ita"></span>
+        </button>
+        <button class="map-city-btn" data-city="Istanbul">
+          <div class="city-label-wrap">
+            <span class="city-num">10</span>
+            <span class="city-name">ISTANBUL</span>
+          </div>
+          <span class="country-flag-underline flag-tur"></span>
+        </button>
+      </div>
+
+      <div class="map-visual reveal reveal-2">
+        <!-- Leaflet Map Container -->
+        <div id="franchise-map" class="leaflet-map-element"></div>
+        
+        <!-- Map Reset Overlay Button -->
+        <div class="map-controls-overlay">
+          <div></div> <!-- Spacer to push the reset button to the right -->
+          <button id="franchise-map-reset-btn" class="map-reset-btn" aria-label="Reset map view to default">
+            <span>Reset View</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+              <path d="M3 3v5h5"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ SUCCESS STORIES ═════════ -->
+  <section class="franchise-success section">
+    <div class="container">
+      <div class="section-header text-center reveal reveal-1">
+        <span class="t-label">Testimonials</span>
+        <h2 class="display-md text-navy" style="margin-top: 16px;">Success <em class="italic">Stories</em></h2>
+      </div>
+      
+      <div class="success-carousel reveal reveal-2">
+        <div class="success-card">
+          <div class="success-quote">
+            "The operational support from Paris is unparalleled. We hit our year-one revenue target in just seven months."
+          </div>
+          <div class="success-author">
+            <img src="/global/franchise/assets/franchise-owner-1.png" alt="Owner" />
+            <div>
+              <span class="name">Julian Hughes</span>
+              <span class="location">London Franchisee</span>
+            </div>
+          </div>
+        </div>
+        <div class="success-card">
+          <div class="success-quote">
+            "Bringing +33 to Dubai was the best business decision I've made. The premium brand identity attracts exactly the right clientele."
+          </div>
+          <div class="success-author">
+            <img src="/global/franchise/assets/franchise-owner-2.png" alt="Owner" />
+            <div>
+              <span class="name">Sarah Al-Fayed</span>
+              <span class="location">Dubai Franchisee</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ LUXURY QUALIFICATIONS & FAQ SECTION ═════════ -->
+  <section class="franchise-luxury-faq">
+    <div class="faq-spotlight-glow"></div>
+    <div class="container faq-split-container">
+      
+      <!-- Left Column (Qualifications - 40% width) -->
+      <div class="faq-left-col reveal reveal-1">
+        <!-- Botanical Watermark Background -->
+        <div class="botanical-watermark-left">
+          <svg viewBox="0 0 200 300" fill="none" stroke="currentColor" stroke-width="0.7" stroke-opacity="0.25">
+            <path d="M10 280 C30 220, 50 150, 90 90 M10 280 C40 250, 80 230, 110 220" stroke-linecap="round"/>
+            <path d="M30 230 C45 210, 65 200, 75 185 C80 175, 70 165, 45 190" stroke-linecap="round"/>
+            <path d="M48 185 C68 165, 88 160, 95 142 C98 132, 85 125, 60 152" stroke-linecap="round"/>
+            <path d="M68 135 C88 115, 108 110, 115 92 C118 82, 105 75, 80 102" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <span class="micro-label">QUALIFICATIONS</span>
+        
+        <h2 class="luxury-headline">
+          Who Can<br/>
+          <span class="gold-italic">Apply?</span>
+        </h2>
+        
+        <p class="faq-intro-copy">
+          "We look for partners who share our passion for excellence, hospitality, and long-term growth."
+        </p>
+        
+        <!-- Qualification Cards -->
+        <div class="qualification-cards-list">
+          <!-- Item 1 -->
+          <div class="qualification-card">
+            <div class="q-icon-wrap">
+              <!-- Executive Profile SVG -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <div class="q-card-divider"></div>
+            <span class="q-card-text">Strong business leadership and management skills</span>
+          </div>
+          
+          <!-- Item 2 -->
+          <div class="qualification-card">
+            <div class="q-icon-wrap">
+              <!-- Stacked Coins SVG -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="8" r="6" />
+                <circle cx="18" cy="18" r="4" />
+                <path d="M12 18a6 6 0 0 0-6-6" />
+              </svg>
+            </div>
+            <div class="q-card-divider"></div>
+            <span class="q-card-text">Minimum liquid capital of $100,000</span>
+          </div>
+          
+          <!-- Item 3 -->
+          <div class="qualification-card">
+            <div class="q-icon-wrap">
+              <!-- Magnifying Glass SVG -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </div>
+            <div class="q-card-divider"></div>
+            <span class="q-card-text">Deep understanding of the local premium market</span>
+          </div>
+          
+          <!-- Item 4 -->
+          <div class="qualification-card">
+            <div class="q-icon-wrap">
+              <!-- Luxury Shield SVG -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <polygon points="12 8 13.09 11.26 16.5 11.27 13.7 13.14 14.88 16.02 12 14.27 9.12 16.02 10.3 13.14 7.5 11.27 10.91 11.26 12 8"/>
+              </svg>
+            </div>
+            <div class="q-card-divider"></div>
+            <span class="q-card-text">Commitment to maintaining luxury brand standards</span>
+          </div>
+        </div>
+        
+        <!-- Bottom Stamp & Seal Group -->
+        <div class="faq-brand-stamp-row">
+          <div class="stamp-line"></div>
+          <div class="faq-seal-stamp">
+            <div class="trust-seal">
+              <span class="seal-inner-num">33</span>
+              <svg viewBox="0 0 100 100" class="seal-circular-text">
+                <path id="faq-seal-text-path" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none"/>
+                <text><textPath href="#faq-seal-text-path" fill="currentColor">· CAFÉ FRANÇAIS · PLUS33 ·</textPath></text>
+              </svg>
+            </div>
+          </div>
+          <div class="stamp-line"></div>
+        </div>
+      </div>
+      
+      <!-- Right Column (FAQ - 60% width) -->
+      <div class="faq-right-col reveal reveal-2">
+        <span class="micro-label">ANSWERS</span>
+        
+        <h2 class="luxury-headline">
+          Frequently Asked<br/>
+          <span class="gold-italic">Questions</span>
+        </h2>
+        
+        <!-- Luxury Accordions list -->
+        <div class="luxury-faq-accordion">
+          <!-- FAQ Item 1 -->
+          <div class="luxury-faq-item">
+            <button class="faq-card-header" aria-expanded="false">
+              <div class="faq-header-left">
+                <span class="faq-index">01</span>
+                <div class="faq-card-divider"></div>
+                <span class="faq-question-text">How long does approval take?</span>
+              </div>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-card-body">
+              <div class="faq-body-divider"></div>
+              <p class="faq-answer-text">The initial review takes 1-2 weeks. Full approval and agreement signing typically takes 30-45 days.</p>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 2 -->
+          <div class="luxury-faq-item">
+            <button class="faq-card-header" aria-expanded="false">
+              <div class="faq-header-left">
+                <span class="faq-index">02</span>
+                <div class="faq-card-divider"></div>
+                <span class="faq-question-text">Do you provide training?</span>
+              </div>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-card-body">
+              <div class="faq-body-divider"></div>
+              <p class="faq-answer-text">Yes, we provide 4 weeks of comprehensive training in Paris, covering operations, barista skills, and management.</p>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 3 -->
+          <div class="luxury-faq-item">
+            <button class="faq-card-header" aria-expanded="false">
+              <div class="faq-header-left">
+                <span class="faq-index">03</span>
+                <div class="faq-card-divider"></div>
+                <span class="faq-question-text">Is prior F&B experience needed?</span>
+              </div>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-card-body">
+              <div class="faq-body-divider"></div>
+              <p class="faq-answer-text">While beneficial, it is not strictly required if you have strong business acumen and hire an experienced F&B general manager.</p>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 4 -->
+          <div class="luxury-faq-item">
+            <button class="faq-card-header" aria-expanded="false">
+              <div class="faq-header-left">
+                <span class="faq-index">04</span>
+                <div class="faq-card-divider"></div>
+                <span class="faq-question-text">Can I own multiple franchises?</span>
+              </div>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-card-body">
+              <div class="faq-body-divider"></div>
+              <p class="faq-answer-text">Yes, we offer area development agreements for qualified partners looking to open multiple locations in a specific territory.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Luxury Storefront CTA panel -->
+        <a href="#apply" class="luxury-cta-card-link">
+          <div class="luxury-cta-card">
+            <div class="cta-reflection"></div>
+            <div class="cta-left-group">
+              <div class="cta-icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <rect x="2" y="10" width="20" height="11" rx="1"/>
+                  <path d="M2 10l3-6h14l3 6"/>
+                  <path d="M12 10V6"/>
+                  <circle cx="6" cy="15" r="1.5"/>
+                  <circle cx="18" cy="15" r="1.5"/>
+                </svg>
+              </div>
+              <span class="cta-headline">Let's build something <span class="gold-italic">exceptional together.</span></span>
+            </div>
+            <span class="cta-button-label">APPLY NOW &rarr;</span>
+          </div>
+        </a>
+      </div>
+      
+    </div>
+  </section>
+
+
+  <!-- ═════════ LUXURY FRANCHISE APPLICATION INVITATION ═════════ -->
+  <section id="apply" class="franchise-apply">
+    <!-- Background Cafe Storefront Watermark Sketch & Ambient glows -->
+    <div class="apply-cafe-sketch">
+      <img src="/global/franchise/assets/cafe-sketch.png" alt="PLUS33 Cafe Storefront Sketch" />
+    </div>
+    <div class="apply-ambient-glow-spot"></div>
+    <div class="apply-gold-light-leak"></div>
+
+    <div class="container apply-split-container">
+      
+      <!-- Left Column (45% Storytelling Side) -->
+      <div class="apply-storytelling-col reveal reveal-1">
+        <span class="micro-label text-copper">TAKE THE FIRST STEP</span>
+        <div class="apply-micro-divider"></div>
+        
+        <h2 class="apply-hero-headline">
+          Apply for<br/>
+          <span class="gold-italic">Franchise</span>
+        </h2>
+        
+        <p class="apply-invitation-copy">
+          Join a carefully selected network of partners who share our commitment to hospitality, craftsmanship, and long-term growth.<br/><br/>
+          <span class="copy-highlight">The journey begins with a conversation.</span>
+        </p>
+        
+        <!-- Partnership Pillars -->
+        <div class="apply-pillars-list">
+          
+          <!-- Pillar 1 -->
+          <div class="apply-pillar-item">
+            <div class="apply-pillar-icon-wrap">
+              <!-- Outline Partner Profile SVG -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <div class="apply-pillar-details">
+              <h4 class="apply-pillar-title">Dedicated Partner Manager</h4>
+              <p class="apply-pillar-desc">A personal advisor guiding every stage of your journey.</p>
+            </div>
+          </div>
+          
+          <div class="apply-pillar-divider"></div>
+          
+          <!-- Pillar 2 -->
+          <div class="apply-pillar-item">
+            <div class="apply-pillar-icon-wrap">
+              <!-- Outline Territory SVG -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                <path d="M2 12h20"/>
+              </svg>
+            </div>
+            <div class="apply-pillar-details">
+              <h4 class="apply-pillar-title">Exclusive Territory Rights</h4>
+              <p class="apply-pillar-desc">Protected markets designed for sustainable growth.</p>
+            </div>
+          </div>
+          
+          <div class="apply-pillar-divider"></div>
+          
+          <!-- Pillar 3 -->
+          <div class="apply-pillar-item">
+            <div class="apply-pillar-icon-wrap">
+              <!-- Outline Gear/Operations SVG -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+            </div>
+            <div class="apply-pillar-details">
+              <h4 class="apply-pillar-title">Operational Excellence</h4>
+              <p class="apply-pillar-desc">Proven systems and hospitality standards.</p>
+            </div>
+          </div>
+          
+          <div class="apply-pillar-divider"></div>
+          
+          <!-- Pillar 4 -->
+          <div class="apply-pillar-item">
+            <div class="apply-pillar-icon-wrap">
+              <!-- Outline Trend Line SVG -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M23 6l-9.5 9.5-5-5L1 18"/>
+                <path d="M17 6h6v6"/>
+              </svg>
+            </div>
+            <div class="apply-pillar-details">
+              <h4 class="apply-pillar-title">Long-Term Growth Support</h4>
+              <p class="apply-pillar-desc">Continuous guidance beyond launch.</p>
+            </div>
+          </div>
+          
+        </div>
+        
+        <!-- Trust Element Divider and Country codes -->
+        <div class="apply-trust-divider"></div>
+        <div class="apply-trust-container">
+          <span class="apply-trust-text text-cream">Trusted by partners across Europe and beyond.</span>
+          <div class="apply-trust-countries text-cream">
+            <div class="country-item">
+              <span class="country-code">FRA</span>
+              <span class="country-flag-underline flag-fra"></span>
+            </div>
+            <div class="country-item">
+              <span class="country-code">GBR</span>
+              <span class="country-flag-underline flag-gbr"></span>
+            </div>
+            <div class="country-item">
+              <span class="country-code">ITA</span>
+              <span class="country-flag-underline flag-ita"></span>
+            </div>
+            <div class="country-item">
+              <span class="country-code">ESP</span>
+              <span class="country-flag-underline flag-esp"></span>
+            </div>
+            <div class="country-item">
+              <span class="country-code">NLD</span>
+              <span class="country-flag-underline flag-nld"></span>
+            </div>
+            <div class="country-item">
+              <span class="country-code">AUT</span>
+              <span class="country-flag-underline flag-aut"></span>
+            </div>
+            <div class="country-item">
+              <span class="country-code">DEU</span>
+              <span class="country-flag-underline flag-deu"></span>
+            </div>
+            <div class="country-item">
+              <span class="country-code">GRC</span>
+              <span class="country-flag-underline flag-grc"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Column (55% Application Experience Side) -->
+      <div class="apply-form-col reveal reveal-2">
+        <!-- Luxury Enquiry Card Panel -->
+        <div class="luxury-enquiry-card">
+          <div class="enquiry-reflection"></div>
+          <div class="enquiry-glow-spot"></div>
+          
+          <!-- Form Header -->
+          <div class="enquiry-header text-center">
+            <div class="enquiry-header-logo-row">
+              <div class="enquiry-logo-line"></div>
+              <!-- Gold Fleur-de-lis / Luxury Crest SVG -->
+              <div class="enquiry-fleur-de-lis text-copper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2C12 2 14.5 6 14.5 11.5C14.5 16 13 18 12 21C11 18 9.5 16 9.5 11.5C9.5 6 12 2 12 2Z" />
+                  <path d="M12 12C10 10 6.5 9 5 11C3 13.5 3.5 16.5 6 18C8.5 19.5 11 17 12 15" />
+                  <path d="M12 12C14 10 17.5 9 19 11C21 13.5 20.5 16.5 18 18C15.5 19.5 13 17 12 15" />
+                  <path d="M8.5 15C10 14.2 14 14.2 15.5 15" />
+                </svg>
+              </div>
+              <div class="enquiry-logo-line"></div>
+            </div>
+            
+            <h3 class="enquiry-title text-cream">Begin Your Journey</h3>
+            <p class="enquiry-subtitle">Tell us about yourself and your ambitions.</p>
+          </div>
+          
+          <!-- Premium Form -->
+          <form class="luxury-enquiry-form" id="franchise-form">
+            <div class="form-row">
+              <div class="luxury-input-group">
+                <input type="text" id="f-name" required />
+                <label for="f-name">Full Name</label>
+                <div class="input-gold-bar"></div>
+              </div>
+              <div class="luxury-input-group">
+                <input type="email" id="f-email" required />
+                <label for="f-email">Email Address</label>
+                <div class="input-gold-bar"></div>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="luxury-input-group">
+                <input type="text" id="f-phone" required />
+                <label for="f-phone">Phone Number</label>
+                <div class="input-gold-bar"></div>
+              </div>
+              <div class="luxury-input-group">
+                <input type="text" id="f-city" required />
+                <label for="f-city">Target City & Country</label>
+                <div class="input-gold-bar"></div>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="luxury-input-group">
+                <select id="f-capital" required>
+                  <option value="" disabled selected></option>
+                  <option value="100-250">$100k - $250k</option>
+                  <option value="250-500">$250k - $500k</option>
+                  <option value="500+">$500k+</option>
+                </select>
+                <label for="f-capital" class="select-label">Available Investment Capital</label>
+                <div class="input-gold-bar"></div>
+              </div>
+            </div>
+            
+            <div class="luxury-input-group vision-textarea-group">
+              <textarea id="f-msg" rows="4" placeholder="What inspires you to bring the PLUS33 experience to your city?" required></textarea>
+              <label for="f-msg">Tell Us About Your Vision</label>
+              <div class="input-gold-bar"></div>
+            </div>
+            
+            <!-- CTA Button -->
+            <button type="submit" class="luxury-submit-btn">
+              <span>REQUEST A PRIVATE CONSULTATION</span>
+              <span class="btn-arrow">&rarr;</span>
+            </button>
+            
+            <!-- Confidence bar -->
+            <div class="enquiry-confidence text-center">
+              <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              <span>Your information is treated with complete confidentiality.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Bottom Embossed PLUS33 Gold Foil Signature Seal Lockup -->
+    <div class="apply-brand-seal-signature reveal reveal-3">
+      <div class="sig-seal-line"></div>
+      <div class="sig-foil-seal">
+        <span class="sig-foil-main">PLUS33</span>
+        <span class="sig-foil-sub">CAFÉ FRANÇAIS</span>
+      </div>
+      <div class="sig-seal-line"></div>
+    </div>
+  </section>
+
+  <!-- ═════════ FINAL CTA ═════════ -->
+  <section class="final-cta section">
+    <div class="final-cta__bg"></div>
+    <div class="container text-center reveal reveal-1">
+      <h2 class="display-lg text-cream">Start Building Your<br/><em class="italic">Franchise Empire.</em></h2>
+      <p class="t-body" style="color: #ccc; margin: 24px auto 40px; max-width: 500px;">
+        Partner with us and become part of a fast-growing premium brand.
+      </p>
+      <div class="final-cta__actions">
+        <a href="#apply" class="btn btn-copper">Apply Now</a>
+        <a href="mailto:info@plus33coffee.support" class="btn btn-ghost-light">Schedule Consultation</a>
+      </div>
+    </div>
+  </section>
+</div>

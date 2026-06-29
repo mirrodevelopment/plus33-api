@@ -34,145 +34,145 @@
      WELCOME MESSAGE (shown only on first open)
   ────────────────────────────────────────────────── */
   const WELCOME_MESSAGE = {
-    html: `<strong>Hi 👋 Welcome to Paris Pony.</strong>Every cup is a call to Paris 🐴☕`,
-    text: 'Hi 👋 Welcome to Paris Pony. Every cup is a call to Paris 🐴☕'
+    html: `<strong>Hi. Welcome to Paris Pony.</strong>Every cup is a call to Paris.`,
+    text: 'Hi. Welcome to Paris Pony. Every cup is a call to Paris.'
   };
 
   /* ─────────────────────────────────────────────────
      FALLBACK ANSWER
   ────────────────────────────────────────────────── */
   const FALLBACK_ANSWER =
-    "I'm still learning 🐴☕ Try asking about:\n• **drinks**\n• **cafés**\n• **menu**\n• **locations**\n• **franchise**";
+    "I'm still learning. Try asking about:\n• **drinks**\n• **cafés**\n• **menu**\n• **locations**\n• **franchise**";
 
   /* ─────────────────────────────────────────────────
      PREMIUM CONVERSATIONAL RESPONSES
   ────────────────────────────────────────────────── */
   const CHAT_RESPONSES = {
     hot: [
-      "Need a warm break? ☕ **Cappuccino** is perfect for that 🐴",
-      "Hot coffee and calm vibes ☕ Try **Café Filtre** ✨",
-      "Take a cozy coffee pause ☕ **Vanilla Latte** fits perfectly 🐴",
-      "Warm moments begin with **Chai Latte** ☕✨"
+      "Need a warm break? **Cappuccino** is perfect for that.",
+      "Hot coffee and calm vibes. Try **Café Filtre**.",
+      "Take a cozy coffee pause. **Vanilla Latte** fits perfectly.",
+      "Warm moments begin with **Chai Latte**."
     ],
     cold: [
-      "Let’s kill the time with some chill drinks ❄️ Our **Caramel Cold Brew** is a customer favorite ☕",
-      "Cool down with **Thé Glacé d’Hiver** ❄️✨",
-      "Need something icy? ☕ **Tiramisu Glacé** is calling 🐴",
-      "Cold coffee and calm vibes ☕ Try **Iced Punch Coco** ✨"
+      "Let’s enjoy some chill drinks. Our **Caramel Cold Brew** is a customer favorite.",
+      "Cool down with **Thé Glacé d’Hiver**.",
+      "Need something icy? **Tiramisu Glacé** is calling.",
+      "Cold coffee and calm vibes. Try **Iced Punch Coco**."
     ],
     snack: [
-      "Take a snap and eat the snack 🥐 **Butter Croissant** pairs perfectly with **Cappuccino** ☕",
-      "**Coffee and pastries** always belong together ✨ Try our fresh **croissants** 🐴",
-      "Snack break? ☕ **Café pastries** are waiting ✨",
-      "Fresh pastries and smooth coffee ☕ **Simple happiness** 🐴"
+      "Pair our **Butter Croissant** with **Cappuccino**.",
+      "**Coffee and pastries** always belong together. Try our fresh **croissants**.",
+      "Snack break? **Café pastries** are waiting.",
+      "Fresh pastries and smooth coffee. **Simple happiness**."
     ],
     combo: [
-      "Perfect combo ☕ **Cappuccino** + **Butter Croissant** 🥐",
-      "**Cold Brew** and **café desserts** — made for each other ✨",
-      "**Vanilla Latte** and **warm pastries** never fail 🐴☕",
-      "**Mocha Espresso** with **signature bites** ☕ Perfect pairing ✨"
+      "Perfect combo: **Cappuccino** + **Butter Croissant**",
+      "**Cold Brew** and **café desserts** — made for each other.",
+      "**Vanilla Latte** and **warm pastries** never fail.",
+      "**Mocha Espresso** with **signature bites**. Perfect pairing."
     ],
     morning: [
-      "Good mornings begin with **strong coffee** ☀️ Try **Double Espresso** ☕",
-      "Morning mood? ☕ **Café Filtre** is waiting 🐴",
-      "Fresh coffee and peaceful mornings ✨ **Cappuccino** fits perfectly ☕",
-      "Wake up slowly with our smooth **Flat White** 🐴"
+      "Good mornings begin with **strong coffee**. Try **Double Espresso**.",
+      "Morning mood? **Café Filtre** is waiting.",
+      "Fresh coffee and peaceful mornings. **Cappuccino** fits perfectly.",
+      "Wake up slowly with our smooth **Flat White**."
     ],
     evening: [
-      "Slow evenings deserve **smooth coffee** ☕ Try **Vanilla Latte** ✨",
-      "Evening vibes feel softer with **Mocha Espresso** 🐴",
-      "Coffee, calm music, and night vibes ☕ **Cappuccino** fits perfectly ✨",
-      "Relax tonight with **Café Filtre** ☕"
+      "Slow evenings deserve **smooth coffee**. Try **Vanilla Latte**.",
+      "Evening vibes feel softer with **Mocha Espresso**.",
+      "Coffee, calm music, and night vibes. **Cappuccino** fits perfectly.",
+      "Relax tonight with **Café Filtre**."
     ],
     sweet: [
-      "Sweet coffee lovers should try **Vanilla Latte** ☕✨",
-      "Craving sweetness? ☕ **Hazelnut Mocha** never disappoints 🐴",
-      "**Caramel Cappuccino** feels like comfort in a cup ✨",
-      "Sweet café vibes start with **Pumpkin Latte** ☕"
+      "Sweet coffee lovers should try **Vanilla Latte**.",
+      "Craving sweetness? **Hazelnut Mocha** never disappoints.",
+      "**Caramel Cappuccino** feels like comfort in a cup.",
+      "Sweet café vibes start with **Pumpkin Latte**."
     ],
     strong: [
-      "Need a stronger kick? ☕ **Double Espresso** is ready 🐴",
-      "Bold coffee moments begin with **Espresso** ✨",
-      "Strong coffee. Slow moments. ☕ **Café Filtre** fits perfectly 🐴",
-      "Coffee lovers love our **Mocha Espresso** ☕✨"
+      "Need a stronger kick? **Double Espresso** is ready.",
+      "Bold coffee moments begin with **Espresso**.",
+      "Strong coffee. Slow moments. **Café Filtre** fits perfectly.",
+      "Coffee lovers love our **Mocha Espresso**."
     ],
     matcha: [
-      "Soft **Matcha** energy 🍵 Try **Matcha Vanille** ✨",
-      "Need calm café vibes? ☕ **Matcha** fits perfectly 🐴",
-      "**Iced Matcha** lovers — your next favorite drink is here ❄️",
-      "Smooth matcha moments start with **Matcha Vanille** 🍵✨"
+      "Soft **Matcha** energy. Try **Matcha Vanille**.",
+      "Need calm café vibes? **Matcha** fits perfectly.",
+      "**Iced Matcha** lovers — your next favorite drink is here.",
+      "Smooth matcha moments start with **Matcha Vanille**."
     ],
     rain: [
-      "Rainy days and **hot coffee** are the perfect combination ☔☕ Try **Cappuccino** 🐴",
-      "Cloudy skies call for **Café Filtre** ✨",
-      "Take a rainy-day coffee break ☕ **Vanilla Latte** fits perfectly 🐴",
-      "**Rain and coffee** just belong together ☕ **Chai Latte** feels perfect ✨"
+      "Rainy days and **hot coffee** are the perfect combination. Try **Cappuccino**.",
+      "Cloudy skies call for **Café Filtre**.",
+      "Take a rainy-day coffee break. **Vanilla Latte** fits perfectly.",
+      "**Rain and coffee** just belong together. **Chai Latte** feels perfect."
     ],
     work: [
-      "Focused work sessions begin with **Espresso** ☕💻",
-      "Coffee, calm music, and focus mode ✨ **Café Filtre** fits perfectly 🐴",
-      "Need productivity energy? ☕ **Double Espresso** is ready ✨",
-      "Bring your laptop — we’ll handle the **Cappuccino** ☕"
+      "Focused work sessions begin with **Espresso**.",
+      "Coffee, calm music, and focus mode. **Café Filtre** fits perfectly.",
+      "Need productivity energy? **Double Espresso** is ready.",
+      "Bring your laptop — we’ll handle the **Cappuccino**."
     ],
     weekend: [
-      "Weekends deserve **slow coffee moments** ☕✨ Try **Caramel Cold Brew** 🐴",
-      "**Cold brews** and café conversations ☕ **Thé Glacé d’Hiver** fits perfectly ✨",
-      "**Weekend coffee** hits differently ☕ **Vanilla Latte** is waiting 🐴",
-      "Take it slow this weekend with **Cappuccino** ☕✨"
+      "Weekends deserve **slow coffee moments**. Try **Caramel Cold Brew**.",
+      "**Cold brews** and café conversations. **Thé Glacé d’Hiver** fits perfectly.",
+      "**Weekend coffee** hits differently. **Vanilla Latte** is waiting.",
+      "Take it slow this weekend with **Cappuccino**."
     ],
     romantic: [
-      "Every cup is a **call to Paris** ☕✨ Try **Vanilla Latte** 🐴",
-      "Coffee dates feel better at **Paris Pony** ☕ **Cappuccino** fits perfectly ✨",
-      "Soft café lights and warm coffee ☕ **Mocha Espresso** feels magical 🐴",
-      "Romantic café vibes served daily ✨ Try **Flat White** ☕"
+      "Every cup is a **call to Paris**. Try **Vanilla Latte**.",
+      "Coffee dates feel better at **Paris Pony**. **Cappuccino** fits perfectly.",
+      "Soft café lights and warm coffee. **Mocha Espresso** feels magical.",
+      "Romantic café vibes served daily. Try **Flat White**."
     ],
     chill: [
-      "Coffee tastes better with **good company** ☕✨ Try **Caramel Cold Brew** 🐴",
-      "Bring your friends and enjoy the **Paris Pony vibe** ☕ **Thé Glacé d’Hiver** fits perfectly ✨",
-      "**Cold brews** and calm conversations ☕ **Tiramisu Glacé** is waiting 🐴",
-      "Perfect café mood unlocked ✨ **Iced Punch Coco** feels refreshing ☕"
+      "Coffee tastes better with **good company**. Try **Caramel Cold Brew**.",
+      "Bring your friends and enjoy the **Paris Pony vibe**. **Thé Glacé d’Hiver** fits perfectly.",
+      "**Cold brews** and calm conversations. **Tiramisu Glacé** is waiting.",
+      "Perfect café mood unlocked. **Iced Punch Coco** feels refreshing."
     ],
     bestseller: [
-      "Paris Pony favorites ☕ **Caramel Cold Brew** & **Cappuccino** ✨",
-      "Our guests love **Vanilla Latte** 🐴",
-      "Most-loved drinks this season ☕ **Matcha Vanille** & **Espresso** ✨",
-      "Signature drinks made for slow moments ☕ Try **Café Filtre** 🐴"
+      "Paris Pony favorites. **Caramel Cold Brew** & **Cappuccino**",
+      "Our guests love **Vanilla Latte**.",
+      "Most-loved drinks this season. **Matcha Vanille** & **Espresso**",
+      "Signature drinks made for slow moments. Try **Café Filtre**."
     ],
     recommend: [
-      "Need a recommendation? ☕ Try **Signature Hazelnut Latte** ✨",
-      "For something refreshing, go with **Caramel Cold Brew** ❄️",
-      "If you love smooth flavors, **Vanilla Latte** is perfect 🐴",
-      "Looking for comfort in a cup? ☕ **Cappuccino** never fails ✨"
+      "Need a recommendation? Try **Signature Hazelnut Latte**.",
+      "For something refreshing, go with **Caramel Cold Brew**.",
+      "If you love smooth flavors, **Vanilla Latte** is perfect.",
+      "Looking for comfort in a cup? **Cappuccino** never fails."
     ],
     menu: [
-      "Explore coffee crafted for slow moments ☕✨ Try **Café Filtre** 🐴",
-      "From **Espresso** to **Cold Brew** — there’s a drink for every mood ☕",
-      "Fresh brews and café classics ✨ **Cappuccino** fits perfectly 🐴",
-      "Discover your next favorite drink ☕ Try **Matcha Vanille** ✨"
+      "Explore coffee crafted for slow moments. Try **Café Filtre**.",
+      "From **Espresso** to **Cold Brew** — there’s a drink for every mood.",
+      "Fresh brews and café classics. **Cappuccino** fits perfectly.",
+      "Discover your next favorite drink. Try **Matcha Vanille**."
     ],
     location: [
-      "Your next coffee stop might be closer than you think 📍☕",
-      "Let’s find your nearest **Paris Pony café** 🐴",
-      "Coffee is always nearby ☕ **Cappuccino** is waiting ✨",
-      "Find your perfect café corner ☕ Try **Café Filtre** 🐴"
+      "Your next coffee stop might be closer than you think.",
+      "Let’s find your nearest **Paris Pony café**.",
+      "Coffee is always nearby. **Cappuccino** is waiting.",
+      "Find your perfect café corner. Try **Café Filtre**."
     ],
     franchise: [
-      "Bring the **Paris Pony experience** to your city 🤝☕",
-      "Build premium café moments with **Paris Pony** ✨",
-      "Turn coffee passion into a café experience ☕ **Café Filtre** style 🐴",
-      "Interested in opening a **Paris Pony café**? ☕ Let’s talk ✨"
+      "Bring the **Paris Pony experience** to your city.",
+      "Build premium café moments with **Paris Pony**.",
+      "Turn coffee passion into a café experience. **Café Filtre** style.",
+      "Interested in opening a **Paris Pony café**? Let’s talk."
     ],
     hello: [
-      "**Bonjour** 👋 What can I get brewing for you today? ☕",
-      "Welcome back to **Paris Pony** 🐴☕ Try our **Cappuccino** ✨",
-      "Ready for your next **coffee break**? ☕ **Vanilla Latte** is waiting 🐴",
-      "**Coffee mood** activated ☕ **Café Filtre** fits perfectly ✨"
+      "**Bonjour** What can I get brewing for you today.",
+      "Welcome back to **Paris Pony**. Try our **Cappuccino**",
+      "Ready for your next **coffee break**? **Vanilla Latte** is waiting.",
+      "**Coffee mood** activated. **Café Filtre** fits perfectly."
     ],
     night: [
-      "Late-night coffee vibes ☕🌙 Try **Mocha Espresso** 🐴",
-      "Night cafés and slow conversations ✨ **Cappuccino** fits perfectly ☕",
-      "Coffee under city lights feels different ☕ **Vanilla Latte** is waiting 🐴",
-      "End your day with smooth coffee moments ☕ Try **Café Filtre** ✨"
+      "Late-night coffee vibes. Try **Mocha Espresso**.",
+      "Night cafés and slow conversations. **Cappuccino** fits perfectly.",
+      "Coffee under city lights feels different. **Vanilla Latte** is waiting.",
+      "End your day with smooth coffee moments. Try **Café Filtre**."
     ]
   };
 
@@ -237,7 +237,7 @@
             aria-expanded="false"
             aria-controls="pp-window">
             <span class="pp-icon" aria-hidden="true">
-              <img src="/global/assets/img/plus33-logo.png" alt="+33 Logo" style="width: 32px; height: 32px; object-fit: contain; filter: brightness(0) invert(1);" />
+              <img src="/global/assets/brand/plus33-logo.png" alt="+33 Logo" style="width: 32px; height: 32px; object-fit: contain; filter: brightness(0) invert(1);" />
             </span>
             <span class="pp-pulse-ring" aria-hidden="true"></span>
           </button>
@@ -253,11 +253,11 @@
             <!-- Header -->
             <div class="pp-header">
               <div class="pp-header-avatar" aria-hidden="true">
-                <img src="/global/assets/img/plus33-logo.png" alt="+33 Logo" style="width: 24px; height: 24px; object-fit: contain; filter: brightness(0) invert(1);" />
+                <img src="/global/assets/brand/plus33-logo.png" alt="+33 Logo" style="width: 24px; height: 24px; object-fit: contain; filter: brightness(0) invert(1);" />
               </div>
               <div class="pp-header-text">
-                <div class="pp-header-name">Hi 👋 Welcome to Paris Pony.</div>
-                <div class="pp-header-sub">Every cup is a call to Paris 🐴☕</div>
+                <div class="pp-header-name">Hi. Welcome to Paris Pony.</div>
+                <div class="pp-header-sub">Every cup is a call to Paris.</div>
               </div>
               <button
                 class="pp-close-btn"
@@ -270,19 +270,7 @@
               </button>
             </div>
 
-            <!-- Welcome Block (shown on every open) -->
-            <div class="pp-welcome" id="pp-welcome">
-              <div class="pp-welcome-bubble">
-                <p class="pp-welcome-text">
-                  <strong>Hi 👋 Welcome to Paris Pony.</strong>
-                  Every cup is a call to Paris 🐴☕
-                </p>
 
-              </div>
-            </div>
-
-            <!-- Divider -->
-            <div class="pp-divider" aria-hidden="true"></div>
 
             <!-- Quick Action Buttons -->
             <div class="pp-quick-actions" id="pp-quick-actions" role="group" aria-label="Quick questions"></div>
@@ -469,11 +457,11 @@
       if (!this.menuPopup) return;
       const pageData = CHATBOT_DATA[this.currentPage];
       const questions = (pageData && pageData.quickActions) || [
-        "Best Drinks ☕",
-        "Cold Coffee ❄️",
-        "Find Café 📍",
-        "Franchise 🤝",
-        "Popular Picks ✨"
+        "Best Drinks",
+        "Cold Coffee",
+        "Find Café",
+        "Franchise",
+        "Popular Picks"
       ];
 
       this.menuPopup.innerHTML = questions
@@ -724,7 +712,7 @@
 
             // Compact, premium, coffee house brand consistent design
             const replyHtml = `
-              ☕ <strong>Plus33 Café — ${this._esc(matchedStore.city)}</strong><br>
+              <strong>Plus33 Café — ${this._esc(matchedStore.city)}</strong><br>
               <small style="opacity:0.85;">${this._esc(matchedStore.address)}</small><br><br>
               Open:<br>
               ${this._esc(matchedStore.openHours)}<br><br>
@@ -740,7 +728,7 @@
       const locationKeywords = [
         'nearest', 'closest', 'near me', 'find café', 'find cafe', 'find a café', 'find a cafe',
         'where is', 'locate', 'nearby', 'store', 'location', 'cafe', 'café', 'branch', 'shop',
-        'use my location', 'find a café 📍', 'find a cafe 📍', 'locations'
+        'use my location', 'find a café', 'find a cafe', 'locations'
       ];
       const isLocRequest = locationKeywords.some(kw => normalized.includes(kw));
 
@@ -751,7 +739,7 @@
         return;
       }
 
-      /* 4. Regular conversation / Predefined Q&A matching */
+      /* 4. Regular conversation / Server-side backend API matching */
       this._addMessage('user', text);
 
       if (this.inputEl.value.trim() === text) {
@@ -761,12 +749,32 @@
       this.isTyping = true;
       this._showTyping();
 
-      setTimeout(() => {
+      fetch('/api/chatbot/ask', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: text })
+      })
+      .then(res => res.json())
+      .then(data => {
         this._hideTyping();
-        const answer = this._findAnswer(normalized);
-        this._addMessage('bot', answer);
         this.isTyping = false;
-      }, TYPING_DELAY);
+        
+        // Parse markdown style links like [Link Text](/url) into visual HTML links for SPA routing
+        let formatted = data.reply;
+        const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+        formatted = formatted.replace(linkRegex, '<a href="$2" class="pp-btn-link">$1</a>');
+        
+        this._addMessage('bot', formatted, true); // Rich HTML response
+      })
+      .catch(err => {
+        this._hideTyping();
+        this.isTyping = false;
+        console.warn('Concierge Assistant Backend offline, executing local fallback matching:', err);
+        const fallback = this._findAnswer(normalized);
+        this._addMessage('bot', fallback);
+      });
     }
 
     /* Handle input field submission */
@@ -784,7 +792,7 @@
     ══════════════════════════════════════════════ */
     _handleNearMeRequest() {
       // 1. First prompt the user in the chat view to allow location permission
-      this._addMessage('bot', "Allow location access to find your nearest Paris Pony café 📍", false);
+      this._addMessage('bot', "Allow location access to find your nearest Paris Pony café.", false);
 
       this.isTyping = true;
       this._showTyping();
@@ -793,7 +801,7 @@
         setTimeout(() => {
           this._hideTyping();
           this.isTyping = false;
-          this._addMessage('bot', "Location access is blocked. Tell me your city instead ☕");
+          this._addMessage('bot', "Location access is blocked. Tell me your city instead.");
         }, TYPING_DELAY);
         return;
       }
@@ -827,7 +835,7 @@
 
               // Compact, premium store card design
               const replyHtml = `
-                ☕ <strong>Plus33 Café — ${this._esc(closestStore.city)}</strong><br>
+                <strong>Plus33 Café — ${this._esc(closestStore.city)}</strong><br>
                 <small style="opacity:0.85;">${this._esc(closestStore.address)}</small><br><br>
                 ${distStr} km away<br><br>
                 Open:<br>
@@ -836,14 +844,14 @@
               `;
               this._addMessage('bot', replyHtml, true);
             } else {
-              this._addMessage('bot', "Location access is blocked. Tell me your city instead ☕");
+              this._addMessage('bot', "Location access is blocked. Tell me your city instead.");
             }
           },
           (err) => {
             this._hideTyping();
             this.isTyping = false;
             console.warn("Chatbot Geolocation Error:", err);
-            this._addMessage('bot', "Location access is blocked. Tell me your city instead ☕");
+            this._addMessage('bot', "Location access is blocked. Tell me your city instead.");
           },
           { timeout: 6000, enableHighAccuracy: true }
         );
@@ -878,18 +886,18 @@
     _getRandomResponse(category) {
       const items = CHAT_RESPONSES[category];
       if (!items || !items.length) {
-        return "Sorry, I couldn't find the perfect coffee moment right now ☕";
+        return "Sorry, I couldn't find the perfect coffee moment right now.";
       }
       let response = items[Math.floor(Math.random() * items.length)];
 
       /* Append redirection buttons to related text */
       const menuCategories = ['hot', 'cold', 'snack', 'combo', 'morning', 'evening', 'night', 'sweet', 'strong', 'matcha', 'rain', 'work', 'weekend', 'romantic', 'chill', 'bestseller', 'recommend', 'menu'];
       if (menuCategories.includes(category)) {
-        response += '\n\n[Explore Menu 🏬](/store)';
+        response += '\n\n[Explore Menu](/store)';
       } else if (category === 'location') {
-        response += '\n\n[Find a Café 📍](/find-us)';
+        response += '\n\n[Find a Café](/find-us)';
       } else if (category === 'franchise') {
-        response += '\n\n[Franchise Info 🤝](/franchise)';
+        response += '\n\n[Franchise Info](/franchise)';
       }
       return response;
     }

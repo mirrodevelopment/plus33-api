@@ -16,7 +16,7 @@ window.CHATBOT_STORES = [
     id: 1,
     name: "Plus33 Maison Paris",
     city: "Paris",
-    address: "12 Rue du Bac, 75007 Paris, France",
+    address: "84 rue de Maubeuge, Paris 75009, Near Gare du Nord",
     lat: 48.8584,
     lng: 2.3262,
     phone: "+33 1 42 61 00 33",

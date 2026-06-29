@@ -36,7 +36,7 @@
 
 /* ═════════════════════════════════════════════════
    1. KEYFRAME ANIMATIONS
-════════════════════════════════════════════════ */
+   ════════════════════════════════════════════════ */
 
 /* Idle floating animation on trigger button */
 @keyframes pp-float {
@@ -84,7 +84,7 @@
 
 /* ═════════════════════════════════════════════════
    2. TRIGGER FLOATING BUTTON
-════════════════════════════════════════════════ */
+   ════════════════════════════════════════════════ */
 
 #pp-chatbot {
   --font-display: 'Montserrat', sans-serif;
@@ -98,7 +98,7 @@
   position: fixed;
   bottom: 28px;
   right: 28px;
-  z-index: 1200;
+  z-index: 1090;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -139,7 +139,9 @@
 #pp-trigger .pp-icon {
   font-size: 26px;
   line-height: 1;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   z-index: 2;
   transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -149,8 +151,8 @@
 #pp-trigger:hover {
   transform: scale(1.10) translateY(-3px);
   box-shadow:
-    0 14px 44px rgba(184, 115, 51, 0.52),
-    0 4px 12px rgba(184, 115, 51, 0.30);
+    0 14px 44px rgba(184, 115, 52, 0.52),
+    0 4px 12px rgba(184, 115, 52, 0.30);
 }
 
 #pp-trigger:hover .pp-icon {
@@ -186,7 +188,7 @@
 
 /* ═════════════════════════════════════════════════
    3. CHAT WINDOW CONTAINER
-════════════════════════════════════════════════ */
+   ════════════════════════════════════════════════ */
 
 #pp-window {
   position: absolute;
@@ -196,6 +198,7 @@
 
   width: 360px;
   height: 520px;
+  max-height: calc(100vh - 160px);
 
   border-radius: 24px; /* Slightly rounder for elegant card look like reference */
   overflow: hidden;
@@ -302,7 +305,7 @@
 
 /* ═════════════════════════════════════════════════
    4. HEADER
-════════════════════════════════════════════════ */
+   ════════════════════════════════════════════════ */
 
 .pp-header {
   flex-shrink: 0;
@@ -433,7 +436,7 @@
 
 /* ═════════════════════════════════════════════════
    5. WELCOME BLOCK
-════════════════════════════════════════════════ */
+   ════════════════════════════════════════════════ */
 
 .pp-welcome {
   flex-shrink: 0;
@@ -484,7 +487,7 @@
 
 /* ═════════════════════════════════════════════════
    6. QUICK ACTIONS
-════════════════════════════════════════════════ */
+   ════════════════════════════════════════════════ */
 
 .pp-quick-actions {
   flex-shrink: 0;
@@ -557,7 +560,7 @@
 
 /* ═════════════════════════════════════════════════
    7. MESSAGES AREA
-════════════════════════════════════════════════ */
+   ════════════════════════════════════════════════ */
 
 .pp-messages {
   flex: 1;
@@ -593,7 +596,7 @@
 
 /* ═════════════════════════════════════════════════
    8. MESSAGE BUBBLES
-════════════════════════════════════════════════ */
+   ════════════════════════════════════════════════ */
 
 /* Shared bubble base */
 .pp-bubble {
@@ -658,7 +661,7 @@
 
 /* ═════════════════════════════════════════════════
    9. TYPING INDICATOR
-════════════════════════════════════════════════ */
+   ════════════════════════════════════════════════ */
 
 .pp-typing-row {
   display: flex;
@@ -693,7 +696,7 @@
 
 /* ═════════════════════════════════════════════════
    10. INPUT AREA
-════════════════════════════════════════════════ */
+   ════════════════════════════════════════════════ */
 
 .pp-input-area {
   flex-shrink: 0;
@@ -714,7 +717,9 @@
   flex: 1;
   border: 1.5px solid rgba(184, 115, 51, 0.25);
   border-radius: 999px;
-  padding: 9px 16px;
+  height: 38px;
+  box-sizing: border-box;
+  padding: 0 16px;
   font-family: var(--font-sans, 'Inter', sans-serif);
   font-size: 0.845rem;
   font-weight: 300;
@@ -792,7 +797,7 @@
 
 /* ═════════════════════════════════════════════════
    11. SCROLLBAR OVERRIDE (messages area)
-════════════════════════════════════════════════ */
+   ════════════════════════════════════════════════ */
 
 .pp-messages::-webkit-scrollbar {
   width: 3px;
@@ -814,7 +819,7 @@
 
 /* ═════════════════════════════════════════════════
    12. RESPONSIVE — MOBILE
-════════════════════════════════════════════════ */
+   ════════════════════════════════════════════════ */
 
 @media (max-width: 768px) {
 
@@ -838,8 +843,8 @@
   #pp-window {
     /* Anchored to fixed position instead of relative-to-trigger on mobile */
     position: fixed;
-    bottom: 84px;
-    right: 12px;
+    bottom: 88px;
+    right: 14px;
     left: auto;
     width: 75vw;
     height: 60vh;
@@ -878,10 +883,10 @@
 @media (max-width: 380px) {
   /* Very small phones */
   #pp-window {
-    right: 8px;
+    right: 14px;
     left: auto;
     width: 75vw;
-    height: 60vh;
+    height: 65vh;
   }
 
   .pp-bubble {
@@ -892,7 +897,7 @@
 
 /* ═════════════════════════════════════════════════
    13. REDUCED MOTION SUPPORT (Accessibility)
-════════════════════════════════════════════════ */
+   ════════════════════════════════════════════════ */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1084,8 +1089,3 @@
   background: rgba(184, 115, 51, 0.08);
   color: var(--copper, #B87333);
 }
-
-
-
-
-

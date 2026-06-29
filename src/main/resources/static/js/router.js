@@ -24,8 +24,10 @@
 // ═════════ GLOBAL CONFIGURATION ═════════
 import { mountHomePage } from './home.js';
 import { mountStorePage } from './store.js';
-import { mountFranchisePage } from '../global/js/franchise.js';
+import { mountRewardsPage } from '../global/rewards/js/rewards.js';
+import { mountAboutPage } from '../global/about/js/about.js';
 import { mountJournalPage } from '../global/js/journal.js';
+import { mountFranchisePage } from '../global/js/franchise.js';
 import { mountFindUsPage } from '../global/js/find-us.js';
 
 /**
@@ -42,6 +44,16 @@ const routes = {
         htmlPath: '/html/store.html',
         mount: mountStorePage,
         title: '+33 Store | Luxury Collection'
+    },
+    '/rewards': {
+        htmlPath: '/global/rewards/html/rewards.html',
+        mount: mountRewardsPage,
+        title: '+33 Society Rewards | Loyalty & Perks'
+    },
+    '/about': {
+        htmlPath: '/global/about/html/about.html',
+        mount: mountAboutPage,
+        title: '+33 Heritage & Philosophy | About Us'
     },
     '/journal': {
         htmlPath: '/global/html/journal.html',

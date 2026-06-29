@@ -3,24 +3,11 @@
   ══════════════════════════════════════════════════
   PURPOSE:
   Global responsive typography scaling adjustments, viewport overrides, and mobile touch helpers.
-
-  RESPONSIBILITIES:
-  - Documents canonical breakpoint values used across all page-specific styles.
-  - Controls cross-page responsive structural padding and container widths.
-  - Implements mobile-specific helpers (touch target sizing, hide/show classes, text centers).
-
-  ARCHITECTURE NOTES:
-  - Page-specific styles should place media queries inline at the end of their respective stylesheet rather than in this file.
-
-  DEVELOPED BY : MIRRO
-  CODED BY     : SIVASURYA
   ══════════════════════════════════════════════════
 */
 
 /* ═════════ BREAKPOINT DICTIONARY ═════════ */
 /* 
-  Use these standard breakpoints consistently in other stylesheets:
-
   XL Desktop:  min-width: 1280px
   Desktop:     max-width: 1280px
   Tablet:      max-width: 1024px
