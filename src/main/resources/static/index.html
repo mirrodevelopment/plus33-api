@@ -151,7 +151,7 @@
                     </div>
                     <div class="plus33-footer__col">
                         <span class="plus33-footer__col-title">Contact</span>
-                        <p class="plus33-footer__text">7ème Arrondissement<br>Paris, France</p>
+                        <p class="plus33-footer__text">84 rue de Maubeuge<br>Paris 75009<br>Near Gare du Nord</p>
                         <a href="mailto:contact@plus33.paris" class="plus33-footer__link">contact@plus33.paris</a>
                     </div>
                 </div>
@@ -163,12 +163,21 @@
                     <a href="#" class="plus33-footer__social">Twitter</a>
                 </div>
                 <div class="plus33-footer__legal">
-                    <a href="#" class="plus33-footer__legal-link">Privacy Policy</a>
-                    <a href="#" class="plus33-footer__legal-link">Terms of Service</a>
+                    <a href="#" class="plus33-footer__legal-link" id="legal-privacy-link">Privacy Policy</a>
+                    <a href="#" class="plus33-footer__legal-link" id="legal-terms-link">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- ═════════ LEGAL MODAL COMPONENT ═════════ -->
+    <div id="legal-modal" class="plus33-modal" aria-hidden="true" role="dialog">
+        <div class="plus33-modal__overlay"></div>
+        <div class="plus33-modal__wrapper">
+            <button class="plus33-modal__close" aria-label="Close modal">&times;</button>
+            <div class="plus33-modal__content" id="legal-modal-content"></div>
+        </div>
+    </div>
 
     <!-- ═════════ MODULE LOADER ═════════ -->
     <script type="module" src="/js/app.js"></script>

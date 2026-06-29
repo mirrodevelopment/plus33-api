@@ -1,0 +1,244 @@
+========================================================================
+                 PLUS33 PROJECT ARCHITECTURE & STRUCTURE MAP
+========================================================================
+
+This document provides a detailed, comprehensive map of the entire directory
+and file structure of the Plus33 repository (plus33-api). It outlines the 
+purpose and architectural role of every single directory and key file.
+
+------------------------------------------------------------------------
+1. VISUAL DIRECTORY TREE
+------------------------------------------------------------------------
+
+plus33-api/
+│
+├── .git/                                # Git version control metadata (hidden)
+├── .idea/                               # IntelliJ IDEA workspace settings (hidden)
+├── .mvn/                                # Maven Wrapper binary and configuration
+│   └── wrapper/
+│       ├── maven-wrapper.jar
+│       └── maven-wrapper.properties
+├── .vscode/                             # Visual Studio Code workspace settings (hidden)
+│
+├── deployment/                          # Deployment-related scripts and readmes
+│   └── README.md                        # Documentation on containerized deployment
+│
+├── docs/                                # Project design and requirements docs
+│   └── README.md                        # System documentation overview
+│
+├── logs/                                # Application runtime logs (generated at runtime)
+│
+├── src/                                 # Main source code directory
+│   ├── main/
+│   │   ├── java/                        # Backend Java source files
+│   │   │   └── fr/
+│   │   │       └── plus33/
+│   │   │           └── api/
+│   │   │               ├── config/      # System-wide Spring Boot configurations
+│   │   │               │   ├── SecurityConfig.java
+│   │   │               │   └── WebMvcConfig.java
+│   │   │               │
+│   │   │               ├── controller/  # REST API Controllers (endpoints)
+│   │   │               │   ├── AiRecommendationController.java
+│   │   │               │   ├── AnimationController.java
+│   │   │               │   ├── CategoryController.java
+│   │   │               │   ├── MediaController.java
+│   │   │               │   ├── NavController.java
+│   │   │               │   └── ProductController.java
+│   │   │               │
+│   │   │               ├── dto/         # Data Transfer Objects (payload representations)
+│   │   │               │   ├── ApiResponse.java
+│   │   │               │   ├── CategoryDto.java
+│   │   │               │   └── ProductDto.java
+│   │   │               │
+│   │   │               ├── model/       # JPA Relational Database Entities (models)
+│   │   │               │   ├── Animation.java
+│   │   │               │   ├── Category.java
+│   │   │               │   ├── MediaUpload.java
+│   │   │               │   ├── Product.java
+│   │   │               │   └── UserActivity.java
+│   │   │               │
+│   │   │               ├── repository/  # Spring Data JPA Repository Interfaces
+│   │   │               │   ├── AnimationRepository.java
+│   │   │               │   ├── CategoryRepository.java
+│   │   │               │   ├── MediaUploadRepository.java
+│   │   │               │   ├── ProductRepository.java
+│   │   │               │   └── UserActivityRepository.java
+│   │   │               │
+│   │   │               ├── service/     # Business logic layers (services)
+│   │   │               │   ├── AiRecommendationService.java
+│   │   │               │   ├── AnimationService.java
+│   │   │               │   ├── CategoryService.java
+│   │   │               │   ├── MediaService.java
+│   │   │               │   └── ProductService.java
+│   │   │               │
+│   │   │               └── Plus33ApiApplication.java  # Main application entry point
+│   │   │
+│   │   └── resources/                   # Static assets, templates, and properties
+│   │       ├── application.properties   # Main Spring Boot configurations
+│   │       │
+│   │       ├── templates/               # Spring MVC Server-side views (currently unused)
+│   │       │
+│   │       └── static/                  # Single Page Application (SPA) Client Web Root
+│   │           ├── index.html           # Main SPA entry point and shell layout
+│   │           │
+│   │           ├── assets/              # Core page-specific images
+│   │           │   └── img/             # Product and banner images for Boutique & Home
+│   │           │
+│   │           ├── css/                 # View-specific CSS stylesheets
+│   │           │   ├── global.css       # Core layout tokens, variables, and typography
+│   │           │   ├── home.css         # Stylings for cinematic home view
+│   │           │   └── store.css        # Stylings for premium boutique catalog
+│   │           │
+│   │           ├── global/              # Shared elements, assets, and components
+│   │           │   ├── assets/          # Global docs and shared imagery
+│   │           │   │   ├── docs/        # Franchise brochures and PDF assets
+│   │           │   │   └── img/         # Logos, icons, map pins, location backdrops
+│   │           │   │
+│   │           │   ├── css/             # Component and auxiliary CSS
+│   │           │   │   ├── chatbot.css  # Luxury AI assistant widget styles
+│   │           │   │   ├── find-us.css  # Map and locator page styles
+│   │           │   │   ├── fragment.css # Global UI fragment wrappers (header/footer)
+│   │           │   │   ├── franchise.css# Business/Franchise proposal page styles
+│   │           │   │   ├── journal.css  # Magazine/Journal page styles
+│   │           │   │   └── responsive.css# Mobile & Tablet responsive modifications
+│   │           │   │
+│   │           │   ├── html/            # Subpage HTML views and layout fragments
+│   │           │   │   ├── find-us.html
+│   │           │   │   ├── franchise.html
+│   │           │   │   ├── journal.html
+│   │           │   │   └── fragments/   # Modular structural components
+│   │           │   │       ├── footer.html
+│   │           │   │       └── navbar.html
+│   │           │   │
+│   │           │   └── js/              # Shared logic, engines, and mock data
+│   │           │       ├── chatbot-data.js
+│   │           │       ├── chatbot.js
+│   │           │       ├── find-us.js
+│   │           │       ├── franchise.js
+│   │           │       ├── journal.js
+│   │           │       ├── layout-engine.js # Intercepts and compiles fragments
+│   │           │       └── store-data.js   # Local fallback product datasets
+│   │           │
+│   │           ├── html/                # Main SPA pages loaded dynamically
+│   │           │   ├── home.html        # Main landing content
+│   │           │   └── store.html       # Catalog content
+│   │           │
+│   │           └── js/                  # App core scripts and routers
+│   │               ├── app.js           # Core layout bootstrapper
+│   │               ├── home.js          # Homepage animation triggers
+│   │               ├── router.js        # Client-side router engine
+│   │               └── store.js         # Boutique rendering and filtering engine
+│   │
+│   └── test/                            # Integration and unit testing suite
+│       └── java/
+│           └── fr/
+│               └── plus33/
+│                   └── api/
+│                       └── Plus33ApiApplicationTests.java  # Verification tests
+│
+├── .gitattributes                       # Git repository settings
+├── .gitignore                           # Ignored directories list (target, logs, .idea)
+├── compose.yaml                         # Local Docker containers configuration (MySQL, etc.)
+├── Comprehensive_Documentation.md       # High-level developer documentation manual
+├── mvnw                                 # Maven wrapper script for Unix
+├── mvnw.cmd                             # Maven wrapper script for Windows
+├── pom.xml                              # Maven build specification and dependencies
+├── Project_Details.txt                  # General project requirements overview
+├── Project_Structure_Map.txt            # [THIS FILE] Complete directory and file architecture map
+├── Website_Details_Theme_Functionality.txt # Detailed guide to theme, components, and functionalities
+└── README.md                            # Quick start documentation
+
+------------------------------------------------------------------------
+2. SYSTEM COMPONENT DETAILS
+------------------------------------------------------------------------
+
+======================================
+A. THE BACKEND SYSTEM (Spring Boot)
+======================================
+The backend is structured under `src/main/java/fr/plus33/api` following standard
+enterprise-tier Clean Architecture patterns:
+
+1. CONFIGURATION LAYER (`/config`)
+   - SecurityConfig.java: Sets up security protocols, configures CORS exceptions
+     for client-side domains, and manages public vs. authenticated API permissions.
+   - WebMvcConfig.java: Registers global MVC behaviors, CORS mappings, and static
+     resource pathways.
+
+2. CONTROLLER LAYER (`/controller`)
+   Exposes REST endpoints consuming and producing JSON.
+   - AiRecommendationController.java: Recommends products using similarity metrics.
+   - AnimationController.java: Dynamically serves visual configuration settings.
+   - CategoryController.java: Category CRUD interface.
+   - MediaController.java: Facilitates secure file transfers to Cloudinary.
+   - NavController.java: Handles layout and menu hierarchies.
+   - ProductController.java: Product CRUD, filters, and paginated searches.
+
+3. DTO LAYER (`/dto`)
+   Decouples internal database schemas from the public-facing API.
+   - ApiResponse.java: Envelopes all REST responses in a standardized format.
+   - CategoryDto.java: Serialized category representation.
+   - ProductDto.java: Clean product response package including CDN image URLs.
+
+4. DATABASE MODEL LAYER (`/model`)
+   Standard JPA Entities mapped to SQL tables.
+   - Animation.java: Stores parameters for custom homepage motion effects.
+   - Category.java: Repositories map these categories to products.
+   - MediaUpload.java: Tracks Cloudinary resource descriptors and secure URLs.
+   - Product.java: Standard catalog item parameters, plus AI tags and embeddings.
+   - UserActivity.java: Audits user events to train future recommendation engines.
+
+5. REPOSITORY LAYER (`/repository`)
+   Abstracts database queries by utilizing Spring Data JPA interfaces.
+   - All repositories inherit `JpaRepository<Entity, ID>` for automatic transactional CRUD.
+
+6. SERVICE LAYER (`/service`)
+   Coordinates business transactions and business rules.
+   - AiRecommendationService.java: Evaluates product recommendation weights.
+   - AnimationService.java: Business rules for cinematic configs.
+   - CategoryService.java: Category data management.
+   - MediaService.java: Integrates Cloudinary API, uploading buffers to the cloud.
+   - ProductService.java: Powers product searches, pagination, sorting, and tag filters.
+
+7. APPLICATION ENTRYPOINT
+   - Plus33ApiApplication.java: Holds the `@SpringBootApplication` entry point.
+
+======================================
+B. CONFIGURATION & INFRASTRUCTURE
+======================================
+- application.properties: Manages variables for the server port (8083), database 
+  connection strings, JPA settings, upload limits, and Cloudinary API credentials.
+- pom.xml: Controls the Maven build cycle, managing dependencies like Spring Boot,
+  Lombok, Spring Security, Cloudinary SDK, and database connectors.
+- compose.yaml: Deploys backing containers like local databases (MySQL) seamlessly.
+
+======================================
+C. THE FRONTEND SYSTEM (SPA Client)
+======================================
+The frontend is a lightweight Single Page Application served out of the 
+`/resources/static` directory, designed for fast load times and premium animations.
+
+1. ROUTING & CLIENT ARCHITECTURE (`/js`)
+   - index.html: Acts as the base shell. Navbars, footers, and page views are 
+     injected here dynamically depending on user actions.
+   - router.js: Client-side routing engine. Maps routes (e.g., `/`, `/store`) to 
+     corresponding HTML templates and triggers view-specific logic.
+   - app.js: Entry point for the frontend, booting the router and layout engines.
+
+2. VIEWS AND STYLING (`/html` & `/css`)
+   - home.html & home.css: Standard landing view designed with a luxury, cinematic 
+     layout, animated with scroll-driven effects.
+   - store.html & store.css: Renders the premium coffee catalog with dynamic filtering, 
+     responsive grids, and aesthetic transitions.
+
+3. SHARED RESOURCES & SUBPAGES (`/global`)
+   - layout-engine.js: Assembles shared components (navbar.html, footer.html) 
+     into active views.
+   - chatbot.js & chatbot.css: Interactive chat interface driven by chatbot-data.js.
+   - find-us.html & find-us.js: Coordinates store locators.
+   - franchise.html & franchise.js: Handles information structures for franchise signups.
+   - journal.html & journal.js: High-end blog layout representing brand lifestyle.
+
+========================================================================
+                      [ End of Architecture Map ]
+========================================================================

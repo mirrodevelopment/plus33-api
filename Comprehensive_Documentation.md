@@ -42,7 +42,7 @@ The Plus33 application follows a **Decoupled Client-Server Architecture** separa
 ## 3. Technology Stack
 
 ### Backend Technologies
-* **Java 21**: Chosen for modern features like virtual threads, pattern matching, and long-term support (LTS) performance benefits.
+* **Java 17**: Chosen as the primary execution runtime (LTS), ensuring compatibility with Spring Boot 3.3.5 and standard production environments.
 * **Spring Boot 3.3.5**: The industry standard for enterprise Java. Accelerates development with auto-configuration and embedded servers (Tomcat).
 * **Spring Data JPA & Hibernate**: Abstracts SQL complexities, providing rapid object-relational mapping (ORM) and data access.
 * **Lombok**: Reduces boilerplate code (getters, setters, builders), enhancing code readability and maintainability.
@@ -194,7 +194,7 @@ The relational database uses a highly normalized structure.
 ## 14. Developer Notes
 
 ### Setup Instructions
-1. **Prerequisites**: Java 21, Node.js 18+, Maven.
+1. **Prerequisites**: Java 17, Node.js 18+, Maven.
 2. **Backend Execution**:
    - Navigate to `d:\webprojects\plus33-api`
    - Run `./mvnw spring-boot:run`

@@ -18,12 +18,13 @@
  */
 
 // ═════════ GLOBAL CONFIGURATION ═════════
-import { initNavbar } from '../global/js/layout-engine.js';
+import { initNavbar, initLegalModals } from '../global/js/layout-engine.js';
 import { Router } from './router.js';
 
 // ═════════ INITIALIZATION ═════════
 document.addEventListener('DOMContentLoaded', () => {
     console.log('+33 Paris | App Initialized');
     initNavbar();
+    initLegalModals();
     new Router();
 });

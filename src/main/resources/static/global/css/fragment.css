@@ -472,6 +472,153 @@
 }
 
 
+/* ═════════ LEGAL MODAL STYLES ═════════ */
+.plus33-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s var(--ease-luxury);
+}
+
+.plus33-modal--open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.plus33-modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--glass-dark-heavy);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.plus33-modal__wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 680px;
+  max-height: 80vh;
+  background: var(--bg-main);
+  border: 1px solid rgba(184, 115, 51, 0.2);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-dark);
+  padding: var(--s4) var(--s3) var(--s3);
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.95) translateY(20px);
+  transition: transform 0.6s var(--ease-out-expo);
+  z-index: 2;
+}
+
+.plus33-modal--open .plus33-modal__wrapper {
+  transform: scale(1) translateY(0);
+}
+
+.plus33-modal__close {
+  position: absolute;
+  top: var(--s2);
+  right: var(--s2);
+  background: transparent;
+  border: 1px solid rgba(7, 20, 43, 0.1);
+  color: var(--text-main);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-luxury);
+}
+
+.plus33-modal__close:hover {
+  background: var(--navy);
+  color: var(--ivory);
+  border-color: var(--navy);
+  transform: rotate(90deg);
+}
+
+.plus33-modal__content {
+  overflow-y: auto;
+  padding-right: var(--s2);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+}
+
+/* Custom Sleek Scrollbar */
+.plus33-modal__content::-webkit-scrollbar {
+  width: 4px;
+}
+.plus33-modal__content::-webkit-scrollbar-track {
+  background: rgba(7, 20, 43, 0.05);
+}
+.plus33-modal__content::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: var(--r-full);
+}
+
+.plus33-modal__content h2 {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--navy);
+  margin-bottom: var(--s1);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.plus33-modal__content .last-updated {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--s3);
+}
+
+.plus33-modal__content h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin-top: var(--s3);
+  margin-bottom: var(--s1);
+}
+
+.plus33-modal__content p {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--text-sec);
+  margin-bottom: var(--s2);
+}
+
+.plus33-modal__content a {
+  color: var(--copper);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(184, 115, 51, 0.2);
+  transition: all 0.3s var(--ease-luxury);
+}
+
+.plus33-modal__content a:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+
 /* ═════════ BUTTON COMPONENTS ═════════ */
 
 .btn {

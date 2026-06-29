@@ -19,7 +19,7 @@ Current Workspaces:
 
 A. Plus33-API (Main Service)
 - Location: `d:\webprojects\plus33-api`
-- Tech Stack: Java 21, Spring Boot 3.3.5
+- Tech Stack: Java 17, Spring Boot 3.3.5
 - Key Dependencies: 
   - Spring Web, Spring Data JPA, Spring Security, Spring Validation
   - Databases: H2 (In-memory for dev), MySQL (Production)

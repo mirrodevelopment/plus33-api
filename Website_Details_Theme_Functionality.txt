@@ -1,0 +1,285 @@
+================================================================================
+                      +33 PARIS — WEBSITE SPECIFICATION DETAILS
+            Comprehensive Guide to Theme, Functionality, and Properties
+================================================================================
+
+1. PROJECT OVERVIEW & BRAND CONCEPT
+--------------------------------------------------------------------------------
+* Brand Identity: "+33 Paris" is an ultra-premium, Paris-inspired café franchise. 
+  The digital ecosystem is styled with a "Cinematic Minimalism" theme, mimicking 
+  high-end French luxury brands (e.g., fashion houses, high jewelry).
+* Strategy: High-fidelity visual presentation powered by GSAP animations, 
+  parallax scrolling, and clean typographic grids, built on a lightweight, 
+  stateless Java Spring Boot API backend.
+* Target Environment: Java 17 LTS (Java version 17), Spring Boot 3.3.5.
+
+2. THEME & DESIGN SYSTEM (CSS VARIABLES)
+--------------------------------------------------------------------------------
+Defined globally within `global.css` and used throughout the application:
+
+A. Brand Colors (Canonical Palette)
+   * --navy:            #07142B (Primary luxury dark blue)
+   * --navy-deep:       #04101F (Deep background dark blue)
+   * --navy-mid:        #091A35 (Mid-tone dark blue)
+   * --copper:          #B87333 (Primary accent copper)
+   * --copper-light:    #C8A46B (Lighter copper/gold)
+   * --copper-pale:     rgba(184, 115, 51, 0.08)
+   * --copper-glow:     rgba(184, 115, 51, 0.18)
+   * --copper-shimmer:  rgba(200, 164, 107, 0.30)
+   * --ivory:           #F5F1EA (Luxurious off-white background)
+   * --ivory-warm:      #EDE8DF (Warm ivory background contrast)
+   * --ivory-deep:      #E8E2D9 (Deeper warm ivory)
+   * --cream:           #F3ECE3 (Warm cream tone)
+   * --marble:          #F0EBE3 (Cold marble tone)
+   * --gold:            #C8A46B (Premium brand gold)
+   * --gold-pale:       rgba(200, 164, 107, 0.10)
+   * --burgundy:        #4A0E12 (Rich accent red)
+   * --burgundy-deep:   #3A0A0D (Deep accent red background)
+   * --obsidian:        #050505 (Pure absolute dark background)
+
+B. Semantic Colors
+   * --bg-main:         #F8F6F2 (Main site background)
+   * --bg-sec:          #F3EFE8 (Secondary container background)
+   * --text-main:       #07142B (Primary text color)
+   * --text-sec:        rgba(7, 20, 43, 0.55) (Secondary/muted text)
+
+C. Glassmorphism Tokens
+   * --glass-dark:       rgba(10, 10, 10, 0.50)
+   * --glass-dark-heavy: rgba(5, 5, 5, 0.80)
+   * --glass-navy:       rgba(7, 20, 43, 0.75)
+   * --glass-ivory:      rgba(245, 241, 234, 0.82)
+   * --glass-blur:       blur(24px)
+   * --glass-blur-heavy: blur(44px)
+
+D. Typography (Editorial Font Stack)
+   * --font-display: 'Cormorant Garamond', 'Bodoni Moda', Georgia, serif; (Main Headings)
+   * --font-serif:   'Playfair Display', Georgia, serif; (Sub-headings / Editorial quotes)
+   * --font-sans:    'Inter', system-ui, sans-serif; (Body text and standard paragraphs)
+   * --font-ui:      'Manrope', 'Inter', sans-serif; (Micro-copy, buttons, metadata, labels)
+
+E. Spacing Scale (Luxury Scale)
+   * --s1: 8px, --s2: 16px, --s3: 28px, --s4: 48px, --s5: 80px, --s6: 120px, --s7: 180px, --s8: 240px
+
+F. Radii & Transitions
+   * Border Radii: --r-sm: 2px, --r-md: 6px, --r-lg: 14px, --r-xl: 24px, --r-full: 9999px
+   * Cinematic Easing: --ease-luxury: cubic-bezier(0.4, 0, 0.2, 1)
+
+3. INTERACTIVE FUNCTIONALITY & UX FEATURES
+--------------------------------------------------------------------------------
+A. SPA Routing Engine (`router.js`):
+   * Provides dynamic client-side page navigation without reloading.
+   * Intercepts `<a>` link clicks and dynamically mounts HTML fragments inside 
+     the `<div id="app"></div>` container.
+   * Handles history pushState changes and page-specific JavaScript re-initialization.
+
+B. Navigation Bar & Smart Scroll:
+   * Solid Background Transition: Transparent at viewport top, fades to a solid background 
+     (`plus33-nav--solid`) after scrolling past 80px.
+   * Hide-on-Scroll: Automatically slides up/hides on scroll down to maximize screen space 
+     (`plus33-nav--hidden`) and reveals itself when scrolling up (active past 200px).
+   * Mobile Drawer: A sliding sidebar navigation menu (`.plus33-nav__panel`) triggered by 
+     a custom hamburger button. Locks body scroll and compensates padding for scrollbars.
+
+C. Reusable Fragment Injection:
+   * To prevent layout shifts (CLS) and dynamic load delays, structural fragments like 
+     the Navbar, Sidebar Menu, and Footer are hardcoded inline inside `index.html` as well 
+     as preserved in fragment files under `/global/html/fragments/` for static copy sync.
+
+D. Legal Popups (Privacy Policy / Terms of Service):
+   * Users clicking "Privacy Policy" or "Terms of Service" in the footer will trigger 
+     a luxury popup modal overlay instead of navigating away.
+   * Accessibility/UX Highlights:
+     - Overlay utilizes `backdrop-filter: blur(8px)` with dark background.
+     - Smooth scale-up and opacity fade transitions on open.
+     - Interactive close methods: Close Button (`&times;`), click on dark overlay, 
+       or pressing the `Escape` key.
+     - Locks body scrolling during viewing and calculates local browser scrollbar width 
+       to prevent the page from shifting layout inline.
+
+4. DATABASE DESIGN & SCHEMA
+--------------------------------------------------------------------------------
+Using a normalized relational database (H2 in development, MySQL in production):
+
+A. Core Tables
+   * `categories`:
+     - Schema: `id` (BigInt PK), `name` (Varchar, Unique), `slug` (Varchar), `image_url` (Varchar), 
+       `description` (Varchar), `display_order` (Int), `is_active` (Boolean).
+   * `products`:
+     - Schema: `id` (BigInt PK), `name` (Varchar), `price` (Numeric), `compare_price` (Numeric), 
+       `sku` (Varchar), `slug` (Varchar), `stock_quantity` (Int), `is_active` (Boolean),
+       `is_bestseller` (Boolean), `is_new_arrival` (Boolean), `is_featured` (Boolean),
+       `rating_average` (Double), `rating_count` (Int), `category_id` (BigInt FK),
+       `ai_embedding_vector` (Text), `ai_tags` (Text).
+     - Relationship: Many-to-One linked to `categories`.
+   * `product_images` / `product_tags`:
+     - Relational tables mapping multi-value properties (e.g. tags, image sliders) 
+       linked via `product_id` FK.
+   * `media_uploads`:
+     - Schema: `id` (BigInt PK), `cloudinary_public_id` (Varchar), `public_url` (Varchar), 
+       `mime_type` (Varchar), `media_type` (Enum: IMAGE/VIDEO), `original_filename` (Varchar).
+     - Handles file details successfully synced to Cloudinary.
+   * `animations`:
+     - Schema: `id` (BigInt PK), `name` (Varchar, Not Null), `is_active` (Boolean),
+       `animation_type` (Enum: GLASS_TRANSITION, HOVER_ZOOM, LUXURY_LOADER, MAGNETIC_BUTTON, PAGE_REVEAL, PARALLAX, SMOOTH_SCROLL),
+       `config_json` (Text), `created_at` (Timestamp), `css_class` (Varchar), `delay_ms` (Int),
+       `description` (Varchar), `display_order` (Int), `duration_ms` (Int), `easing` (Varchar),
+       `element_selector` (Varchar), `js_trigger` (Varchar), `page_target` (Varchar), `updated_at` (Timestamp).
+   * `user_activity`:
+     - Schema: `id` (BigInt PK), `user_id` (BigInt, Not Null), 
+       `activity_type` (Enum: ADD_TO_CART, FAVORITE, PURCHASE, REVIEW, SEARCH, SHARE, VIEW),
+       `category_id` (BigInt), `product_id` (BigInt), `session_id` (Varchar), `device_type` (Varchar),
+       `duration_seconds` (Int), `time_of_day` (Varchar), `created_at` (Timestamp).
+
+5. BACKEND API ENDPOINTS
+--------------------------------------------------------------------------------
+All API payloads wrap results in a generic, standardized payload wrapper (`ApiResponse<T>`) 
+containing `success` (boolean), `message` (string), and `data` (T).
+
+A. Products API (Base: `/api/products`):
+   * `POST /api/products` (Create/Save product)
+   * `GET /api/products` (Fetches lists with support for pagination, sorting, search keyword `q`, and category filtering)
+   * `GET /api/products/{id}` (Fetches single product details)
+   * `PUT /api/products/{id}` (Update product)
+   * `DELETE /api/products/{id}` (Delete product)
+   * `GET /api/products/featured` (Fetches featured products list)
+   * `GET /api/products/new-arrivals` (Fetches new arrival products list)
+   * `GET /api/products/bestsellers` (Fetches bestseller products list)
+   * `GET /api/products/top-rated` (Fetches top rated products list)
+
+B. Categories API (Base: `/api/categories`):
+   * `POST /api/categories` (Create category)
+   * `GET /api/categories` (Fetches all categories)
+   * `GET /api/categories/{id}` (Fetches single category details)
+   * `PUT /api/categories/{id}` (Update category)
+   * `DELETE /api/categories/{id}` (Delete category)
+
+C. Media Upload API (Base: `/api/uploads`):
+   * `POST /api/uploads/image` (Accepts file upload, pushes to Cloudinary, saves DB entity)
+   * `POST /api/uploads/video` (Accepts file upload, pushes to Cloudinary, saves DB entity)
+   * `GET /api/uploads` (Fetches media list with optional `type` query parameter filter)
+   * `DELETE /api/uploads/{id}` (Deletes media from database and Cloudinary)
+
+D. AI Recommendation API (Base: `/api/ai`):
+   * `GET /api/ai/recommendations/{userId}` (Fetches list of recommended items based on user activity)
+   * `POST /api/ai/recommendation/train` (Triggers recommendation model retraining)
+   * `GET /api/ai/trending` (Fetches trending items list)
+   * `GET /api/ai/personalized` (Fetches personalized list for user with `userId` query parameter)
+   * `POST /api/ai/recent-activity` (Records user activity to target for future recommendation inputs)
+
+E. Animations API (Base: `/api/animations`):
+   * `GET /api/animations` (Fetches animation configs, optional `page` filter)
+   * `GET /api/animations/homepage` (Fetches animations active on the homepage)
+   * `POST /api/animations` (Creates an animation config)
+   * `PUT /api/animations/{id}` (Updates an animation config)
+   * `DELETE /api/animations/{id}` (Deletes an animation config)
+
+F. Frontend Nav Controller forwards all non-API paths (`/`, `/store`, `/experience`, `/journal`, `/franchise`, etc.)
+   to `forward:/index.html` to be handled locally by the client-side router.
+
+6. PROJECT FOLDER STRUCTURE
+--------------------------------------------------------------------------------
+plus33-api/
+├── .mvn/                                # Maven Wrapper binary and configuration
+├── .vscode/                             # Visual Studio Code workspace settings
+├── deployment/                          # Deployment-related scripts and configs
+├── docs/                                # Project documentation
+├── logs/                                # Application runtime logs
+├── src/                                 # Main source code directory
+│   ├── main/
+│   │   ├── java/                        # Backend Java source files
+│   │   │   └── fr/plus33/api/
+│   │   │       ├── config/              # Security and Web MVC configurations
+│   │   │       ├── controller/          # REST API endpoints (Controller layer)
+│   │   │       ├── dto/                 # Data Transfer Objects (DTO patterns)
+│   │   │       ├── model/               # Relational Database Entities (JPA models)
+│   │   │       ├── repository/          # Database queries & JPA repositories
+│   │   │       └── service/             # Service layer containing business logic
+│   │   └── resources/                   # Static assets, templates, properties
+│   │       ├── application.properties   # Application environment properties
+│   │       └── static/                  # Single Page Application (SPA) Web root
+│   │           ├── index.html           # Main SPA entry page
+│   │           ├── assets/img/          # Location images & layout graphics
+│   │           ├── css/                 # Global, home, and store stylings
+│   │           ├── global/              # Shared assets, styles, subpages, and logic
+│   │           │   ├── css/             # Responsive, chatbot, & layout styles
+│   │           │   ├── html/            # Subpage overlays & fragments
+│   │           │   └── js/              # Chatbot and layout helpers
+│   │           └── js/                  # App initialization, routing & boutique logic
+│   └── test/                            # Verification tests
+├── compose.yaml                         # Local Docker configuration
+├── Comprehensive_Documentation.md       # High-level architecture documentation
+├── Project_Details.txt                  # General project requirements
+├── Project_Structure_Map.txt            # System structure and description
+├── Website_Details_Theme_Functionality.txt # This specification details file
+└── pom.xml                              # Maven build configuration
+
+7. SYSTEM PROPERTIES & ENVIRONMENT CONFIG
+--------------------------------------------------------------------------------
+Defined inside `src/main/resources/application.properties`:
+
+* Server Port: 
+  `server.port=8083`
+* In-Memory DB (H2 Dev Mode):
+  `spring.datasource.url=jdbc:h2:mem:plus33db;DB_CLOSE_DELAY=-1`
+  `spring.datasource.driverClassName=org.h2.Driver`
+  `spring.datasource.username=sa`
+  `spring.datasource.password=`
+* Production Database (MySQL Mode):
+  Target URL: `jdbc:mysql://localhost:3306/plus33`
+* Hibernate ORM Options:
+  `spring.jpa.hibernate.ddl-auto=update`
+  `spring.jpa.show-sql=true`
+  `spring.jpa.properties.hibernate.format_sql=true`
+* H2 Console:
+  `spring.h2.console.enabled=true`
+  `spring.h2.console.path=/h2-console`
+  `spring.h2.console.settings.web-allow-others=true`
+* File Upload constraints (Multipart):
+  `spring.servlet.multipart.enabled=true`
+  `spring.servlet.multipart.max-file-size=50MB` (Max individual media file)
+  `spring.servlet.multipart.max-request-size=100MB` (Max request size limit)
+* Local fallback upload directory:
+  `plus33.upload.dir=uploads`
+* Cloudinary Cloud Integration:
+  `plus33.cloudinary.cloud-name=your_cloud_name`
+  `plus33.cloudinary.api-key=your_api_key`
+  `plus33.cloudinary.api-secret=your_api_secret`
+* Actuator Health & Info Endpoints:
+  `management.endpoints.web.exposure.include=health,info`
+  `management.endpoint.health.show-details=always`
+* CORS allowed origins:
+  `plus33.cors.allowed-origins=http://localhost:8090,http://localhost:5173,https://plus33.in`
+
+8. BACKEND LOGIC & DATA ACCESS LAYERS
+--------------------------------------------------------------------------------
+A. Service Layer (`/service`):
+   * ProductService: Manages dynamic lists (featured, bestsellers, new-arrivals, 
+     top-rated), CRUD methods, and pageable queries / keywords searches.
+   * CategoryService: Handles category CRUD and DTO mappings.
+   * MediaService: Coordinates upload/delete connections with Cloudinary SDK and database.
+   * AnimationService: Fetches active visual animation layouts and order configurations.
+   * AiRecommendationService: Tracks user activity events and maps recommended/personalized data lists.
+
+B. Repository Layer (`/repository`):
+   * ProductRepository: Extends JpaRepository. Handles filtering and searching.
+   * CategoryRepository: Extends JpaRepository.
+   * MediaUploadRepository: Extends JpaRepository.
+   * AnimationRepository: Extends JpaRepository.
+   * UserActivityRepository: Extends JpaRepository.
+
+9. SECURITY & MVC CONFIGURATIONS
+--------------------------------------------------------------------------------
+A. Security Config (`SecurityConfig.java`):
+   * Implements a Stateless Session strategy.
+   * Disables CSRF protection (since requests are API-driven and stateless).
+   * Permits all requests (public access to APIs `/api/**`, H2 console, actuator, 
+     and static folders).
+   * Configures global CORS parameters allowing credentials, cross-origin methods, 
+     and ages.
+
+B. Web MVC Config (`WebMvcConfig.java`):
+   * Registers `classpath:/static/` to serve index.html and assets dynamically.
+   * Forwards client routing segments (such as `/store`, `/experience`, `/journal`, 
+     `/franchise`, `/find-us`, and single-segment catch-all `/{path}`) to `/index.html` 
+     enabling client-side router orchestration without triggering server-side 404 errors.
+================================================================================
