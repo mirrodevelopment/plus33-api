@@ -1702,15 +1702,17 @@
   letter-spacing: -0.02em;
 }
 
-/* Ensure position: sticky works reliably inside flex layouts on mobile devices */
-body.route-home {
-  display: block !important;
-  overflow: visible !important;
-  overflow-x: visible !important;
-}
+@media (max-width: 768px) {
+  /* Ensure position: sticky works reliably inside flex layouts on mobile devices */
+  body.route-home {
+    display: block !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+  }
 
-body.route-home #app {
-  display: block !important;
+  body.route-home #app {
+    display: block !important;
+  }
 }
 
 @media (max-width: 768px) {
