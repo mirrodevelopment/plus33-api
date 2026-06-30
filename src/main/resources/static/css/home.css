@@ -954,14 +954,6 @@
     height: 100dvh !important;
   }
 
-  #white-transition {
-    background: #080e18 !important;
-  }
-
-  #normal-content {
-    background: #080e18 !important;
-  }
-
   #portal-inner {
     background-position: center center;
   }
