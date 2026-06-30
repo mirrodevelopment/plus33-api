@@ -1713,6 +1713,8 @@
 /* Ensure position: sticky works reliably inside flex layouts on mobile devices */
 body.route-home {
   display: block !important;
+  overflow: visible !important;
+  overflow-x: visible !important;
 }
 
 body.route-home #app {
