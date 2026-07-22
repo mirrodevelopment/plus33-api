@@ -1,6 +1,6 @@
 ================================================================================
-                      +33 PARIS — WEBSITE SPECIFICATION DETAILS
-            Comprehensive Guide to Theme, Functionality, and Properties
+                       +33 PARIS — WEBSITE SPECIFICATION DETAILS
+             Comprehensive Guide to Theme, Functionality, and Properties
 ================================================================================
 
 1. PROJECT OVERVIEW & BRAND CONCEPT
@@ -11,7 +11,7 @@
 * Strategy: High-fidelity visual presentation powered by GSAP animations, 
   parallax scrolling, and clean typographic grids, built on a lightweight, 
   stateless Java Spring Boot API backend.
-* Target Environment: Java 17 LTS (Java version 17), Spring Boot 3.3.5.
+* Target Environment: Java 17/21, Spring Boot 3.3/3.5.
 
 2. THEME & DESIGN SYSTEM (CSS VARIABLES)
 --------------------------------------------------------------------------------
@@ -178,44 +178,66 @@ F. Frontend Nav Controller forwards all non-API paths (`/`, `/store`, `/experien
 
 6. PROJECT FOLDER STRUCTURE
 --------------------------------------------------------------------------------
-plus33-api/
-├── .mvn/                                # Maven Wrapper binary and configuration
-├── .vscode/                             # Visual Studio Code workspace settings
-├── deployment/                          # Deployment-related scripts and configs
-├── docs/                                # Project documentation
-├── logs/                                # Application runtime logs
-├── src/                                 # Main source code directory
-│   ├── main/
-│   │   ├── java/                        # Backend Java source files
-│   │   │   └── fr/plus33/api/
-│   │   │       ├── config/              # Security and Web MVC configurations
-│   │   │       ├── controller/          # REST API endpoints (Controller layer)
-│   │   │       ├── dto/                 # Data Transfer Objects (DTO patterns)
-│   │   │       ├── model/               # Relational Database Entities (JPA models)
-│   │   │       ├── repository/          # Database queries & JPA repositories
-│   │   │       └── service/             # Service layer containing business logic
-│   │   └── resources/                   # Static assets, templates, properties
-│   │       ├── application.properties   # Application environment properties
-│   │       └── static/                  # Single Page Application (SPA) Web root
-│   │           ├── index.html           # Main SPA entry page
-│   │           ├── assets/img/          # Location images & layout graphics
-│   │           ├── css/                 # Global, home, and store stylings
-│   │           ├── global/              # Shared assets, styles, subpages, and logic
-│   │           │   ├── css/             # Responsive, chatbot, & layout styles
-│   │           │   ├── html/            # Subpage overlays & fragments
-│   │           │   └── js/              # Chatbot and layout helpers
-│   │           └── js/                  # App initialization, routing & boutique logic
-│   └── test/                            # Verification tests
-├── compose.yaml                         # Local Docker configuration
-├── Comprehensive_Documentation.md       # High-level architecture documentation
-├── Project_Details.txt                  # General project requirements
-├── Project_Structure_Map.txt            # System structure and description
-├── Website_Details_Theme_Functionality.txt # This specification details file
-└── pom.xml                              # Maven build configuration
+plus33-europe/
+│
+├── .github/                             # GitHub Actions CI/CD workflows
+│   └── workflows/
+│       └── deploy.yml
+│
+├── .mvn/                                # Maven Wrapper binaries and configuration
+├── .vscode/                             # VS Code launch & workspace settings
+│
+├── src/
+│   │
+│   ├── local/                           # Local Business Subsystem (Commerce Engine)
+│   │   ├── assets/                      # Product, hero, brand, and storefront assets
+│   │   ├── css/                         # Local page-specific stylesheets
+│   │   ├── html/                        # Local SPA page fragments
+│   │   ├── js/                          # Local page controllers & business logic
+│   │   └── java/
+│   │       └── com/plus33/europe/local/
+│   │           ├── controller/          # Product REST controllers
+│   │           ├── dto/                 # Product DTO models
+│   │           ├── model/               # Product JPA entities
+│   │           ├── repository/          # Product repositories
+│   │           ├── service/             # Product business services
+│   │           └── Plus33EuropeApplication.java
+│   │
+│   ├── global/                          # Global Website Platform Engine
+│   │   ├── application.properties       # Spring Boot configuration
+│   │   ├── assets/                      # Shared branding, icons, images & media
+│   │   ├── css/                         # Shared global styles
+│   │   ├── html/                        # SPA shell & shared layouts
+│   │   ├── js/                          # Router, chatbot & shared scripts
+│   │   ├── about/                       # About module
+│   │   ├── journal/                     # Journal module
+│   │   ├── franchise/                   # Franchise module
+│   │   ├── rewards/                     # Rewards module
+│   │   ├── find-us/                     # Store Locator module
+│   │   └── java/
+│   │       └── com/plus33/europe/global/
+│   │           ├── config/              # Security, MVC & database configuration
+│   │           ├── constants/           # Global application constants
+│   │           ├── controller/          # Global REST controllers
+│   │           ├── dto/                 # Shared DTOs
+│   │           ├── exception/           # Global exception handlers
+│   │           ├── model/               # Shared entities
+│   │           ├── repository/          # JPA repositories
+│   │           ├── service/             # Business services
+│   │           └── util/                # Utility classes & DTO mappers
+│   │
+│   └── test/                            # Unit & Integration tests
+│
+├── compose.yaml                         # Docker Compose configuration
+├── pom.xml                              # Maven build configuration
+├── README.md                            # Project documentation
+├── PROJECT_ARCHITECTURE.txt             # Complete architecture documentation
+├── WEBSITE_FUNCTIONAL_DOCUMENTATION_PRESENTATION.txt
+└── WEBSITE_TEST_REPORT.txt
 
 7. SYSTEM PROPERTIES & ENVIRONMENT CONFIG
 --------------------------------------------------------------------------------
-Defined inside `src/main/resources/application.properties`:
+Defined inside `src/global/application.properties`:
 
 * Server Port: 
   `server.port=8083`
@@ -253,12 +275,12 @@ Defined inside `src/main/resources/application.properties`:
 8. BACKEND LOGIC & DATA ACCESS LAYERS
 --------------------------------------------------------------------------------
 A. Service Layer (`/service`):
-   * ProductService: Manages dynamic lists (featured, bestsellers, new-arrivals, 
+   * ProductService (under `src/local/.../service`): Manages dynamic lists (featured, bestsellers, new-arrivals, 
      top-rated), CRUD methods, and pageable queries / keywords searches.
-   * CategoryService: Handles category CRUD and DTO mappings.
-   * MediaService: Coordinates upload/delete connections with Cloudinary SDK and database.
-   * AnimationService: Fetches active visual animation layouts and order configurations.
-   * AiRecommendationService: Tracks user activity events and maps recommended/personalized data lists.
+   * CategoryService (under `src/global/.../service`): Handles category CRUD and DTO mappings.
+   * MediaService (under `src/global/.../service`): Coordinates upload/delete connections with Cloudinary SDK and database.
+   * AnimationService (under `src/global/.../service`): Fetches active visual animation layouts and order configurations.
+   * AiRecommendationService (under `src/global/.../service`): Tracks user activity events and maps recommended/personalized data lists.
 
 B. Repository Layer (`/repository`):
    * ProductRepository: Extends JpaRepository. Handles filtering and searching.
@@ -269,7 +291,7 @@ B. Repository Layer (`/repository`):
 
 9. SECURITY & MVC CONFIGURATIONS
 --------------------------------------------------------------------------------
-A. Security Config (`SecurityConfig.java`):
+A. Security Config (`SecurityConfig.java` under `src/global/.../config`):
    * Implements a Stateless Session strategy.
    * Disables CSRF protection (since requests are API-driven and stateless).
    * Permits all requests (public access to APIs `/api/**`, H2 console, actuator, 
@@ -277,9 +299,9 @@ A. Security Config (`SecurityConfig.java`):
    * Configures global CORS parameters allowing credentials, cross-origin methods, 
      and ages.
 
-B. Web MVC Config (`WebMvcConfig.java`):
-   * Registers `classpath:/static/` to serve index.html and assets dynamically.
+B. Web MVC Config (`WebMvcConfig.java` under `src/global/.../config`):
+   * Registers global configurations and maps routing paths.
    * Forwards client routing segments (such as `/store`, `/experience`, `/journal`, 
-     `/franchise`, `/find-us`, and single-segment catch-all `/{path}`) to `/index.html` 
+     `/franchise`, `/find-us`, and single-segment catch-all `/{path}`) to index.html 
      enabling client-side router orchestration without triggering server-side 404 errors.
 ================================================================================

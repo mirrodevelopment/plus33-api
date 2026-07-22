@@ -61,22 +61,36 @@ The Plus33 application follows a **Decoupled Client-Server Architecture** separa
 
 ## 4. Folder Structure Explanation
 
-### Backend (`src/main/java/fr/plus33/api`)
-* **`config/`**: Contains core application configurations (e.g., `SecurityConfig`, `WebMvcConfig`). Exists to centralize environment and security rules.
-* **`controller/`**: Houses the REST endpoints (`ProductController`, `CategoryController`). Responsible exclusively for HTTP request/response handling.
-* **`dto/`**: Data Transfer Objects (`ProductDto`, `ApiResponse`). Best practice to decouple database entities from API payloads.
-* **`model/`**: JPA Entities (`Product`, `Category`). These map exactly to database tables.
-* **`repository/`**: Interfaces extending `JpaRepository`. Provides automatic CRUD operations.
-* **`service/`**: Contains business logic (`ProductService`). Acts as the middleman between controllers and repositories.
+### Local Business Subsystem (`src/local/`)
+* **`assets/`**: Local product, hero, brand, and storefront images/media.
+* **`css/`**: Local page-specific stylesheets (home, store, etc.).
+* **`html/`**: Local SPA page fragments (home, store).
+* **`js/`**: Local page controllers & business logic.
+* **`java/`** (under `com/plus33/europe/local/`):
+  * **`controller/`**: Product REST controllers.
+  * **`dto/`**: Product DTO models.
+  * **`model/`**: Product JPA entities.
+  * **`repository/`**: Product repositories.
+  * **`service/`**: Product business services.
+  * **`Plus33EuropeApplication.java`**: Main application bootstrapper.
 
-### Frontend (`plus33-frontend/`)
-* **`css/`**: Modular CSS. Subfolders for `animations/` (GSAP specific styles), `components/` (navbar, footer), `global/` (reset, typography, variables), and `pages/`.
-* **`js/`**:
-  * `api/`: Centralized API fetch logic (`api.js`).
-  * `components/`: UI logic (`navbar.js`).
-  * `pages/`: View-specific logic.
-  * `router/`: Client-side routing logic to switch views dynamically.
-* **`templates/`**: Raw HTML files that are injected into the DOM by the router.
+### Global Website Platform Engine (`src/global/`)
+* **`application.properties`**: Core Spring Boot settings.
+* **`assets/`**: Shared branding, icons, images & media.
+* **`css/`**: Shared global styles (reset, variables, typography).
+* **`html/`**: SPA shell (`index.html`) & shared layouts.
+* **`js/`**: Router, chatbot & shared scripts.
+* **`about/`**, **`journal/`**, **`franchise/`**, **`rewards/`**, **`find-us/`**: Subpage modules.
+* **`java/`** (under `com/plus33/europe/global/`):
+  * **`config/`**: Security, MVC & database configuration.
+  * **`constants/`**: Global application constants.
+  * **`controller/`**: Global REST controllers.
+  * **`dto/`**: Shared DTOs.
+  * **`exception/`**: Global exception handlers.
+  * **`model/`**: Shared entities.
+  * **`repository/`**: JPA repositories.
+  * **`service/`**: Business services.
+  * **`util/`**: Utility classes & DTO mappers.
 
 ---
 

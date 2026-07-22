@@ -1,153 +1,71 @@
 ========================================================================
-                 PLUS33 PROJECT ARCHITECTURE & STRUCTURE MAP
+             PLUS33 EUROPE PROJECT ARCHITECTURE & STRUCTURE MAP
 ========================================================================
 
 This document provides a detailed, comprehensive map of the entire directory
-and file structure of the Plus33 repository (plus33-api). It outlines the 
+and file structure of the Plus33 Europe repository (plus33-europe). It outlines the 
 purpose and architectural role of every single directory and key file.
 
 ------------------------------------------------------------------------
 1. VISUAL DIRECTORY TREE
 ------------------------------------------------------------------------
 
-plus33-api/
+plus33-europe/
 │
-├── .git/                                # Git version control metadata (hidden)
-├── .idea/                               # IntelliJ IDEA workspace settings (hidden)
-├── .mvn/                                # Maven Wrapper binary and configuration
-│   └── wrapper/
-│       ├── maven-wrapper.jar
-│       └── maven-wrapper.properties
-├── .vscode/                             # Visual Studio Code workspace settings (hidden)
+├── .github/                             # GitHub Actions CI/CD workflows
+│   └── workflows/
+│       └── deploy.yml
 │
-├── deployment/                          # Deployment-related scripts and readmes
-│   └── README.md                        # Documentation on containerized deployment
+├── .mvn/                                # Maven Wrapper binaries and configuration
+├── .vscode/                             # VS Code launch & workspace settings
 │
-├── docs/                                # Project design and requirements docs
-│   └── README.md                        # System documentation overview
-│
-├── logs/                                # Application runtime logs (generated at runtime)
-│
-├── src/                                 # Main source code directory
-│   ├── main/
-│   │   ├── java/                        # Backend Java source files
-│   │   │   └── fr/
-│   │   │       └── plus33/
-│   │   │           └── api/
-│   │   │               ├── config/      # System-wide Spring Boot configurations
-│   │   │               │   ├── SecurityConfig.java
-│   │   │               │   └── WebMvcConfig.java
-│   │   │               │
-│   │   │               ├── controller/  # REST API Controllers (endpoints)
-│   │   │               │   ├── AiRecommendationController.java
-│   │   │               │   ├── AnimationController.java
-│   │   │               │   ├── CategoryController.java
-│   │   │               │   ├── MediaController.java
-│   │   │               │   ├── NavController.java
-│   │   │               │   └── ProductController.java
-│   │   │               │
-│   │   │               ├── dto/         # Data Transfer Objects (payload representations)
-│   │   │               │   ├── ApiResponse.java
-│   │   │               │   ├── CategoryDto.java
-│   │   │               │   └── ProductDto.java
-│   │   │               │
-│   │   │               ├── model/       # JPA Relational Database Entities (models)
-│   │   │               │   ├── Animation.java
-│   │   │               │   ├── Category.java
-│   │   │               │   ├── MediaUpload.java
-│   │   │               │   ├── Product.java
-│   │   │               │   └── UserActivity.java
-│   │   │               │
-│   │   │               ├── repository/  # Spring Data JPA Repository Interfaces
-│   │   │               │   ├── AnimationRepository.java
-│   │   │               │   ├── CategoryRepository.java
-│   │   │               │   ├── MediaUploadRepository.java
-│   │   │               │   ├── ProductRepository.java
-│   │   │               │   └── UserActivityRepository.java
-│   │   │               │
-│   │   │               ├── service/     # Business logic layers (services)
-│   │   │               │   ├── AiRecommendationService.java
-│   │   │               │   ├── AnimationService.java
-│   │   │               │   ├── CategoryService.java
-│   │   │               │   ├── MediaService.java
-│   │   │               │   └── ProductService.java
-│   │   │               │
-│   │   │               └── Plus33ApiApplication.java  # Main application entry point
-│   │   │
-│   │   └── resources/                   # Static assets, templates, and properties
-│   │       ├── application.properties   # Main Spring Boot configurations
-│   │       │
-│   │       ├── templates/               # Spring MVC Server-side views (currently unused)
-│   │       │
-│   │       └── static/                  # Single Page Application (SPA) Client Web Root
-│   │           ├── index.html           # Main SPA entry point and shell layout
-│   │           │
-│   │           ├── assets/              # Core page-specific images
-│   │           │   └── img/             # Product and banner images for Boutique & Home
-│   │           │
-│   │           ├── css/                 # View-specific CSS stylesheets
-│   │           │   ├── global.css       # Core layout tokens, variables, and typography
-│   │           │   ├── home.css         # Stylings for cinematic home view
-│   │           │   └── store.css        # Stylings for premium boutique catalog
-│   │           │
-│   │           ├── global/              # Shared elements, assets, and components
-│   │           │   ├── assets/          # Global docs and shared imagery
-│   │           │   │   ├── docs/        # Franchise brochures and PDF assets
-│   │           │   │   └── img/         # Logos, icons, map pins, location backdrops
-│   │           │   │
-│   │           │   ├── css/             # Component and auxiliary CSS
-│   │           │   │   ├── chatbot.css  # Luxury AI assistant widget styles
-│   │           │   │   ├── find-us.css  # Map and locator page styles
-│   │           │   │   ├── fragment.css # Global UI fragment wrappers (header/footer)
-│   │           │   │   ├── franchise.css# Business/Franchise proposal page styles
-│   │           │   │   ├── journal.css  # Magazine/Journal page styles
-│   │           │   │   └── responsive.css# Mobile & Tablet responsive modifications
-│   │           │   │
-│   │           │   ├── html/            # Subpage HTML views and layout fragments
-│   │           │   │   ├── find-us.html
-│   │           │   │   ├── franchise.html
-│   │           │   │   ├── journal.html
-│   │           │   │   └── fragments/   # Modular structural components
-│   │           │   │       ├── footer.html
-│   │           │   │       └── navbar.html
-│   │           │   │
-│   │           │   └── js/              # Shared logic, engines, and mock data
-│   │           │       ├── chatbot-data.js
-│   │           │       ├── chatbot.js
-│   │           │       ├── find-us.js
-│   │           │       ├── franchise.js
-│   │           │       ├── journal.js
-│   │           │       ├── layout-engine.js # Intercepts and compiles fragments
-│   │           │       └── store-data.js   # Local fallback product datasets
-│   │           │
-│   │           ├── html/                # Main SPA pages loaded dynamically
-│   │           │   ├── home.html        # Main landing content
-│   │           │   └── store.html       # Catalog content
-│   │           │
-│   │           └── js/                  # App core scripts and routers
-│   │               ├── app.js           # Core layout bootstrapper
-│   │               ├── home.js          # Homepage animation triggers
-│   │               ├── router.js        # Client-side router engine
-│   │               └── store.js         # Boutique rendering and filtering engine
+├── src/
 │   │
-│   └── test/                            # Integration and unit testing suite
-│       └── java/
-│           └── fr/
-│               └── plus33/
-│                   └── api/
-│                       └── Plus33ApiApplicationTests.java  # Verification tests
+│   ├── local/                           # Local Business Subsystem (Commerce Engine)
+│   │   ├── assets/                      # Product, hero, brand, and storefront assets
+│   │   ├── css/                         # Local page-specific stylesheets
+│   │   ├── html/                        # Local SPA page fragments
+│   │   ├── js/                          # Local page controllers & business logic
+│   │   └── java/
+│   │       └── com/plus33/europe/local/
+│   │           ├── controller/          # Product REST controllers
+│   │           ├── dto/                 # Product DTO models
+│   │           ├── model/               # Product JPA entities
+│   │           ├── repository/          # Product repositories
+│   │           ├── service/             # Product business services
+│   │           └── Plus33EuropeApplication.java
+│   │
+│   ├── global/                          # Global Website Platform Engine
+│   │   ├── application.properties       # Spring Boot configuration
+│   │   ├── assets/                      # Shared branding, icons, images & media
+│   │   ├── css/                         # Shared global styles
+│   │   ├── html/                        # SPA shell & shared layouts
+│   │   ├── js/                          # Router, chatbot & shared scripts
+│   │   ├── about/                       # About module
+│   │   ├── journal/                     # Journal module
+│   │   ├── franchise/                   # Franchise module
+│   │   ├── rewards/                     # Rewards module
+│   │   ├── find-us/                     # Store Locator module
+│   │   └── java/
+│   │       └── com/plus33/europe/global/
+│   │           ├── config/              # Security, MVC & database configuration
+│   │           ├── constants/           # Global application constants
+│   │           ├── controller/          # Global REST controllers
+│   │           ├── dto/                 # Shared DTOs
+│   │           ├── exception/           # Global exception handlers
+│   │           ├── model/               # Shared entities
+│   │           ├── repository/          # JPA repositories
+│   │           ├── service/             # Business services
+│   │           └── util/                # Utility classes & DTO mappers
+│   │
+│   └── test/                            # Unit & Integration tests
 │
-├── .gitattributes                       # Git repository settings
-├── .gitignore                           # Ignored directories list (target, logs, .idea)
-├── compose.yaml                         # Local Docker containers configuration (MySQL, etc.)
-├── Comprehensive_Documentation.md       # High-level developer documentation manual
-├── mvnw                                 # Maven wrapper script for Unix
-├── mvnw.cmd                             # Maven wrapper script for Windows
-├── pom.xml                              # Maven build specification and dependencies
-├── Project_Details.txt                  # General project requirements overview
-├── Project_Structure_Map.txt            # [THIS FILE] Complete directory and file architecture map
-├── Website_Details_Theme_Functionality.txt # Detailed guide to theme, components, and functionalities
-└── README.md                            # Quick start documentation
+├── compose.yaml                         # Docker Compose configuration
+├── pom.xml                              # Maven build configuration
+├── README.md                            # Project documentation
+├── PROJECT_ARCHITECTURE.txt             # Complete architecture documentation
+├── WEBSITE_FUNCTIONAL_DOCUMENTATION_PRESENTATION.txt
+└── WEBSITE_TEST_REPORT.txt
 
 ------------------------------------------------------------------------
 2. SYSTEM COMPONENT DETAILS
@@ -156,8 +74,7 @@ plus33-api/
 ======================================
 A. THE BACKEND SYSTEM (Spring Boot)
 ======================================
-The backend is structured under `src/main/java/fr/plus33/api` following standard
-enterprise-tier Clean Architecture patterns:
+The backend is structured under `src/local/java/com/plus33/europe/local` (Local Commerce Engine) and `src/global/java/com/plus33/europe/global` (Global Platform Engine) following standard enterprise-tier Clean Architecture patterns:
 
 1. CONFIGURATION LAYER (`/config`)
    - SecurityConfig.java: Sets up security protocols, configures CORS exceptions
@@ -201,7 +118,7 @@ enterprise-tier Clean Architecture patterns:
    - ProductService.java: Powers product searches, pagination, sorting, and tag filters.
 
 7. APPLICATION ENTRYPOINT
-   - Plus33ApiApplication.java: Holds the `@SpringBootApplication` entry point.
+   - Plus33EuropeApplication.java: Holds the `@SpringBootApplication` entry point.
 
 ======================================
 B. CONFIGURATION & INFRASTRUCTURE
@@ -215,8 +132,7 @@ B. CONFIGURATION & INFRASTRUCTURE
 ======================================
 C. THE FRONTEND SYSTEM (SPA Client)
 ======================================
-The frontend is a lightweight Single Page Application served out of the 
-`/resources/static` directory, designed for fast load times and premium animations.
+The frontend is a lightweight Single Page Application split between `src/local/` (Local Commerce assets, styles, scripts) and `src/global/` (Global layouts, router, chatbot, subpages) directories, designed for fast load times and premium animations.
 
 1. ROUTING & CLIENT ARCHITECTURE (`/js`)
    - index.html: Acts as the base shell. Navbars, footers, and page views are 

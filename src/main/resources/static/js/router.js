@@ -26,7 +26,7 @@ import { mountHomePage } from './home.js';
 import { mountStorePage } from './store.js';
 import { mountRewardsPage } from '../global/rewards/js/rewards.js';
 import { mountAboutPage } from '../global/about/js/about.js';
-import { mountJournalPage } from '../global/js/journal.js';
+import { mountJournalPage } from '../global/journal/js/journal.js';
 import { mountFranchisePage } from '../global/js/franchise.js';
 import { mountFindUsPage } from '../global/js/find-us.js';
 
@@ -56,9 +56,9 @@ const routes = {
         title: '+33 Heritage & Philosophy | About Us'
     },
     '/journal': {
-        htmlPath: '/global/html/journal.html',
+        htmlPath: '/global/journal/html/journal.html',
         mount: mountJournalPage,
-        title: '+33 Journal'
+        title: '+33 Journal | Dispatches from the Craft'
     },
     '/franchise': {
         htmlPath: '/global/html/franchise.html',

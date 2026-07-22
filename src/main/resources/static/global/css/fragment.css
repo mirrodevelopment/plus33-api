@@ -331,7 +331,10 @@
 /* ═════════ FOOTER STYLES ═════════ */
 
 .plus33-footer {
-  background: var(--burgundy-deep);
+  background:
+    radial-gradient(circle at top left, rgba(28,58,92,.28), transparent 38%),
+    radial-gradient(circle at bottom right, rgba(15,40,68,.22), transparent 42%),
+    linear-gradient(180deg, #04101F 0%, #07142B 35%, #091A35 65%, #04101F 100%);
   border-top: 1px solid rgba(200,164,107,0.18);
   padding: var(--s7) 0 var(--s5);
   position: relative;
