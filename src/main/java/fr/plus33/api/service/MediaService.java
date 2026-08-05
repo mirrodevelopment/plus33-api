@@ -18,6 +18,8 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
+@SuppressWarnings("null")
+
 public class MediaService {
 
     private final MediaUploadRepository mediaUploadRepository;

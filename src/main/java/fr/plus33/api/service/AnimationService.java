@@ -11,6 +11,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
+@SuppressWarnings("null")
+
 public class AnimationService {
 
     private final AnimationRepository animationRepository;
