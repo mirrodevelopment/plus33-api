@@ -87,53 +87,29 @@
     sweet: [
       "Sweet coffee lovers should try **Vanilla Latte**.",
       "Craving sweetness? **Hazelnut Mocha** never disappoints.",
-      "**Caramel Cappuccino** feels like comfort in a cup.",
-      "Sweet café vibes start with **Pumpkin Latte**."
-    ],
-    strong: [
-      "Need a stronger kick? **Double Espresso** is ready.",
-      "Bold coffee moments begin with **Espresso**.",
-      "Strong coffee. Slow moments. **Café Filtre** fits perfectly.",
-      "Coffee lovers love our **Mocha Espresso**."
-    ],
-    matcha: [
-      "Soft **Matcha** energy. Try **Matcha Vanille**.",
-      "Need calm café vibes? **Matcha** fits perfectly.",
-      "**Iced Matcha** lovers — your next favorite drink is here.",
-      "Smooth matcha moments start with **Matcha Vanille**."
-    ],
-    rain: [
-      "Rainy days and **hot coffee** are the perfect combination. Try **Cappuccino**.",
-      "Cloudy skies call for **Café Filtre**.",
-      "Take a rainy-day coffee break. **Vanilla Latte** fits perfectly.",
-      "**Rain and coffee** just belong together. **Chai Latte** feels perfect."
-    ],
-    work: [
-      "Focused work sessions begin with **Espresso**.",
-      "Coffee, calm music, and focus mode. **Café Filtre** fits perfectly.",
-      "Need productivity energy? **Double Espresso** is ready.",
-      "Bring your laptop — we’ll handle the **Cappuccino**."
+      "Unwind this evening with **Thé Glacé d’Hiver**.",
+      "Soft evening vibes call for **Decaf Latte**.",
+      "End your day gently. **Chai Latte** is waiting."
     ],
     weekend: [
-      "Weekends deserve **slow coffee moments**. Try **Caramel Cold Brew**.",
-      "**Cold brews** and café conversations. **Thé Glacé d’Hiver** fits perfectly.",
+      "Weekend energy unlocked. Try **Iced Punch Coco**.",
       "**Weekend coffee** hits differently. **Vanilla Latte** is waiting.",
       "Take it slow this weekend with **Cappuccino**."
     ],
     romantic: [
       "Every cup is a **call to Paris**. Try **Vanilla Latte**.",
-      "Coffee dates feel better at **Paris Pony**. **Cappuccino** fits perfectly.",
-      "Soft café lights and warm coffee. **Mocha Espresso** feels magical.",
+      "Coffee dates feel better at **+33 Paris**. **Cappuccino** fits perfectly.",
+      "Soft café lights and warm coffee. **Louvre Mocha** feels magical.",
       "Romantic café vibes served daily. Try **Flat White**."
     ],
     chill: [
       "Coffee tastes better with **good company**. Try **Caramel Cold Brew**.",
-      "Bring your friends and enjoy the **Paris Pony vibe**. **Thé Glacé d’Hiver** fits perfectly.",
+      "Bring your friends and enjoy the **+33 Paris vibe**. **Thé Glacé d’Hiver** fits perfectly.",
       "**Cold brews** and calm conversations. **Tiramisu Glacé** is waiting.",
       "Perfect café mood unlocked. **Iced Punch Coco** feels refreshing."
     ],
     bestseller: [
-      "Paris Pony favorites. **Caramel Cold Brew** & **Cappuccino**",
+      "+33 Paris favorites. **Caramel Cold Brew** & **Cappuccino**",
       "Our guests love **Vanilla Latte**.",
       "Most-loved drinks this season. **Matcha Vanille** & **Espresso**",
       "Signature drinks made for slow moments. Try **Café Filtre**."
@@ -152,7 +128,7 @@
     ],
     location: [
       "Your next coffee stop might be closer than you think.",
-      "Let’s find your nearest **Paris Pony café**.",
+      "Let’s find your nearest **+33 Paris café**.",
       "Coffee is always nearby. **Cappuccino** is waiting.",
       "Find your perfect café corner. Try **Café Filtre**."
     ],
@@ -256,7 +232,7 @@
                 <img src="/global/assets/brand/plus33-logo.png" alt="+33 Logo" style="width: 24px; height: 24px; object-fit: contain; filter: brightness(0) invert(1);" />
               </div>
               <div class="pp-header-text">
-                <div class="pp-header-name">Hi. Welcome to Paris Pony.</div>
+                <div class="pp-header-name">Hi. Welcome to +33 Paris.</div>
                 <div class="pp-header-sub">Every cup is a call to Paris.</div>
               </div>
               <button
@@ -269,8 +245,6 @@
                 </svg>
               </button>
             </div>
-
-
 
             <!-- Quick Action Buttons -->
             <div class="pp-quick-actions" id="pp-quick-actions" role="group" aria-label="Quick questions"></div>
@@ -320,7 +294,7 @@
             </div>
 
             <!-- Powered by -->
-            <p class="pp-powered" aria-hidden="true">Paris Pony · Coffee Assistant</p>
+            <p class="pp-powered" aria-hidden="true">+33 Paris · Coffee Assistant</p>
 
           </div><!-- /pp-window -->
         </div><!-- /pp-chatbot -->
@@ -652,18 +626,23 @@
       text = text.trim();
       if (!text || this.isTyping) return;
 
-      // ── TYPO NORMALIZATION ──
-      let normalized = text.toLowerCase().trim();
+      // ── TYPO & ACCENT NORMALIZATION ──
+      let normalized = text.toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^\w\s]/gi, " ")
+        .trim();
       const typoMap = {
         "sugust": "suggest",
         "stroe": "store",
         "streo": "store",
         "cofee": "coffee",
-        "locaton": "location"
+        "locaton": "location",
+        "laction": "location"
       };
       Object.keys(typoMap).forEach(key => {
         normalized = normalized.replaceAll(key, typoMap[key]);
       });
+
 
       /* ─────────────────────────────────────────────────
          PRIORITY INTENT ROUTING

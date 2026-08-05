@@ -30,6 +30,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/journal").setViewName("forward:/index.html");
         registry.addViewController("/franchise").setViewName("forward:/index.html");
         registry.addViewController("/find-us").setViewName("forward:/index.html");
+        registry.addViewController("/about").setViewName("forward:/index.html");
+        registry.addViewController("/rewards").setViewName("forward:/index.html");
 
         // Single-segment catch-all: matches /anyword (but NOT /api/**, /h2-console/**, etc.)
         // Spring Boot 3 PathPatternParser does NOT allow ** followed by more segments,

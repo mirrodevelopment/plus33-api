@@ -153,12 +153,17 @@ export class Router {
         const route = routes[path] || routes['/'];
 
         try {
-            // 1. Fetch HTML content dynamically FIRST if not already cached
-            // (keeping previous view active and visible in the background)
+            // 1. Fetch fresh HTML fragment dynamically
+            try {
+                const response = await fetch(route.htmlPath, { cache: 'no-cache' });
+                if (response.ok) {
+                    route.html = await response.text();
+                }
+            } catch (fetchErr) {
+                console.warn('Failed to fetch fresh route HTML, using cached version:', fetchErr);
+            }
             if (!route.html) {
-                const response = await fetch(route.htmlPath);
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                route.html = await response.text();
+                throw new Error(`Route HTML unavailable for path: ${route.htmlPath}`);
             }
 
             // 2. Cinematic Fade Out the current page now that the content is resolved

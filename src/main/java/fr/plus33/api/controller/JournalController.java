@@ -1,5 +1,6 @@
 package fr.plus33.api.controller;
 
+import fr.plus33.api.dto.ApiResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,8 +13,9 @@ import java.util.Map;
 public class JournalController {
 
     @GetMapping("/stories")
-    public List<Map<String, Object>> getStories() {
-        return List.of(
+    public ApiResponse<List<Map<String, Object>>> getStories() {
+        return ApiResponse.ok(List.of(
+
             Map.of(
                 "id", 1,
                 "title", "The Soil of Ethiopia",
@@ -168,6 +170,7 @@ public class JournalController {
                 "readTime", "4 min read",
                 "imagePath", "/global/journal/assets/sunday-espresso.png"
             )
-        );
+        ));
     }
 }
+

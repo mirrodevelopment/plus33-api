@@ -74,14 +74,14 @@
 }
 
 /* REFLECTIVE PAVEMENT */
-#reflection-strip {
+.paris-hero__reflection {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   height: 25vh;
   z-index: 5;
-  background: url('../assets/img/paris-hero-banner.png') center 100% / cover no-repeat;
+  background: url('../assets/home/home-hero-banner.png') center 100% / cover no-repeat;
   transform: scaleY(-1);
   filter: blur(4px) brightness(0.35) saturate(1.4);
   mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
@@ -139,14 +139,17 @@
 
 .hero-eyebrow {
   font-family: var(--font-ui);
-  font-size: clamp(0.6rem, 1.5vw, 0.8rem);
-  letter-spacing: 0.6em;
+  font-size: clamp(0.85rem, 1.8vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: 0.35em;
   color: var(--copper);
+  text-shadow: 0 0 16px rgba(184, 115, 51, 0.4), 0 2px 8px rgba(0, 0, 0, 0.8);
   opacity: 0;
   transform: translateY(20px);
   margin-bottom: 1.2rem;
   animation: fadeUp 1.4s 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
 
 .hero-headline {
   font-family: var(--font-serif);
@@ -363,9 +366,10 @@
 #portal-inner {
   width: 100%;
   height: 100%;
-  background: var(--obsidian) url('../assets/img/plus33-cafe-exterior.png') center / cover no-repeat;
+  background: var(--obsidian) url('../assets/home/home-cafe-exterior.png') center / cover no-repeat;
   will-change: transform;
 }
+
 
 #portal-bloom {
   position: absolute;
@@ -1099,7 +1103,8 @@
   width: 100%;
   background-size: cover;
   background-position: center;
-  background-image: url('../assets/img/plus33-cafe-exterior.png');
+  background-image: url('../assets/home/home-cafe-exterior.png');
+
   position: relative;
   transition: background-image 0.5s ease;
 }

@@ -48,12 +48,11 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("SELECT p FROM Product p WHERE p.active = true AND p.seasonalRelevance = :season ORDER BY p.orderCount DESC")
     List<Product> findBySeason(@Param("season") String season, Pageable pageable);
 
-    @Query(value = "SELECT p.* FROM products p " +
-                   "JOIN user_activity ua ON p.id = ua.product_id " +
-                   "WHERE ua.user_id = :userId AND p.active = true " +
-                   "GROUP BY p.id ORDER BY COUNT(ua.id) DESC",
-           nativeQuery = true)
+    @Query("SELECT p FROM Product p JOIN UserActivity ua ON p.id = ua.productId " +
+           "WHERE ua.userId = :userId AND p.active = true " +
+           "GROUP BY p ORDER BY COUNT(ua.id) DESC")
     List<Product> findByUserHistory(@Param("userId") Long userId, Pageable pageable);
+
 
     // ── Search ──────────────────────────────────────────────────────────────
     @Query("SELECT p FROM Product p WHERE p.active = true AND " +

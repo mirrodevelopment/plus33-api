@@ -150,7 +150,8 @@ export function initLegalModals() {
         <p>Your personal data is treated with the highest confidentiality. We do not sell your personal data. Any sharing with third-party service providers (such as payment systems or Cloudinary storage) is done securely under strict data protection protocols.</p>
         
         <h3>4. Your Rights</h3>
-        <p>Under GDPR and local French regulations, you have the right to access, rectify, restrict, or erase your personal data at any time. For requests, please contact our data officer at <a href="mailto:info@plus33coffee.support">info@plus33coffee.support</a>.</p>
+        <p>Under GDPR and local French regulations, you have the right to access, rectify, restrict, or erase your personal data at any time. For requests, please contact our data officer at <a href="mailto:plus33coffee@gmail.com">plus33coffee@gmail.com</a>.</p>
+
     `;
 
     const TERMS_OF_SERVICE_HTML = `

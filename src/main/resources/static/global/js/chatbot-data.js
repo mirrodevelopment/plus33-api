@@ -2,7 +2,7 @@
  * FILE: chatbot-data.js
  * ══════════════════════════════════════════════════
  * PURPOSE:
- * Paris Pony — Coffee Assistant knowledge base.
+ * +33 Paris — Coffee Assistant knowledge base.
  * Contains all predefined Q&A sets, quick actions, and
  * keyword arrays for each page context.
  *
@@ -26,15 +26,15 @@ const CHATBOT_DATA = {
     ],
     qa: [
       {
-        keywords: ['best', 'popular', 'favorite', 'top', 'good', 'signature', 'picks'],
+        keywords: ['best', 'popular', 'favorite', 'top', 'good', 'signature', 'picks', 'recommend', 'bset', 'fav'],
         answer: 'Our customer favorites include **Café Filtre**, **Cappuccino**, **Latte / Flat White**, and chilled **Tiramisu Glacé**.\n\n[Explore Menu](/store)'
       },
       {
-        keywords: ['drink', 'coffee', 'beverage', 'menu', 'latte', 'espresso'],
+        keywords: ['drink', 'coffee', 'beverage', 'menu', 'latte', 'espresso', 'coffe', 'drnk'],
         answer: 'Explore our signature coffee collection featuring hot classics like **Café Filtre**, iced coffees, matcha drinks & seasonal specials.\n\n[Explore Menu](/store)'
       },
       {
-        keywords: ['snack', 'food', 'dessert', 'croissant', 'eat', 'bite'],
+        keywords: ['snack', 'food', 'dessert', 'croissant', 'eat', 'bite', 'bakery'],
         answer: 'Pair your coffee with our premium café bites and desserts, like our warm **Paris Butter Croissant** or artisanal **Milano Pistachio Biscotti** available at select cafés!\n\n[Explore Menu](/store)'
       },
       {
@@ -42,7 +42,7 @@ const CHATBOT_DATA = {
         answer: 'Try our **Signature Hazelnut Latte**, **Caramel Cold Brew**, or **Tiramisu Glacé** — customer favorites.\n\n[Explore Menu](/store)'
       },
       {
-        keywords: ['story', 'about', 'history', 'who are', 'brand'],
+        keywords: ['story', 'about', 'history', 'who are', 'brand', 'plus33', '+33'],
         answer: '**+33 Paris** was born from a love of Parisian café culture. We brew premium coffee with elegance, warmth, and a modern touch.\n\n[Read our Journal](/journal)'
       },
       {
@@ -50,7 +50,7 @@ const CHATBOT_DATA = {
         answer: 'Interested in a **+33 Paris franchise**? Visit our Franchise page or tap "Franchise Info" below to learn more.\n\n[Franchise Info](/franchise)'
       },
       {
-        keywords: ['location', 'find', 'nearest', 'where', 'café', 'cafe', 'store location', 'address'],
+        keywords: ['location', 'find', 'nearest', 'where', 'café', 'cafe', 'store location', 'address', 'laction', 'stroe'],
         answer: 'Find your nearest **+33 Paris café** on our Find Us page — we\'re spreading across cities.\n\n[Find a Café](/find-us)'
       },
       {
@@ -160,7 +160,7 @@ const CHATBOT_DATA = {
     qa: [
       {
         keywords: ['nearest', 'closest', 'near me', 'find café', 'find cafe', 'where is', 'locate', 'nearby', 'streo', 'stroe', 'location', 'use my location'],
-        answer: 'I will find your closest café right now! Please allow location access when prompted, or type the name of a city (e.g. *Paris, London, Tokyo, Mumbai*).\n\n[Find a Café](/find-us)'
+        answer: 'I will find your closest café right now! Please allow location access when prompted, or type the name of a city (e.g. *Paris, London, Tokyo, Dubai*).\n\n[Find a Café](/find-us)'
       },
       {
         keywords: ['opening hours', 'timing', 'open time', 'close time', 'when open', 'working hours', 'schedule'],
@@ -235,7 +235,7 @@ const CHATBOT_DATA = {
     qa: [
       {
         keywords: ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'bonjour', 'yo'],
-        answer: 'Bonjour! Welcome to the **Paris Pony** coffee assistant. How can I help you today.'
+        answer: 'Bonjour! Welcome to the **+33 Paris** coffee assistant. How can I help you today.'
       },
       {
         keywords: ['thank', 'thanks', 'merci', 'appreciate', 'helpful'],
@@ -243,7 +243,7 @@ const CHATBOT_DATA = {
       },
       {
         keywords: ['bye', 'goodbye', 'see you', 'ciao', 'au revoir'],
-        answer: 'Au revoir! Come back anytime — **Paris Pony** is always here for you.'
+        answer: 'Au revoir! Come back anytime — **+33 Paris** is always here for you.'
       },
       {
         keywords: ['franchise', 'partner', 'business opportunity'],
@@ -251,11 +251,11 @@ const CHATBOT_DATA = {
       },
       {
         keywords: ['menu', 'drinks', 'coffee', 'what do you have'],
-        answer: 'Discover the **+33 Paris** beverage menu — from classics like **Café Filtre**, **Cappuccino**, and **Late / Flat White**, to our signature **Chai Latte**, **Pumpkin Latte**, **Matcha**, **Matcha Vanille**, **Thé Glacé d\'Hiver**, **Tiramisu Glacé**, and **Iced Punch Coco**! Sourced with our **Sachet de Café**!\n\n[Explore Menu](/store)'
+        answer: 'Discover the **+33 Paris** beverage menu — from classics like **Café Filtre**, **Cappuccino**, and **Latte / Flat White**, to our signature **Chai Latte**, **Pumpkin Latte**, **Matcha**, **Matcha Vanille**, **Thé Glacé d\'Hiver**, **Tiramisu Glacé**, and **Iced Punch Coco**!\n\n[Explore Menu](/store)'
       },
       {
         keywords: ['location', 'find us', 'where', 'nearest', 'café', 'cafe', 'stroe', 'streo', 'nearby', 'use my location'],
-        answer: 'I will find your closest café right now! Please allow location access when prompted, or type the name of a city (e.g. *Paris, London, Tokyo, Mumbai*).\n\n[Find a Café](/find-us)'
+        answer: 'I will find your closest café right now! Please allow location access when prompted, or type the name of a city (e.g. *Paris, London, Tokyo, Dubai*).\n\n[Find a Café](/find-us)'
       },
       {
         keywords: ['journal', 'blog', 'article', 'read', 'stories'],
@@ -289,3 +289,4 @@ const CHATBOT_DATA = {
   }
 
 }; // END CHATBOT_DATA
+

@@ -22,19 +22,55 @@
   ══════════════════════════════════════════════════
 -->
 <div class="store-page">
-  <!-- ═════════ STORE HEADER ═════════ -->
-  <section class="store__header">
-    <div class="container">
-      <div class="store__header-inner">
-        <span class="t-label reveal reveal-1" style="color: var(--gold); letter-spacing: 0.25em; text-transform: uppercase;">The Collection +33</span>
-        <h1 class="display-lg text-cream reveal reveal-2" style="margin-top: 12px; font-family: var(--font-serif); font-weight: 300;">La Boutique</h1>
-        <p class="t-body reveal reveal-3" style="margin-top: 16px; max-width: 480px; color: rgba(255, 252, 248, 0.88); font-size: 0.98rem; line-height: 1.6;">
-          Objects of ritual. Roasted beans of consequence. 
-          Everything we craft in Paris, now available for your home.
-        </p>
+  <!-- ═════════ STORE HERO ═════════ -->
+  <section class="store__hero">
+    <!-- Background layers -->
+    <div class="store__hero-bg"></div>
+    <div class="store__hero-vignette"></div>
+
+    <!-- Center content -->
+    <div class="store__hero-ui">
+      <span class="store__hero-eyebrow reveal reveal-1">The Collection +33</span>
+      <h1 class="store__hero-title reveal reveal-2">La<br>Boutique</h1>
+      <p class="store__hero-subline reveal reveal-3">Objects of ritual. Roasted in Paris.</p>
+      <a class="store__hero-cta reveal reveal-4" href="#store-grid-anchor">EXPLORE THE COLLECTION</a>
+
+      <!-- Scroll indicator -->
+      <div class="store__hero-scroll reveal reveal-5">
+        <span class="store__hero-scroll-label">Scroll</span>
+        <div class="store__hero-scroll-line">
+          <div class="store__hero-scroll-dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom stats bar -->
+    <div class="store__hero-bar">
+      <div class="store__hero-bar-item">
+        <span class="store__hero-bar-num">48h</span>
+        <span class="store__hero-bar-label">Dispatch</span>
+      </div>
+      <div class="store__hero-bar-sep"></div>
+      <div class="store__hero-bar-item">
+        <span class="store__hero-bar-num">Paris</span>
+        <span class="store__hero-bar-label">Roasted Every Tuesday</span>
+      </div>
+      <div class="store__hero-bar-sep"></div>
+      <div class="store__hero-bar-item">
+        <span class="store__hero-bar-num">100%</span>
+        <span class="store__hero-bar-label">Artisan Crafted</span>
+      </div>
+      <div class="store__hero-bar-sep"></div>
+      <div class="store__hero-bar-item">
+        <span class="store__hero-bar-num">€80</span>
+        <span class="store__hero-bar-label">Free Shipping</span>
       </div>
     </div>
   </section>
+
+  <!-- anchor for CTA scroll target -->
+  <div id="store-grid-anchor"></div>
+
 
   <!-- ═════════ CATEGORY FILTERS & PRODUCTS GRID ═════════ -->
   <section class="store__main">

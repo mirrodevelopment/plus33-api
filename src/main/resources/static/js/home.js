@@ -275,7 +275,7 @@ export function mountHomePage() {
       theme:   "Navy · Copper · Grandeur",
       features: ["Old-world elegance.", "Marble counters.", "Brass details.", "The soul of +33 Paris."],
       cta:     "DISCOVER PARIS",
-      bg:      "url('/assets/img/paris-city-identity.png')"
+      bg:      "url('/assets/home/home-paris-city.png')"
     },
     london: {
       eyebrow: "MAYFAIR DISTRICT",
@@ -284,8 +284,10 @@ export function mountHomePage() {
       theme:   "Crimson · Silver · Precision",
       features: ["Refined precision.", "Modern luxury.", "Silver accents.", "Quiet prestige."],
       cta:     "EXPLORE LONDON",
-      bg:      "url('/assets/img/london-city-identity.png')"
+      bg:      "url('/assets/home/home-london-city.png')",
+      link:    "https://plus33coffee.com"
     },
+
     dubai: {
       eyebrow: "DOWNTOWN MAJESTY",
       title:   "Dubai",
@@ -293,8 +295,10 @@ export function mountHomePage() {
       theme:   "Obsidian · Gold · Majesty",
       features: ["Ultra-premium.", "Dramatic scale.", "Gold lighting.", "Obsidian interiors."],
       cta:     "ENTER DUBAI",
-      bg:      "url('/assets/img/dubai-city-identity.png')"
+      bg:      "url('/assets/home/home-dubai-city.png')",
+      link:    "https://plus33coffee.com"
     },
+
     switzerland: {
       eyebrow: "GENEVA ALTITUDE",
       title:   "Switzerland",
@@ -302,9 +306,10 @@ export function mountHomePage() {
       theme:   "Alpine White · Gold · Precision",
       features: ["Swiss exactitude.", "Alpine refinement.", "Gold accents.", "Measured perfection."],
       cta:     "EXPLORE GENEVA",
-      bg:      "url('/assets/img/switzerland-iconic-landmark.png')"
+      bg:      "url('/assets/home/home-switzerland-landmark.png')"
     }
   };
+
 
   // Mobile elements
   const miBg      = document.getElementById('mi-bg');
@@ -405,7 +410,18 @@ export function mountHomePage() {
       }
       if (miDesc)    miDesc.textContent    = d.desc;
       if (miTheme)   miTheme.textContent   = d.theme;
-      if (miCta)     miCta.textContent     = d.cta;
+      if (miCta) {
+        miCta.textContent = d.cta;
+        if (d.link) {
+          miCta.href = d.link;
+          miCta.target = '_blank';
+          miCta.rel = 'noopener noreferrer';
+        } else {
+          miCta.href = '#';
+          miCta.removeAttribute('target');
+          miCta.removeAttribute('rel');
+        }
+      }
       gsap.to(targetsMi, { opacity: 1, y: 0, duration: 0.5, stagger: 0.06, ease: 'power3.out' });
     }});
 
@@ -418,10 +434,22 @@ export function mountHomePage() {
         diTitle.dataset.city = key;
       }
       if (diDesc)    diDesc.textContent    = d.desc;
-      if (diCta)     diCta.querySelector('span').textContent = d.cta;
+      if (diCta) {
+        diCta.querySelector('span').textContent = d.cta;
+        if (d.link) {
+          diCta.href = d.link;
+          diCta.target = '_blank';
+          diCta.rel = 'noopener noreferrer';
+        } else {
+          diCta.href = '#';
+          diCta.removeAttribute('target');
+          diCta.removeAttribute('rel');
+        }
+      }
       renderFeatures(d.features);
       gsap.to(targetsDi, { opacity: 1, y: 0, duration: 0.5, stagger: 0.06, ease: 'power3.out' });
     }});
+
 
     // Update desktop nav
     if (diNavItems) {
