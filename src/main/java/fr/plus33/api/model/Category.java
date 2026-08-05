@@ -32,17 +32,21 @@ public class Category {
     @Column(name = "icon_class", length = 50)
     private String iconClass;
 
+    @Builder.Default
     @Column(name = "display_order")
     private Integer displayOrder = 0;
 
+    @Builder.Default
     @Column(name = "is_active")
     private Boolean active = true;
 
     @Column(length = 100)
     private String slug;
 
+    @Builder.Default
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Product> products = new ArrayList<>();
+
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)

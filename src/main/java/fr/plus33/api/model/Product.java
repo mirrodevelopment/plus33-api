@@ -55,44 +55,56 @@ public class Product {
     @Column(name = "primary_image")
     private String primaryImage;
 
+    @Builder.Default
     @ElementCollection
     @CollectionTable(name = "product_images", joinColumns = @JoinColumn(name = "product_id"))
     @Column(name = "image_url")
     private List<String> images = new ArrayList<>();
 
     // Tags for filtering
+    @Builder.Default
     @ElementCollection
     @CollectionTable(name = "product_tags", joinColumns = @JoinColumn(name = "product_id"))
     @Column(name = "tag")
     private List<String> tags = new ArrayList<>();
 
+    @Builder.Default
     @Enumerated(EnumType.STRING)
     @Column(name = "product_type", length = 50)
     private ProductType productType = ProductType.COFFEE;
 
+    @Builder.Default
     @Column(name = "is_featured")
     private Boolean featured = false;
 
+    @Builder.Default
     @Column(name = "is_new_arrival")
     private Boolean newArrival = false;
 
+    @Builder.Default
     @Column(name = "is_bestseller")
     private Boolean bestseller = false;
 
+    @Builder.Default
     @Column(name = "is_active")
     private Boolean active = true;
 
+    @Builder.Default
     @Column(name = "stock_quantity")
     private Integer stockQuantity = 0;
 
+    @Builder.Default
     @Column(name = "rating_average")
     private Double ratingAverage = 0.0;
 
+    @Builder.Default
     @Column(name = "rating_count")
     private Integer ratingCount = 0;
 
+    @Builder.Default
     @Column(name = "order_count")
     private Integer orderCount = 0;
+
 
     @Column(length = 200)
     private String slug;

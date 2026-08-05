@@ -132,9 +132,9 @@ public class AiRecommendationService {
     private void addTimeBasedRecommendations(Set<Long> recommended) {
         String timeOfDay = getTimeOfDay();
         String season = "MORNING".equals(timeOfDay) ? "coffee" : "evening";
-        // Could add specific queries here; for now just log
-        log.debug("[AI] Time-based context: {} – season: {}", timeOfDay, getCurrentSeason());
+        log.debug("[AI] Time-based context: {} – season: {}", timeOfDay, season);
     }
+
 
     private UserActivity.ActivityType parseActivityType(String type) {
         try {

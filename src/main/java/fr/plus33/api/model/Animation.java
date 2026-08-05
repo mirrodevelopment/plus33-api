@@ -42,20 +42,26 @@ public class Animation {
     @Column(name = "config_json", columnDefinition = "TEXT")
     private String configJson;
 
+    @Builder.Default
     @Column(name = "duration_ms")
     private Integer durationMs = 600;
 
+    @Builder.Default
     @Column(name = "delay_ms")
     private Integer delayMs = 0;
 
+    @Builder.Default
     @Column(name = "easing", length = 100)
     private String easing = "cubic-bezier(0.4, 0, 0.2, 1)";
 
+    @Builder.Default
     @Column(name = "is_active")
     private Boolean active = true;
 
+    @Builder.Default
     @Column(name = "display_order")
     private Integer displayOrder = 0;
+
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
